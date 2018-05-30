@@ -11,7 +11,7 @@ jsResetCode <- "shinyjs.reset = function() {history.go(0)}"
 dashboardPage(
   dashboardHeader(title = "Survey Bias"),
   dashboardSidebar(
-    sidebarMenu(
+    sidebarMenu(id='tabs',
       menuItem("Overview", tabName = "readme", icon = icon("dashboard")),
       menuItem("Explore", tabName = "overview", icon = icon("play")),
       menuItem("Game", tabName = "game", icon = icon("space-shuttle"))
