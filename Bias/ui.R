@@ -83,10 +83,11 @@ ui <- dashboardPage(skin = "black",
                        conditionalPanel(
                          condition = 'input.submit != 0',
                          fluidRow(
+                           #change scroll over for bias and reliability
                            column(6,plotOutput("plota"), style = "height: 320px;",
-                                  bsPopover("plota", "Bias", "Smaller values indicate less bias.",placement = "top")),
+                                  bsPopover("plota", "Bias", "How far the points from the center.",placement = "top")),
                            column(6,plotOutput("plotb"), style = "height: 320px;",
-                                  bsPopover("plotb", "Reliability", "Smaller values indicate better reliability.",placement = "top")))
+                                  bsPopover("plotb", "Reliability", "How far points are from each other",placement = "top")))
                          ))),
               fluidRow(
                 column(4, offset = 4, 
