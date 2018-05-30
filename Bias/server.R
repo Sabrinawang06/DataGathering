@@ -64,7 +64,7 @@ shinyServer(function(input, output,session) {
   
   ###UPDATE: adding the go button 
   observeEvent(input$go,{
-    updateTabItems(session,"tabs","game")
+    updateTabItems(session = session, inputId = "tabs", selected = "game")
   })
 
   

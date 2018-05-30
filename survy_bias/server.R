@@ -26,6 +26,10 @@ shinyServer(function(input, output, session) {
       time$inc<-isolate(time$inc)+1
   })
   
+  observeEvent(input$go,{
+    updateTabItems(session,"tabs","overview")
+  })
+  
   observeEvent(input$go, {time$started<-TRUE})
   observeEvent(input$submitA, {time$started <- FALSE})
   observeEvent(input$next1, {time$started <- TRUE})
@@ -39,6 +43,8 @@ shinyServer(function(input, output, session) {
   output$timer3 <- renderPrint({
     cat("you have used:", time$inc, "secs")})
   
+  
+
   
   ######Back and Forth Buttons
   observeEvent(input$go,{
