@@ -72,9 +72,7 @@ ui <- dashboardPage(skin = "black",
                 column(11,uiOutput("background2")),br(),
                 
                 fluidRow(
-                  column(1,img(src = "raspberry.png", width = 20)),
-            
-                  column(3,bsButton("start","Go to the overview",icon("ravelry"),style = "danger",size = "large",class="circle grow"))
+                  column(5,offset=1, bsButton("start","Go to the overview",icon("ravelry"),style = "danger",size = "large",class="circle grow"))
                 )
               
               )

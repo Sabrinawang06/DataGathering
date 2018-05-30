@@ -66,6 +66,10 @@ shinyServer(function(input, output,session) {
   observeEvent(input$go,{
     updateTabItems(session,"tabs","game")
   })
+  
+  observeEvent(input$start,{
+    updateTabItems(session,"tabs","instruction")
+  })
 
   
   #Create reactiveValues to restore the coordinates of clicked points and the calculated bias and reliability

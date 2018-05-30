@@ -53,7 +53,7 @@ ui <- dashboardPage(skin = "black",
               fluidRow(
                 column(1,img(src = "right.png", width = 30)),
                 column(8,uiOutput("instruction4")),
-                column(3,bsButton("go","Go",icon("ravelry"),style = "danger",size = "large",class="circle grow"))
+                column(5,bsButton("go","Go",icon("ravelry"),style = "danger",size = "large",class="circle grow"))
               ),br(),
               fluidRow(
                 column(11,offset = 1, uiOutput("ack1"))
@@ -75,7 +75,13 @@ ui <- dashboardPage(skin = "black",
               ),
               fluidRow(
                 column(1,img(src = "right.png", width = 30)),
-                column(11,uiOutput("background3"))
+                column(11,uiOutput("background3")), 
+              fluidRow(
+                 
+         
+                  column(3,offset=1,bsButton("start","Go",icon("ravelry"),style = "danger",size = "large",class="circle grow"))
+                )
+                
               )
           ),
   

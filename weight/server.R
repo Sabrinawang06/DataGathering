@@ -9,6 +9,10 @@ library(shinyBS)
 shinyServer(function(input, output,session) {
   
   
+  ###UPDATE: adding the go button 
+  observeEvent(input$go,{
+    updateTabItems(session,"tabs","easy")
+  })
   observeEvent(input$start,{
     updateTabItems(session,"tabs","overview")
   })
@@ -26,10 +30,7 @@ shinyServer(function(input, output,session) {
   
   output$dataTable <- renderTable(read.csv("dataTable.csv"))
   output$populationRatio <- renderTable(read.csv("PopulationRatio.csv"))
-  ###UPDATE: adding the go button 
-  observeEvent(input$go,{
-    updateTabItems(session,"tabs","game")
-  })
+ 
   
   
   inputs= reactive({
