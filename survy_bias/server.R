@@ -5,6 +5,9 @@ library(shinyjs)
 library(shinyBS)
 library(V8)
 
+
+##survey bias
+
 bank<- read.csv("easyQuestions.csv")
 bank = data.frame(lapply(bank, as.character), stringsAsFactors = FALSE)
 

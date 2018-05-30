@@ -4,6 +4,8 @@ library(shinyjs)
 library(shinyBS)
 library(V8)
 
+##variable type
+
 bank <- read.csv("questionBank.csv")
 bank = data.frame(lapply(bank, as.character), stringsAsFactors = FALSE)
 
