@@ -37,7 +37,7 @@ dashboardPage(
                            br(), br(), br(), strong("Acknowledgements:"), br(), "This app includes the following packages: shinydashboard, shinyDND, shinyjs, shinyBS, and V8.")),
     
       
-              fluidRow(column(1,bsButton("start","Go",icon("ravelry"),style = "danger",size = "large",class="circle grow")))
+              fluidRow(column(2,bsButton("start","Go",icon("ravelry"),style = "danger",size = "large",class="circle grow")))
       ),
       
       

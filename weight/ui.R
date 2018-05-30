@@ -23,12 +23,15 @@ ui <- dashboardPage(
                 h1('Background'),
                 
                 h2("A selected sample may not be a good representation of a population due to many reasons. 
-                   Non-response rate is one of the biggest challenges. When some variables measured in the survey are 
-                   under- or over-represented, statisticians use a weighting adjustment as a common correction technique. 
-                   Each survey respondent gets an adjustment weight. Subjects in underrepresented group get a weight more than one, 
+                   Non-response rate is one of the biggest challenges."),
+                
+                h2(   "When some variables measured in the survey are 
+                   under- or over-represented, statisticians use a weighting adjustment as a common correction technique. "),
+
+                 h2 ("Each survey respondent gets an adjustment weight. Subjects in underrepresented group get a weight more than one, 
                    and subjects in overrepresented group get a weight smaller than one."),
                 
-                fluidRow(column(1,bsButton("start","Go to overview",icon("ravelry"),style = "danger",size = "large",class="circle grow")))
+                fluidRow(column(2,bsButton("start","Go to overview",icon("ravelry"),style = "danger",size = "large",class="circle grow")))
                 
               )
         
