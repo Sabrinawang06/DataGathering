@@ -40,13 +40,6 @@ ui <- dashboardPage(
               fluidPage(
                 h1("About"),
                 h2("Explore how weighting adjustment affects the predicted results in survey analysis"),
-                h1("Background"),
-                h2("A selected sample may not be a good representation of a population due to many reasons.
-                   Non-response rate is one of the biggest challenges. When some variables measured 
-                   in the survey are under- or over-represented, statisticians use a weighting adjustment as a common correction
-                   technique. Each survey respondent gets an adjustment weight. 
-                   Subjects in underrepresented group get a weight more than one, and subjects in overrepresented group  
-                   get a weight smaller than one."),
                 h1("Instruction"),
                 h2("Move the sliders around to explore how the weighting adjustment affects the results. Use your best
                    judgement to find out the correct adjustment weight for each scenario. Notice that the summation
