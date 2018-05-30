@@ -8,6 +8,11 @@ library(shinyBS)
 
 shinyServer(function(input, output,session) {
   
+  
+  observeEvent(input$start,{
+    updateTabItems(session,"tabs","overview")
+  })
+  
   ##############################read in the dataset################################################
   originaldata <- read.csv("originalDataset.csv", TRUE, sep = ",",na.strings = TRUE)
   dataf = data.frame(originaldata)
