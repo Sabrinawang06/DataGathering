@@ -69,7 +69,14 @@ ui <- dashboardPage(skin = "black",
               ),
               fluidRow(
                 column(1,img(src = "raspberry.png", width = 20)),
-                column(11,uiOutput("background2"))
+                column(11,uiOutput("background2")),br(),
+                
+                fluidRow(
+                  column(1,img(src = "raspberry.png", width = 20)),
+            
+                  column(3,bsButton("start","Go to the overview",icon("ravelry"),style = "danger",size = "large",class="circle grow"))
+                )
+              
               )
               ),
       tabItem(tabName = "hand",

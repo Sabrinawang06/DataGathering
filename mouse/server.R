@@ -106,9 +106,16 @@ shinyServer(function(input, output,session) {
     h4("This app was developed and coded by Yuxin Zhang based on extending the idea in the", tags$a(href = "https://www.causeweb.org/cause/archive/mouse_experiment/","app by Dennis Pearl and Tom Santner", style = "text-decoration: underline; color: #CC3333"),".")
   })
 
+  
+##go button 
   observeEvent(input$go,{
     updateTabItems(session,"tabs","hand")
   })
+  
+  observeEvent(input$start,{
+    updateTabItems(session,"tabs","instruction")
+  })
+  
   
   #Save all the actionButton input into a vector for later convenience  
   val <- reactiveValues(btn = c())
