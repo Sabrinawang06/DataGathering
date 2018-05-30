@@ -80,7 +80,9 @@ shinyServer(function(input, output,session) {
   output$background2 <- renderUI({
     h4("Raspberries have a high content of many beneficial compounds like vitamins C and E, folic and ellagic acid, calcium, selenium, etc. As a result, researchers have recently been investigating 
                                           their anti-cancer properties. All of the twenty mice in the picture have a tumor growing just under the skin on their backs. To test if raspberries can help reduce the growth of these tumors, 
-          ten mice will be chosen to have raspberries added in their diet and the remaining ten will eat a normal diet without the raspberries.")
+          ten mice will be chosen to have raspberries added in their diet and the remaining ten will eat a normal diet without the raspberries.
+        When using this app it is important to take in to consideration the importance of random sampling, and this is shown by
+       human simulated samples, and the computer generated samples.")
   })
   
   output$instruction1 <- renderUI({

@@ -34,7 +34,8 @@ shinyServer(function(input, output,session) {
     print("Background: Bias and Reliability")
   )
   output$background2 <- renderUI(
-    h4("The bias of a measurement describes to what degree it is systematically off target from the true value.")
+    h4("The bias of a measurement describes to what degree it is systematically off target from the true value.
+       While playing with the app you should think of what gives you a high or low bias.")
   )
   output$background3 <- renderUI(
     h4("The reliability of a measurement describes how consistent the measurement is when you repeat it 
