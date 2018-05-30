@@ -14,10 +14,12 @@ jsResetCode <- "shinyjs.reset = function() {history.go(0)}"
 ui <- dashboardPage(skin = "black",
   dashboardHeader(title = "Bias & Reliability",
                   titleWidth = 200),
+  #adding prereq pages
   dashboardSidebar(
     width = 200,
     sidebarMenu(
       menuItem("Instruction",tabName = "instruction", icon = icon("dashboard")),
+      menuItem("Pre-requisites", tabName= "prereq", icon=icon("dashboard")),
       menuItem("Game",tabName = "game", icon = icon("th"))
     )
   ),
@@ -34,17 +36,7 @@ ui <- dashboardPage(skin = "black",
                 column(1,img(src = "right.png", width = 30)),
                 column(11,uiOutput("about2"))
               ),br(),
-              fluidRow(
-                column(11,offset = 1, uiOutput("background1"))
-              ),
-              fluidRow(
-                column(1,img(src = "right.png", width = 30)),
-                column(11,uiOutput("background2"))
-                ),
-              fluidRow(
-                column(1,img(src = "right.png", width = 30)),
-                column(11,uiOutput("background3"))
-              ),
+              
               br(),
               fluidRow(
                 column(11,offset = 1, uiOutput("instruction1"))
@@ -71,8 +63,21 @@ ui <- dashboardPage(skin = "black",
               )
               
       ),
-     
-      
+  #Adding pre-requisites page to remove background from instructions page
+      tabItem(tabName="prereq",
+              fluidRow(
+                column(11,offset = 1, uiOutput("background1"))
+              ),
+              fluidRow(
+                column(1,img(src = "right.png", width = 30)),
+                column(11,uiOutput("background2"))
+              ),
+              fluidRow(
+                column(1,img(src = "right.png", width = 30)),
+                column(11,uiOutput("background3"))
+              )
+          ),
+  
       tabItem(tabName ="game",
               wellPanel(
                 fluidRow(uiOutput("question"))
