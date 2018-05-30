@@ -26,7 +26,7 @@ shinyServer(function(input, output, session) {
       time$inc<-isolate(time$inc)+1
   })
   
-  observeEvent(input$go,{
+  observeEvent(input$start,{
     updateTabItems(session,"tabs","overview")
   })
   

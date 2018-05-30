@@ -11,7 +11,7 @@ jsResetCode <- "shinyjs.reset = function() {history.go(0)}"
 dashboardPage(
   dashboardHeader(title = "Survey Bias"),
   dashboardSidebar(
-    sidebarMenu(
+    sidebarMenu(id='tabs',
       menuItem("Overview", tabName = "readme", icon = icon("dashboard")),
       menuItem("Explore", tabName = "overview", icon = icon("play")),
       menuItem("Game", tabName = "game", icon = icon("space-shuttle"))
@@ -37,7 +37,7 @@ dashboardPage(
                            br(), br(), br(), strong("Acknowledgements:"), br(), "This app includes the following packages: shinydashboard, shinyDND, shinyjs, shinyBS, and V8.")),
     
       
-              fluidRow(column(1,bsButton("go","Go",icon("ravelry"),style = "danger",size = "large")))
+              fluidRow(column(1,bsButton("start","Go",icon("ravelry"),style = "danger",size = "large")))
       ),
       
       
