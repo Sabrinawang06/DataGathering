@@ -18,7 +18,7 @@ ui <- dashboardPage(skin = "black",
   dashboardSidebar(
     width = 200,
     sidebarMenu(
-      menuItem("Instruction",tabName = "instruction", icon = icon("dashboard")),
+      menuItem("Overview",tabName = "instruction", icon = icon("dashboard")),
       menuItem("Pre-requisites", tabName= "prereq", icon=icon("dashboard")),
       menuItem("Game",tabName = "game", icon = icon("th"))
     )
