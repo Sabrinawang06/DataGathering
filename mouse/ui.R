@@ -58,7 +58,7 @@ ui <- dashboardPage(skin = "black",
               fluidRow(
                 column(1,img(src = "raspberry.png", width = 20)),
                 column(8,uiOutput("instruction4")),
-                column(3,bsButton("go","Go",icon("ravelry"),style = "danger",size = "large"))
+                column(3,bsButton("go","Go",icon("ravelry"),style = "danger",size = "large",class="circle grow"))
               ),br(),
               fluidRow(
                 column(11,offset = 1, uiOutput("ack1"))
