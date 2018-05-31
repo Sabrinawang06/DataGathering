@@ -5,7 +5,7 @@ library(shinyBS)
 library(V8)
 library(shinyjs)
 
-#comment 
+
 ##BIAS app
 
 #Use jscode to for reset button to reload the app
@@ -16,7 +16,7 @@ ui <- dashboardPage(skin = "black",
                   titleWidth = 200),
   #adding prereq pages
   dashboardSidebar(
-    width = 200,
+    width = 220,
 
     sidebarMenu(id='tabs',
       menuItem("Pre-requisites", tabName= "prereq", icon=icon("dashboard")),
@@ -77,9 +77,7 @@ ui <- dashboardPage(skin = "black",
                 column(1,img(src = "right.png", width = 30)),
                 column(11,uiOutput("background3")), 
               fluidRow(
-                 
-         
-                  column(3,offset=1,bsButton("start","Go",icon("ravelry"),style = "danger",size = "large",class="circle grow"))
+                  column(3,offset=1,bsButton("start","Go to the overview",icon("ravelry"),style = "danger",size = "large",class="circle grow"))
                 )
                 
               )
