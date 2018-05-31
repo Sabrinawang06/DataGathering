@@ -79,6 +79,7 @@ shinyServer(function(input, output, session) {
   #reload the app when the reset button is clicked 
   observeEvent(input$reset_button, {js$reset()}) 
   
+  
   #Create six pagers
   observeEvent(input$go,{
     updateNavbarPage(session = session,"navMain", selected = "b")
