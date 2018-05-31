@@ -12,9 +12,7 @@ data <- read.csv("questionBank.csv")
 
 
 
-ui<-dashboardPage(
-
-dashboardHeader(skin = "black",
+ui<-dashboardPage(skin = 'black',
               dashboardHeader(title = "Variable Types", titleWidth = 195),
               dashboardSidebar(width = 195,
                               sidebarMenu(
@@ -29,7 +27,7 @@ dashboardHeader(skin = "black",
                                        
                                      )
                                 )
-               ),
+               )
 
 
 
@@ -42,7 +40,20 @@ dashboardBody(
     tabItem(tabName = "prereqs",
             fluiPage(
               h1('Background'),
-              h2('xxx')
+              h2('Categorical variable are variable which have Names or labels (i.e., categories) with no 
+                 logical order or with a logical order but inconsistent differences 
+                 between groups, also known as qualitative.'),
+              h3('Categorical nominal variables are variables which are categories but
+                 do not have a logical order'),
+              h4("Categorical ordinal variables are variables which are categories with
+                 some logical order present among them"),
+              h5('Quantitative variable are variables which have numerical values with 
+                 magnitudes that can be placed in a meaningful order with consistent 
+                 intervals, also known as numerical.'),
+              h6('Continuous variable are variables which have a characteristic that
+                 varies and can take on any value and any value between values'),
+              h7('Discrete variable are variables which have a characteristic that varies
+                 and can only take on a set number of values')
             )
     ),
     tabItem(tabName = "instruction",
@@ -67,5 +78,5 @@ Qualitative (categorical) nominal variables, and Qualitative ordinal variables')
            )
            )
 )
-)
+
            
