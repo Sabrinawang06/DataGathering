@@ -130,9 +130,9 @@ aside.main-sidebar {
 .popover-title {
     color: white;
     font-size: 15px;
-    background-color:black;
+    background-color:#cd3333;
 }
 .popover-content {
-    color: red;
+    color: black;
     font-size: 10px;
 }
