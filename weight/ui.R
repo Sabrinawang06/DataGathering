@@ -126,8 +126,8 @@ ui <- dashboardPage(
                     uiOutput("progress"),
                     div(style = "position: relative; top:-15px", div(style = "float: left", print("0")),div(style = "float:right", print("n"))),
                     
-                    bsPopover(id='male', content='Use the weight 48/30, population divided by sample', title='Hint', placement='top', trigger='hover',option=NULL),
-                    bsPopover(id='female', content='Use the weight 52/70, population divided by sample', title='Hint', placement='top', trigger='hover',option=NULL),
+                    bsTooltip(id='male', 'Use the weight 48/30, population divided by sample', placement='top', trigger='hover'),
+                    bsTooltip(id='female', 'Use the weight 52/70, population divided by sample', placement='top', trigger='hover',option=NULL),
                     wellPanel(
                       sliderInput("male","Weight for Male:", min = 0, value = 1, max = 2, step = 0.1),
                       textOutput("hintM"),

@@ -6117,6 +6117,7 @@ button.close {
   border-width: 0 5px 5px;
   border-bottom-color: #000000;
 }
+
 .popover {
   position: absolute;
   top: 0;
@@ -6249,6 +6250,29 @@ button.close {
   border-left-color: #ffffff;
   bottom: -10px;
 }
+
+
+.popover-title {
+    color: white;
+    font-size: 15px;
+    background-color:red;
+}
+.popover-content {
+    color: white;
+    font-size: 10px;
+}
+
+.tooltip-inner{
+  color:white;
+  background-color:red;
+}
+
+
+.tooltip{
+  color:white
+  background-color:red;
+}
+
 .carousel {
   position: relative;
 }
