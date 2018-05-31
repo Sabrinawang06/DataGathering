@@ -228,7 +228,7 @@ shinyServer(function(input, output,session) {
       }else if ((var$bias > 3) & (var$reliability > 2.5)){
         print("Good job!")
       }else{
-        print("You can do better. Try again.")
+        print("You can do better. Try again. What could you do to get a closer answer?")
       }
     }else if (index$index == 2){
       if ((var$bias > 4) & (var$reliability < 1.5)){
@@ -236,7 +236,7 @@ shinyServer(function(input, output,session) {
       }else if ((var$bias > 3) & (var$reliability < 2)){
         print("Good job!")
       }else{
-        print("You can do better. Try again.")
+        print("You can do better. Try again. What could you do to get a closer answer?")
       }
     }else if (index$index == 3){
       if ((var$bias < 0.25) & (var$reliability > 3)){
@@ -244,7 +244,7 @@ shinyServer(function(input, output,session) {
       }else if ((var$bias < 0.3) & (var$reliability > 2.5)){
         print("Good job!")
       }else{
-        print("You can do better. Try again.")
+        print("You can do better. Try again. What could you do to get a closer answer?")
       }
     }else if (index$index == 4){
       if ((var$bias < 0.25) & (var$reliability < 1.5)){
@@ -252,7 +252,7 @@ shinyServer(function(input, output,session) {
       }else if ((var$bias < 0.3) & (var$reliability < 2)){
         print("Good job!")
       }else{
-        print("You can do better. Try again.")
+        print("You can do better. Try again. What could you do to get a closer answer?")
       }
     }
   })
