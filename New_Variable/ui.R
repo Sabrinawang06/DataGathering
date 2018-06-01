@@ -60,7 +60,8 @@ dashboardBody(
             fluidPage(
               h1('About'),
               h2('Identify four different variable types: Quantitative (numeric) discrete variables, Quantitative continuous variables, 
-Qualitative (categorical) nominal variables, and Qualitative ordinal variables'),
+              Qualitative (categorical) nominal variables, and Qualitative 
+              ordinal variables'),
               
               h1('Instruction'),
               
@@ -78,5 +79,5 @@ Qualitative (categorical) nominal variables, and Qualitative ordinal variables')
            )
            )
 )
-
+)
            
