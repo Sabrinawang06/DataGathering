@@ -10,7 +10,16 @@ library(png)
 
 data <- read.csv("questionBank.csv")
 
+#####code from internet
 
+convertMenuItem <- function(mi,tabName) {
+  mi$children[[1]]$attribs['data-toggle']="tab"
+  mi$children[[1]]$attribs['data-value'] = tabName
+  if(length(mi$attribs$class)>0 && mi$attribs$class=="treeview"){
+    mi$attribs$class=NULL
+  }
+  mi
+}
 
 ui<-dashboardPage(skin = 'black',
               dashboardHeader(title = "Variable Types", titleWidth = 195),
@@ -20,12 +29,12 @@ ui<-dashboardPage(skin = 'black',
                                   menuItem("Prerequisites", tabName = "prereqs", icon=icon("dashboard")),
                                   menuItem("Overview", tabName = "instruction", icon = icon("dashboard")),
                                   menuItem("Exploring", tabName = "horse", icon = icon("hand-o-right")),
-                                  menuItem("Matching Game", tabName = "matching", icon = icon("bar-chart"),
+                                  convertMenuItem(menuItem("Matching Game", tabName = "matching", icon = icon("bar-chart"), selected =TRUE,
                                           menuSubItem("Level 1",tabName='level1',icon='>>'),
                                           menuSubItem('Level 2',tabName='level2',icon='>>'),
-                                          menuSubItem('Level 3',tabName='level3',icon='>>'))
-                                       
-                                     )
+                                          menuSubItem('Level 3',tabName='level3',icon='>>')),'matching')
+                              )     
+                                     
                                 ),
                
 
@@ -111,10 +120,10 @@ Qualitative (categorical) nominal variables, and Qualitative ordinal variables')
     
     
     tabItem("level1",
-             fluidPage(theme = "bootstrap.css", #css theme
-                       tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "themestyle.css")), #link to your own css file
+             #fluidPage(theme = "bootstrap.css", #css theme
+              #         tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "themestyle.css")), #link to your own css file
                        #tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "webkit.css")),
-                      
+                       h1('TBD'),
                        fluidRow(
                          column(3, bsButton('bt1', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
                                 bsButton('bq1', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt'),
@@ -128,7 +137,7 @@ Qualitative (categorical) nominal variables, and Qualitative ordinal variables')
                                 hidden(div(id='timer1h',textOutput("timer1"))
                                 ))),br(), #print the timer
                        
-                       conditionalPanel("input.go != 0", #Show everything only after the GO button is clicked
+                       #conditionalPanel("input.go != 0", #Show everything only after the GO button is clicked
                                         #Set up all dragUIs which are randomly chosen from the question bank 
                                         fluidRow(
                                           wellPanel(dragUI(textOutput("disID1"),textOutput("disName1"), class = "drag dragelement"), class = "wellTransparent col-sm-12 col-md-6 col-lg-2"),
@@ -209,8 +218,8 @@ Qualitative (categorical) nominal variables, and Qualitative ordinal variables')
                                                  )
                                           ),
                                           column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small", disabled = TRUE))
-                                          ),br()
-                                          ),
+                                          ),br(),
+                                          
                        
                        conditionalPanel("input.submitA != 0",wellPanel(
                          fluidPage(
@@ -344,4 +353,4 @@ Qualitative (categorical) nominal variables, and Qualitative ordinal variables')
            
 )
 )
-)        
+     

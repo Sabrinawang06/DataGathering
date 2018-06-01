@@ -30,6 +30,8 @@ shinyServer(function(input, output, session) {
     updateTabItems(session,"tabs","level1")
   })
   
+  
+  
   ####################################Hide Menu bar###############################################
   observe({
     if(input$go == 0){
