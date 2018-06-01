@@ -34,7 +34,8 @@ ui<-dashboardPage(skin = 'black',
 
 dashboardBody(
   tags$head(
-    tags$link(rel = "stylesheet", type = "text/css", href = "stylecss.css")
+    theme = "bootstrap.css", #css theme
+    tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "themestyle.css"))
   ),
   tabItems(
     tabItem(tabName = "prereqs",
