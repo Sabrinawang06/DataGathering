@@ -14,6 +14,22 @@ bankB = data.frame(lapply(bankB, as.character), stringsAsFactors = FALSE)
 
 
 shinyServer(function(input, output, session) {
+  
+  
+  ####go button
+ 
+  observeEvent(input$go,{
+    updateTabItems(session,"tabs","horse")
+  })
+  
+  observeEvent(input$start,{
+    updateTabItems(session,"tabs","instruction")
+  })
+  
+  observeEvent(input$go2,{
+    updateTabItems(session,"tabs","level1")
+  })
+  
   ####################################Hide Menu bar###############################################
   observe({
     if(input$go == 0){
@@ -75,6 +91,7 @@ shinyServer(function(input, output, session) {
   output$acknowledge1 <- renderUI(
     print("This app was developed and coded by Yuxin Zhang. Special thanks to Robert P. Carey III and Alex Chen for help on some programming issues.")
   )
+  
   
   #reload the app when the reset button is clicked 
   observeEvent(input$reset_button, {js$reset()}) 
