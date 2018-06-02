@@ -116,9 +116,9 @@ Qualitative (categorical) nominal variables, and Qualitative ordinal variables')
             fluidRow(
               column(3,bsButton("go2",">>LEVEL 1",icon("ravelry"),style = "danger",size = "large",class="circle grow"))
             ),br()
+    )
+    
     ),
-    
-    
     tabItem("level1",
              #fluidPage(theme = "bootstrap.css", #css theme
               #         tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "themestyle.css")), #link to your own css file
@@ -316,7 +316,7 @@ Qualitative (categorical) nominal variables, and Qualitative ordinal variables')
              
              
     ),
-    tabItem(title = "level3", 
+    tabItem("level3", 
             
              fluidRow(column(3,offset = 9,textOutput("timer3"))),br(),br(),
              fluidPage(
@@ -352,5 +352,5 @@ Qualitative (categorical) nominal variables, and Qualitative ordinal variables')
     
            
 )
-)
+
      
