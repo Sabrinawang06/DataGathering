@@ -32,7 +32,7 @@ ui<-dashboardPage(skin = 'black',
                                   convertMenuItem(menuItem("Matching Game", tabName = "matching", icon = icon("bar-chart"), selected =TRUE,
                                           menuSubItem("Level 1",tabName='level1',icon='>>'),
                                           menuSubItem('Level 2',tabName='level2',icon='>>'),
-                                          menuSubItem('Level 3',tabName='level3',icon='>>')),'matching')
+                                          menuSubItem('Result',tabName='result',icon='>>')),'matching')
                               )     
                                      
                                 ),
@@ -121,10 +121,10 @@ dashboardBody(
     
     ),
     tabItem("level1",
-             #fluidPage(theme = "bootstrap.css", #css theme
-              #         tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "themestyle.css")), #link to your own css file
+             fluidPage(theme = "bootstrap.css", #css theme
+                      tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "themestyle.css")), #link to your own css file
                        #tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "webkit.css")),
-                       h1('TBD'),
+                      
                        fluidRow(
                          column(3, bsButton('bt1', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
                                 bsButton('bq1', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt'),
@@ -138,7 +138,7 @@ dashboardBody(
                                 hidden(div(id='timer1h',textOutput("timer1"))
                                 ))),br(), #print the timer
                        
-                       #conditionalPanel("input.go != 0", #Show everything only after the GO button is clicked
+                        #conditionalPanel("input.go != 1", #Show everything only after the GO button is clicked
                                         #Set up all dragUIs which are randomly chosen from the question bank 
                                         fluidRow(
                                           wellPanel(dragUI(textOutput("disID1"),textOutput("disName1"), class = "drag dragelement"), class = "wellTransparent col-sm-12 col-md-6 col-lg-2"),
@@ -161,6 +161,8 @@ dashboardBody(
                                           wellPanel(dragUI(textOutput("ordID4"),textOutput("ordName4"), class = "col-xs-12 col-sm-12 col-md-6 col-lg-2 drag dragelement"), class = "wellTransparent col-sm-12 col-md-6 col-lg-2"),
                                           wellPanel(dragUI(textOutput("nomID4"),textOutput("nomName4"), class = "col-xs-12 col-sm-12 col-md-6 col-lg-2 drag dragelement"), class = "wellTransparent col-sm-12 col-md-6 col-lg-2")
                                         ),hr(),
+                        
+                                      
                                         
                                         #Set up all dropUIs and check/cross boxes
                                         fluidRow(
@@ -247,122 +249,125 @@ dashboardBody(
                          )
                        ))
                                         )
-             #############################################################################################             
-                       ),
-    tabItem("level2", 
-             
-             fluidRow(
-               column(3, bsButton('bt2', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
-                      bsButton('bq2', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt'),
-                      div(id = "plot-container2",
-                          conditionalPanel("input.bq2 != 0",
-                                           tags$img(src = "STAT.png",
-                                                    id = "hint"))
-                      )
-               ),
-               column(3,offset = 6,
-                      hidden(div(id='timer2h',textOutput("timer2"))
-                      ))),br(), #print the timer
-             
-             
-             conditionalPanel("input.next2 != 0",
-                              fluidRow(wellPanel(div(style = "text-align:center", h4(textOutput("imgQ1"))),
-                                                 uiOutput("image1", class = "picSize"),
-                                                 div(style = 'position: relative; top:-15px;', dragUI("img1","A", style = "width: 100px; height: 40px;", class = 'drag dragelement dragelement2'))
-                                                 ,class = "col-lg-6 col-md-12 wellBorder"),
-                                       
-                                       wellPanel(div(style = "text-align:center", h4(textOutput("imgQ2"))),
-                                                 uiOutput("image2", class = "picSize"),
-                                                 div(style = 'position: relative; top:-15px;', dragUI("img2","B", style = "width: 100px; height: 40px;", class = 'drag dragelement dragelement2'))
-                                                 ,class = "col-lg-6 col-md-12 wellBorder")),
-                              fluidRow(
-                                fluidRow(wellPanel(
-                                  dropUI("drop1",class = "dropelement dropelement2"),
-                                  div(style = "position: absolute; top:0;left:1em",h5("Quantitative & Discrete")),
-                                  div(style = "position: absolute; top:20%; right:8%;", htmlOutput("answer17")), class = "wellTransparent2 col-lg-3 col-md-6 col-sm-6 col-xs-12"),
-                                  wellPanel(
-                                    dropUI("drop2",class = "dropelement dropelement2"),
-                                    div(style = "position: absolute; top:0;left:1em",h5("Quantitative & Continuous")),
-                                    div(style = "position: absolute; top:20%; right:8%;", htmlOutput("answer18")), class = "wellTransparent2 col-lg-3 col-md-6 col-sm-6 col-xs-12"),
-                                  wellPanel(
-                                    dropUI("drop3",class = "dropelement dropelement2"),
-                                    div(style = "position: absolute; top:0; left:1em",h5("Qualitative & Nominal")),
-                                    div(style = "position: absolute; top:20%; right:8%;", htmlOutput("answer19")), class = "wellTransparent2 col-lg-3 col-md-6 col-sm-6 col-xs-12"),
-                                  wellPanel(
-                                    dropUI("drop4",class = "dropelement dropelement2"),
-                                    div(style = "position: absolute; top:0; left:1em",h5("Qualitative & Ordinal")),
-                                    div(style = "position: absolute; top:20%; right:8%;", htmlOutput("answer20")), class = "wellTransparent2 col-lg-3 col-md-6 col-sm-6 col-xs-12")
-                                )
-                              ),br(),
-                              
-                              fluidRow(wellPanel(div(style = 'position: relative; top:-5px;', dragUI("img3","C",style = "width: 100px; height: 40px;", class = 'drag dragelement dragelement2')),
-                                                 div(style = "position:relative; text-align:center; top: -15px;", h4(textOutput("imgQ3"))),
-                                                 div(style = "position:relative; top: -15px;",uiOutput("image3", class = "picSize"))
-                                                 ,class = "col-lg-6 col-md-12 wellBorder"),
-                                       wellPanel(div(style = 'position: relative; top:-5px;', dragUI("img4","D",style = "width: 100px; height: 40px;", class = 'drag dragelement dragelement2')),
-                                                 div(style = "position:relative; text-align:center; top: -15px;",h4(textOutput("imgQ4"))),
-                                                 div(style = "position:relative; top: -15px;",uiOutput("image4", class = "picSize"))
-                                                 ,class = "col-lg-6 col-md-12 wellBorder")),
-                              
-                              fluidRow(column(1,bsButton("previous2","<<Previous",style = "primary", size = "small")),
-                                       column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
-                                                                            bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                       column(1,offset = 5,bsButton("finish","STOP>>", style = "danger", disabled = TRUE, size = "small")))
-                              ,hr(),
-                              conditionalPanel("input.submitB != 0",wellPanel(
-                                fluidPage(
-                                  fluidRow(
-                                    wellPanel(
-                                      div(style = "position:absolute;top:9em; left:1em",h4("Please drag the wrong answers into this box and click the CLEAR to restart.")),
-                                      dropUI("home2",class = "dropelement dropelementHome2", row_n = 2, col_n = 2),
-                                      div(style = "position:absolute; top:8em; right:3em",bsButton("clearB","CLEAR",style = "danger")),class = "wellTransparent col-lg-8"),
-                                    wellPanel(h4("Full score is 20 for level B."),
-                                              verbatimTextOutput("scoreB"),class = "wellTransparent col-lg-4")
-                                  )
-                                )
-                              ))
-             )
-             
-             
-    ),
-    tabItem("level3", 
-            
-             fluidRow(column(3,offset = 9,textOutput("timer3"))),br(),br(),
-             fluidPage(
-               fluidRow(h3("Your scores:")),
-               fluidRow(
-                 wellPanel(verbatimTextOutput("init"), class = "wellScore col-lg-4 col-md-6 col-sm-12"),
-                 wellPanel(verbatimTextOutput("end"), class = "wellScore col-lg-4 col-md-6 col-sm-12"),
-                 wellPanel(verbatimTextOutput("totalScore"), class = "wellScore col-lg-4 col-md-6 col-sm-12")
-               ),br(),
-               conditionalPanel("input.finish != 0",
-                                fluidRow(
-                                  wellPanel(
-                                    wellPanel(textInput("name",h4("Please type in your nickname to submit the score:"),placeholder = "Nickname",width = 600),
-                                              textOutput("checkName"),class = "col-lg-8 col-md-9 col-sm-10 col-xs-9"),
-                                    
-                                    wellPanel(div(style = "position:absolute; top:60px",bsButton("check","Submit",style = "danger",size = "large")),class = "col-lg-2 col-md-2 col-sm-1 col-xs-1"),style = "height:200px")
-                                ),
-                                
-                                
-                                #numericInput("time","Time",value = 1),
-                                
-                                #verbatimTextOutput("initial"),
-                                
-                                
-                                
-                                conditionalPanel("input.check != 0", dataTableOutput("highscore")),
-                                actionButton("weekhigh", "Show Weekly High Scores"),
-                                actionButton("totalhigh", "Show All-Time High Scores"))
-               
-             ))
+                   
+                  
+                       )
+    # tabItem("level2", 
+    #          
+    #          fluidRow(
+    #            column(3, bsButton('bt2', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
+    #                   bsButton('bq2', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt'),
+    #                   div(id = "plot-container2",
+    #                       conditionalPanel("input.bq2 != 0",
+    #                                        tags$img(src = "STAT.png",
+    #                                                 id = "hint"))
+    #                   )
+    #            ),
+    #            column(3,offset = 6,
+    #                   hidden(div(id='timer2h',textOutput("timer2"))
+    #                   ))),br(), #print the timer
+    #          
+    #          
+    #         conditionalPanel("input.next2 != 0",
+    #                           fluidRow(wellPanel(div(style = "text-align:center", h4(textOutput("imgQ1"))),
+    #                                              uiOutput("image1", class = "picSize"),
+    #                                              div(style = 'position: relative; top:-15px;', dragUI("img1","A", style = "width: 100px; height: 40px;", class = 'drag dragelement dragelement2'))
+    #                                              ,class = "col-lg-6 col-md-12 wellBorder"),
+    #                                    
+    #                                    wellPanel(div(style = "text-align:center", h4(textOutput("imgQ2"))),
+    #                                              uiOutput("image2", class = "picSize"),
+    #                                              div(style = 'position: relative; top:-15px;', dragUI("img2","B", style = "width: 100px; height: 40px;", class = 'drag dragelement dragelement2'))
+    #                                              ,class = "col-lg-6 col-md-12 wellBorder")),
+    #                           fluidRow(
+    #                             fluidRow(wellPanel(
+    #                               dropUI("drop1",class = "dropelement dropelement2"),
+    #                               div(style = "position: absolute; top:0;left:1em",h5("Quantitative & Discrete")),
+    #                               div(style = "position: absolute; top:20%; right:8%;", htmlOutput("answer17")), class = "wellTransparent2 col-lg-3 col-md-6 col-sm-6 col-xs-12"),
+    #                               wellPanel(
+    #                                 dropUI("drop2",class = "dropelement dropelement2"),
+    #                                 div(style = "position: absolute; top:0;left:1em",h5("Quantitative & Continuous")),
+    #                                 div(style = "position: absolute; top:20%; right:8%;", htmlOutput("answer18")), class = "wellTransparent2 col-lg-3 col-md-6 col-sm-6 col-xs-12"),
+    #                               wellPanel(
+    #                                 dropUI("drop3",class = "dropelement dropelement2"),
+    #                                 div(style = "position: absolute; top:0; left:1em",h5("Qualitative & Nominal")),
+    #                                 div(style = "position: absolute; top:20%; right:8%;", htmlOutput("answer19")), class = "wellTransparent2 col-lg-3 col-md-6 col-sm-6 col-xs-12"),
+    #                               wellPanel(
+    #                                 dropUI("drop4",class = "dropelement dropelement2"),
+    #                                 div(style = "position: absolute; top:0; left:1em",h5("Qualitative & Ordinal")),
+    #                                 div(style = "position: absolute; top:20%; right:8%;", htmlOutput("answer20")), class = "wellTransparent2 col-lg-3 col-md-6 col-sm-6 col-xs-12")
+    #                             )
+    #                           ),br(),
+    #                           
+    #                           fluidRow(wellPanel(div(style = 'position: relative; top:-5px;', dragUI("img3","C",style = "width: 100px; height: 40px;", class = 'drag dragelement dragelement2')),
+    #                                              div(style = "position:relative; text-align:center; top: -15px;", h4(textOutput("imgQ3"))),
+    #                                              div(style = "position:relative; top: -15px;",uiOutput("image3", class = "picSize"))
+    #                                              ,class = "col-lg-6 col-md-12 wellBorder"),
+    #                                    wellPanel(div(style = 'position: relative; top:-5px;', dragUI("img4","D",style = "width: 100px; height: 40px;", class = 'drag dragelement dragelement2')),
+    #                                              div(style = "position:relative; text-align:center; top: -15px;",h4(textOutput("imgQ4"))),
+    #                                              div(style = "position:relative; top: -15px;",uiOutput("image4", class = "picSize"))
+    #                                              ,class = "col-lg-6 col-md-12 wellBorder")),
+    #                           
+    #                           fluidRow(column(1,bsButton("previous2","<<Previous",style = "primary", size = "small")),
+    #                                    column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
+    #                                                                         bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
+    #                                    column(1,offset = 5,bsButton("finish","STOP>>", style = "danger", disabled = TRUE, size = "small")))
+    #                           ,hr(),
+    #                           conditionalPanel("input.submitB != 0",wellPanel(
+    #                             fluidPage(
+    #                               fluidRow(
+    #                                 wellPanel(
+    #                                   div(style = "position:absolute;top:9em; left:1em",h4("Please drag the wrong answers into this box and click the CLEAR to restart.")),
+    #                                   dropUI("home2",class = "dropelement dropelementHome2", row_n = 2, col_n = 2),
+    #                                   div(style = "position:absolute; top:8em; right:3em",bsButton("clearB","CLEAR",style = "danger")),class = "wellTransparent col-lg-8"),
+    #                                 wellPanel(h4("Full score is 20 for level B."),
+    #                                           verbatimTextOutput("scoreB"),class = "wellTransparent col-lg-4")
+    #                               )
+    #                             )
+    #                           ))
+    #          
+    #         )   
+    #          
+    # ),
+    # tabItem("result", 
+    #         
+    #          fluidRow(column(3,offset = 9,textOutput("timer3"))),br(),br(),
+    #          fluidPage(
+    #            fluidRow(h3("Your scores:")),
+    #            fluidRow(
+    #              wellPanel(verbatimTextOutput("init"), class = "wellScore col-lg-4 col-md-6 col-sm-12"),
+    #              wellPanel(verbatimTextOutput("end"), class = "wellScore col-lg-4 col-md-6 col-sm-12"),
+    #              wellPanel(verbatimTextOutput("totalScore"), class = "wellScore col-lg-4 col-md-6 col-sm-12")
+    #            ),br(),
+    #            conditionalPanel("input.finish != 0",
+    #                             fluidRow(
+    #                               wellPanel(
+    #                                 wellPanel(textInput("name",h4("Please type in your nickname to submit the score:"),placeholder = "Nickname",width = 600),
+    #                                           textOutput("checkName"),class = "col-lg-8 col-md-9 col-sm-10 col-xs-9"),
+    #                                 
+    #                                 wellPanel(div(style = "position:absolute; top:60px",bsButton("check","Submit",style = "danger",size = "large")),class = "col-lg-2 col-md-2 col-sm-1 col-xs-1"),style = "height:200px")
+    #                             ),
+    #                             
+    #                             
+    #                             #numericInput("time","Time",value = 1),
+    #                             
+    #                             #verbatimTextOutput("initial"),
+    #                             
+    #                             
+    #                             
+    #                             conditionalPanel("input.check != 0", dataTableOutput("highscore")),
+    #                             actionButton("weekhigh", "Show Weekly High Scores"),
+    #                             actionButton("totalhigh", "Show All-Time High Scores"))
+    #            
+    #          ))
     
              )
     
            
-)
+
+))
+
+
 
      
 
 
-           
