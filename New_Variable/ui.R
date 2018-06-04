@@ -167,6 +167,8 @@ dashboardBody(
                                         #Set up all dropUIs and check/cross boxes
                                         fluidRow(
                                           h4("Quantitative & Discrete:", class = "col-sm-12 col-md-12 col-lg-3"),
+                                          bsPopover(id= "drp1",title= "Quantitative & Discrete", content="Countable Number/Whole Number",
+                                                    placement= "top", trigger = "hover", options = NULL),
                                           wellPanel(dropUI("drp1", class = "dropelement"),
                                                     div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer1")), class = "wellTransparent col-sm-12 col-md-6 col-lg-2"),
                                           wellPanel(dropUI("drp2", class = "dropelement"),
@@ -178,6 +180,8 @@ dashboardBody(
                                         ), 
                                         fluidRow(
                                           h4("Quantitative & Continuous:", class = "col-sm-12 col-md-12 col-lg-3"),
+                                          bsPopover(id= "drp5",title= "Quantitative & Continuous", content="Noncountable Number / Decimals",
+                                                    placement= "top", trigger = "hover", options = NULL),
                                           wellPanel(dropUI("drp5", class = "dropelement"),
                                                     div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer5")), class = "wellTransparent col-sm-12 col-md-6 col-lg-2"),
                                           wellPanel(dropUI("drp6", class = "dropelement"),
@@ -189,6 +193,8 @@ dashboardBody(
                                         ),
                                         fluidRow(
                                           h4("Qualitative & Nominal:", class = "col-sm-12 col-md-12 col-lg-3"),
+                                          bsPopover(id= "drp9",title= "Qualitative & Nominal", content="Unordered Categories",
+                                                    placement= "top", trigger = "hover", options = NULL),
                                           wellPanel(dropUI("drp9", class = "dropelement"),
                                                     div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer9")), class = "wellTransparent col-sm-12 col-md-6 col-lg-2"),
                                           wellPanel(dropUI("drp10", class = "dropelement"),
@@ -200,6 +206,8 @@ dashboardBody(
                                         ),
                                         fluidRow(
                                           h4("Qualitative & Ordinal:", class = "col-sm-12 col-md-12 col-lg-3"),
+                                          bsPopover(id= "drp13",title= "Qualitative & Ordinal", content="Ordered Categories",
+                                                    placement= "top", trigger = "hover", options = NULL),
                                           wellPanel(dropUI("drp13", class = "dropelement"),
                                                     div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer13")), class = "wellTransparent col-sm-12 col-md-6 col-lg-2"),
                                           wellPanel(dropUI("drp14", class = "dropelement"),
@@ -355,4 +363,11 @@ dashboardBody(
              )
     
            
+
 ))
+
+
+
+     
+
+
