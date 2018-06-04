@@ -55,8 +55,7 @@ shinyServer(function(input, output,session) {
           type of variable.")
   )
   output$instruction4 <- renderUI(
-    print('Note: Lurking and confounding may seem similar, but remember that confounding
-          has to do with experimental control flaws.')
+    print('Note: Reread prerequisites page if confused.')
   )
   
   output$ack1 <- renderUI(
