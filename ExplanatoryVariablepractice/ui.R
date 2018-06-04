@@ -88,7 +88,8 @@ dashboardBody(
                 column(3,offset=1,bsButton("start","Go to the overview",icon("ravelry"),style = "danger",size = "large",class="circle grow"))
               )
               
-            )
+            ),
+    tabItem(tabName = "game")
     )
 
 
