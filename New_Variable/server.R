@@ -153,12 +153,12 @@ shinyServer(function(input, output, session) {
   ##################################################################################################  
   numbers <- reactiveValues(dis = c(), cont = c(), nom = c(), ord = c())
   
-  observeEvent(input$go,{
+
     numbers$dis = sample(1:10,4)
     numbers$cont = sample(11:36,4)
     numbers$nom = sample(37:56,4)
     numbers$ord = sample(57:71,4)
-  })
+
   
   output$disID1 <- renderText({
     bank[numbers$dis[1], 2]
