@@ -15,11 +15,17 @@ shinyUI(tagList(
                       fluidPage(
                         tags$style(type='text/css', '#scoreA {font-size: 60px; font-weight: bold;font family:Sans-serif; height: 140px}'),
                         tags$style(type='text/css', '#scoreB {font-size: 60px; font-weight: bold;font family:Sans-serif; height: 140px}'),
+                        tags$style(type='text/css', '#scoreC {font-size: 60px; font-weight: bold;font family:Sans-serif; height: 140px}'),
+                        tags$style(type='text/css', '#scoreD {font-size: 60px; font-weight: bold;font family:Sans-serif; height: 140px}'),
                         tags$style(type='text/css', '#timer1 {background-color:black; font-size: 30px; 
                                    color:white;font-weight: bold;font family:Sans-serif;text-align: center; border-radius: 100px}'),
                         tags$style(type='text/css', '#timer2 {background-color:#2C3E50; font-size: 30px; 
                                    color:white;font-weight: bold;font family:Sans-serif;text-align: center; border-radius: 100px}'),
                         tags$style(type='text/css', '#timer3 {background-color:#2C3E50; font-size: 30px; 
+                                   color:white;font-weight: bold;font family:Sans-serif;text-align: center; border-radius: 100px}'),
+                        tags$style(type='text/css', '#timer4 {background-color:#2C3E50; font-size: 30px; 
+                                   color:white;font-weight: bold;font family:Sans-serif;text-align: center; border-radius: 100px}'),
+                        tags$style(type='text/css', '#timer5 {background-color:#2C3E50; font-size: 30px; 
                                    color:white;font-weight: bold;font family:Sans-serif;text-align: center; border-radius: 100px}'),
                         
                         wellPanel(
@@ -136,6 +142,8 @@ shinyUI(tagList(
                                                    wellPanel(dropUI("drp16", class = "dropelement"),
                                                              div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer16")), class = "wellTransparent col-sm-12 col-md-6 col-lg-2")
                                                  ),hr(), 
+                                                 
+                                                 
                                                  #Submit button and pagination button
                                                  fluidRow(
                                                    column(1,bsButton("previous3","<<Previous", style = "primary",size = "small")),
@@ -228,7 +236,7 @@ shinyUI(tagList(
                                        fluidRow(column(1,bsButton("previous2","<<Previous",style = "primary", size = "small")),
                                                 column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
                                                                                      bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                                column(1,offset = 5,bsButton("finish","STOP>>", style = "danger", disabled = TRUE, size = "small")))
+                                                column(1,offset = 5,bsButton("next3","Next>>", size = "small")))
                                        ,hr(),
                                        conditionalPanel("input.submitB != 0",wellPanel(
                                          fluidPage(
@@ -246,12 +254,58 @@ shinyUI(tagList(
                       
                       
              ),
+             
+             
+             
+             ##################Adding level 3 game
              tabPanel(title= "Level 3", value= "e",
-                      titlePanel(h1("This level will look at experimental variables"))
-                      ),
+                      titlePanel("Identify in Plots"),
+                      fluidRow(
+                        column(3, bsButton('bt3', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
+                               bsButton('bq3', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt')
+                               # div(id = "plot-container3",
+                               #     conditionalPanel("input.bq3 != 0",
+                               #                      tags$img(src = "STAT.png",
+                               #                               id = "hint"))
+                               # )
+                        ),
+                        # column(3,offset = 6,
+                        #        hidden(div(id='timer3h',textOutput("timer3"))
+                        #        ))),br(), #print the timer
+                        # 
+                      
+                      conditionalPanel("input.next3 != 0",
+                                       fluidRow(column(1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
+                                       #         column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
+                                       #                                             bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
+                                                column(1,offset = 5,bsButton("next4","Next>>", style = "danger", disabled = TRUE, size = "small")))
+                                       ,hr()
+                                       
+                      )
+                      )),
+             
+             
+             #################Adding level 4 game 
+             
              tabPanel(title= "Level 4", value= "f",
-                      titlePanel(h1("This level will add in the concepts of confounding variables"))
-                      ),
+                      titlePanel(h1("This level will add in the concepts of confounding variables")),
+                      
+             conditionalPanel("input.next4 != 0",
+                              
+                              
+                              fluidRow(column(1,bsButton("previous5","<<Previous",style = "primary", size = "small")),
+                                       #column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
+                                      #                                      bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
+                                       column(1,offset = 5,bsButton("finish","Stop>>", style = "danger", disabled = TRUE, size = "small")))
+                              ,hr()
+                              
+             )
+             ),
+             
+             
+             
+             
+             #####score page 
              tabPanel(title = "Score", value = "d",
                       titlePanel(h1("Congratulations! You finished the game.")),
                       fluidRow(column(3,offset = 9,textOutput("timer3"))),br(),br(),
@@ -285,4 +339,5 @@ shinyUI(tagList(
                       ))
              
                       )
-             ))
+             )
+)

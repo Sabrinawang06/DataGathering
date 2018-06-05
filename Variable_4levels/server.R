@@ -95,6 +95,12 @@ shinyServer(function(input, output, session) {
   observeEvent(input$next2,{
     updateNavbarPage(session = session,"navMain", selected = "c")
   })
+  observeEvent(input$next3,{
+    updateNavbarPage(session = session,"navMain", selected = "e")
+  })
+  observeEvent(input$next4,{
+    updateNavbarPage(session = session,"navMain", selected = "f")
+  })
   observeEvent(input$finish,{
     updateNavbarPage(session = session,"navMain", selected = "d")
   })
@@ -104,8 +110,15 @@ shinyServer(function(input, output, session) {
   observeEvent(input$previous2,{
     updateNavbarPage(session = session,"navMain", selected = "b")
   })
+  
   observeEvent(input$previous3,{
     updateNavbarPage(session = session,"navMain", selected = "a")
+  })
+  observeEvent(input$previous4,{
+    updateNavbarPage(session = session,"navMain", selected = "c")
+  })
+  observeEvent(input$previous5,{
+    updateNavbarPage(session = session,"navMain", selected = "e")
   })
   
   ##Set timer with start, stop, restart, stop, and termination; and show the timer
@@ -137,7 +150,11 @@ shinyServer(function(input, output, session) {
   output$timer3 <- renderPrint({
     cat("you have used:", time$inc, "secs")})
   
+  output$timer4 <- renderPrint({
+    cat("you have used:", time$inc, "secs")})
   
+  output$timer5 <- renderPrint({
+    cat("you have used:", time$inc, "secs")})
   
   ##################################################################################################  
   numbers <- reactiveValues(dis = c(), cont = c(), nom = c(), ord = c())
