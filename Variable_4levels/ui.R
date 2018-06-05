@@ -41,7 +41,7 @@ shinyUI(tagList(
                         )                                   
                         ),
              
-             tabPanel("Level A",value = "b",
+             tabPanel("Level 1",value = "b",
                       fluidPage(theme = "bootstrap.css", #css theme
                                 tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "themestyle.css")), #link to your own css file
                                 #tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "webkit.css")),
@@ -162,7 +162,7 @@ shinyUI(tagList(
                                                  )
                       #############################################################################################             
                                                  ),
-             tabPanel("Level B", value = "c",
+             tabPanel("Level 2", value = "c",
                       titlePanel("Identify in Plots"),
                       fluidRow(
                         column(3, bsButton('bt2', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
