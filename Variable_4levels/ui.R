@@ -259,20 +259,20 @@ shinyUI(tagList(
              
              ##################Adding level 3 game
              tabPanel(title= "Level 3", value= "e",
-                      titlePanel("Identify in Plots"),
+                      titlePanel("Explanatory and Response Variables"),
                       fluidRow(
                         column(3, bsButton('bt3', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
                                bsButton('bq3', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt')
-                               # div(id = "plot-container3",
-                               #     conditionalPanel("input.bq3 != 0",
-                               #                      tags$img(src = "STAT.png",
-                               #                               id = "hint"))
-                               # )
+                                # div(id = "plot-container3",
+                                #     conditionalPanel("input.bq3 != 0",
+                                #                      tags$img(src = "STAT.png",
+                                #                               id = "hint"))
+                                # )
                         ),
-                        # column(3,offset = 6,
-                        #        hidden(div(id='timer3h',textOutput("timer3"))
-                        #        ))),br(), #print the timer
-                        # 
+                          column(3,offset = 6,
+                                 hidden(div(id='timer3h',textOutput("timer3"))
+                                 ))), #print the timer
+                          
                       
                       conditionalPanel("input.next3 != 0",
                                        fluidRow(column(1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
@@ -282,27 +282,27 @@ shinyUI(tagList(
                                        ,hr()
                                        
                       )
-                      )),
+                      ),
              
              
              #################Adding level 4 game 
              
-             tabPanel(title= "Level 4", value= "f",
-                      titlePanel(h1("This level will add in the concepts of confounding variables")),
-                      
-             conditionalPanel("input.next4 != 0",
-                              
-                              
-                              fluidRow(column(1,bsButton("previous5","<<Previous",style = "primary", size = "small")),
-                                       #column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
-                                      #                                      bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                       column(1,offset = 5,bsButton("finish","Stop>>", style = "danger", disabled = TRUE, size = "small")))
-                              ,hr()
-                              
-             )
-             ),
-             
-             
+               tabPanel(title= "Level 4", value= "f",
+                        titlePanel(h1("This level will add in the concepts of confounding variables")),
+                        
+               conditionalPanel("input.next4 != 0",
+                                
+                                
+                               fluidRow(column(1,bsButton("previous5","<<Previous",style = "primary", size = "small")),
+                                         #column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
+                                       #                                      bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
+                                         column(1,offset = 5,bsButton("finish","Stop>>", style = "danger", disabled = TRUE, size = "small")))
+                                ,hr()
+                                
+               )
+               ),
+               
+               
              
              
              #####score page 

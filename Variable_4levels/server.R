@@ -30,13 +30,13 @@ shinyServer(function(input, output, session) {
   observe({
     hide(selector = "#navMain li a[data-value=e]")
   })
-  observeEvent(input$finish, {
+  observeEvent(input$next3, {
     show(selector = "#navMain li a[data-value=e]")
   })
   observe({
     hide(selector = "#navMain li a[data-value=f]")
   })
-  observeEvent(input$finish, {
+  observeEvent(input$next4, {
     show(selector = "#navMain li a[data-value=f]")
   })
   observe({
@@ -128,6 +128,8 @@ shinyServer(function(input, output, session) {
   observeEvent(input$submitA, {time$started <- FALSE})
   observeEvent(input$next2, {time$started <- TRUE})
   observeEvent(input$submitB, {time$started <- FALSE})
+  observeEvent(input$next3, {time$started <- TRUE})
+  observeEvent(input$next4, {time$started <- TRUE})
   observeEvent(input$finish, {time$timer<-reactiveTimer(Inf)})
   
   observe({
@@ -147,15 +149,30 @@ shinyServer(function(input, output, session) {
     output$timer2 <- renderPrint({
       cat("you have used:", time$inc, "secs")})
   })
+  
+  observeEvent(input$bt3 == TRUE, {
+    toggle('timer3h')
+    output$timer3 <- renderPrint({
+      cat("you have used:", time$inc, "secs")})
+  })
+  
+  observeEvent(input$bt4 == TRUE, {
+    toggle('timer4h')
+    output$timer4 <- renderPrint({
+      cat("you have used:", time$inc, "secs")})
+  })
+  
+  output$timer1 <- renderPrint({
+    cat("you have used:", time$inc, "secs")})
+  
+  output$timer2 <- renderPrint({
+    cat("you have used:", time$inc, "secs")})
+  
   output$timer3 <- renderPrint({
     cat("you have used:", time$inc, "secs")})
   
   output$timer4 <- renderPrint({
     cat("you have used:", time$inc, "secs")})
-  
-  output$timer4 <- renderPrint({
-    cat("you have used:", time$inc, "secs")})
-  
   ##################################################################################################  
   numbers <- reactiveValues(dis = c(), cont = c(), nom = c(), ord = c())
   
