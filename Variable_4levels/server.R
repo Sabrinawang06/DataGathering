@@ -126,16 +126,16 @@ shinyServer(function(input, output, session) {
   observeEvent(input$bt1 == TRUE, {
     toggle('timer1h')
     output$timer1 <- renderPrint({
-      cat("you have used:", time$inc, "secs")})
+      cat("You have used:", time$inc, "secs")})
   })
   
   observeEvent(input$bt2 == TRUE, {
     toggle('timer2h')
     output$timer2 <- renderPrint({
-      cat("you have used:", time$inc, "secs")})
+      cat("You have used:", time$inc, "secs")})
   })
   output$timer3 <- renderPrint({
-    cat("you have used:", time$inc, "secs")})
+    cat("You have used:", time$inc, "secs")})
   
   
   
