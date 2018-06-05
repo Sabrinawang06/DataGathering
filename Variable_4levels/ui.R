@@ -252,12 +252,9 @@ shinyUI(tagList(
              tabPanel(title= "Level 4", value= "f",
                       fluidPage(
                       titlePanel(h1("This level will add in the concepts of confounding variables")),
-                      fluidRow(h2("First read the experiment described in the paragraph and then match the variables to the example")),
-                      br(),
-                      fluidRow(h3("1.  A team of veterinarians are comparing the effectiveness of fertility treatments on tigers. 
-                                  The two treatments are in-vitro fertilization and male fertility medications. The medications are 
-                                  distributed with 5 tigers getting in-vitro fertilizations and 15 tigers getting male fertility 
-                                  medications, because in-vitro is expensive"))
+                      fluidRow(h2("First read the experiment described in the paragraph and then match the variables to the example"))
+                    
+                      
                       
                      
              )),
