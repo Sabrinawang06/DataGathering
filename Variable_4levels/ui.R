@@ -289,8 +289,28 @@ shinyUI(tagList(
              
                tabPanel(title= "Level 4", value= "f",
                         titlePanel(h1("This level will add in the concepts of confounding variables")),
+                       fluidRow(
+                         column(3, offset = 1,
+                                selectInput('expla', 'Explanatory Ex', c('Explanatory',
+                                                                                        'Response',
+                                                                                         'Confounding'))
+                         ),
+                         column(4, offset= 1,
+                                selectInput('expla', 'Response Ex', c('Explanatory',
+                                                                                         'Response',
+                                                                                         'Confounding')) 
+                          ),
+                         column(2, offset= 1,
+                                selectInput('conf', 'Confounding Ex', c('Explanatory',
+                                                                                        'Response',
+                                                                                        'Confounding'))
+                                )
+                       ),
+               
                         
-               conditionalPanel("input.next4 != 0",
+                  
+                        
+                conditionalPanel("input.next4 != 0",
                                 
                                 
                                fluidRow(column(1,bsButton("previous5","<<Previous",style = "primary", size = "small")),
