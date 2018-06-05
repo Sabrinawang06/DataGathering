@@ -288,6 +288,7 @@ shinyUI(tagList(
              #################Adding level 4 game 
              
              tabPanel(title= "Level 4", value= "f",
+<<<<<<< HEAD
                       titlePanel(h1("This level will add in the concepts of confounding variables")),
                       
              conditionalPanel("input.next4 != 0",
@@ -307,6 +308,22 @@ shinyUI(tagList(
              
              #####score page 
              tabPanel(title = "Score", value = "d",
+=======
+                      fluidPage(
+                      titlePanel(h1("This level will add in the concepts of confounding variables")),
+                      fluidRow(h2("First read the experiment described in the paragraph and then match the variables to the example")),
+            
+                      column(3, offset = 1,
+                             selectInput('expla', 'Explanatory Variable', c('Explanatory','Response','Observed Confounding', 'Unobserved Confounding')),
+                             selectInput('resp', 'Response Variable', c('Explanatory','Response','Observed Confounding', 'Unobserved Confounding'))
+                             ),
+                      column(4, offset=1,
+                             selectInput('expla', 'Explanatory Variable', c('Explanatory','Response','Observed Confounding', 'Unobserved Confounding')),
+                             selectInput('expla', 'Explanatory Variable', c('Explanatory','Response','Observed Confounding', 'Unobserved Confounding'))
+                             )
+                      )),
+            tabPanel(title = "Score", value = "d",
+>>>>>>> 5a8d3781bad5232e9b083ed94fedd3229eb2a32d
                       titlePanel(h1("Congratulations! You finished the game.")),
                       fluidRow(column(3,offset = 9,textOutput("timer3"))),br(),br(),
                       fluidPage(
