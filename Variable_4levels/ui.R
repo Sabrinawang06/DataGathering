@@ -284,7 +284,7 @@ shinyUI(tagList(
                       )
                       ),
              
-             
+              
              #################Adding level 4 game 
              
                tabPanel(title= "Level 4", value= "f",
