@@ -28,12 +28,23 @@ shinyServer(function(input, output, session) {
     show(selector = "#navMain li a[data-value=c]")
   })
   observe({
+    hide(selector = "#navMain li a[data-value=e]")
+  })
+  observeEvent(input$finish, {
+    show(selector = "#navMain li a[data-value=e]")
+  })
+  observe({
+    hide(selector = "#navMain li a[data-value=f]")
+  })
+  observeEvent(input$finish, {
+    show(selector = "#navMain li a[data-value=f]")
+  })
+  observe({
     hide(selector = "#navMain li a[data-value=d]")
   })
   observeEvent(input$finish, {
     show(selector = "#navMain li a[data-value=d]")
   })
-  
   #Write all instructions in the home page
   output$about <- renderUI(
     print("About")

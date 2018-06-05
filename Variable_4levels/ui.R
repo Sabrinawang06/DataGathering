@@ -41,7 +41,7 @@ shinyUI(tagList(
                         )                                   
                         ),
              
-             tabPanel("Level A",value = "b",
+             tabPanel("Level 1",value = "b",
                       fluidPage(theme = "bootstrap.css", #css theme
                                 tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "themestyle.css")), #link to your own css file
                                 #tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "webkit.css")),
@@ -86,6 +86,8 @@ shinyUI(tagList(
                                                  #Set up all dropUIs and check/cross boxes
                                                  fluidRow(
                                                    h4("Quantitative & Discrete:", class = "col-sm-12 col-md-12 col-lg-3"),
+                                                   bsPopover(id= "drp1",title= "Quantitative & Discrete", content="Countable Number/Whole Number",
+                                                             placement= "top", trigger = "hover", options = NULL),
                                                    wellPanel(dropUI("drp1", class = "dropelement"),
                                                              div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer1")), class = "wellTransparent col-sm-12 col-md-6 col-lg-2"),
                                                    wellPanel(dropUI("drp2", class = "dropelement"),
@@ -97,6 +99,8 @@ shinyUI(tagList(
                                                  ), 
                                                  fluidRow(
                                                    h4("Quantitative & Continuous:", class = "col-sm-12 col-md-12 col-lg-3"),
+                                                   bsPopover(id= "drp5",title= "Quantitative & Continuous", content="Noncountable Number / Decimals",
+                                                             placement= "top", trigger = "hover", options = NULL),
                                                    wellPanel(dropUI("drp5", class = "dropelement"),
                                                              div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer5")), class = "wellTransparent col-sm-12 col-md-6 col-lg-2"),
                                                    wellPanel(dropUI("drp6", class = "dropelement"),
@@ -108,6 +112,8 @@ shinyUI(tagList(
                                                  ),
                                                  fluidRow(
                                                    h4("Qualitative & Nominal:", class = "col-sm-12 col-md-12 col-lg-3"),
+                                                   bsPopover(id= "drp9",title= "Qualitative & Nominal", content="Unordered Categories",
+                                                             placement= "top", trigger = "hover", options = NULL),
                                                    wellPanel(dropUI("drp9", class = "dropelement"),
                                                              div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer9")), class = "wellTransparent col-sm-12 col-md-6 col-lg-2"),
                                                    wellPanel(dropUI("drp10", class = "dropelement"),
@@ -119,6 +125,8 @@ shinyUI(tagList(
                                                  ),
                                                  fluidRow(
                                                    h4("Qualitative & Ordinal:", class = "col-sm-12 col-md-12 col-lg-3"),
+                                                   bsPopover(id= "drp13",title= "Qualitative & Ordinal", content="Ordered Categories",
+                                                             placement= "top", trigger = "hover", options = NULL),
                                                    wellPanel(dropUI("drp13", class = "dropelement"),
                                                              div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer13")), class = "wellTransparent col-sm-12 col-md-6 col-lg-2"),
                                                    wellPanel(dropUI("drp14", class = "dropelement"),
@@ -162,7 +170,7 @@ shinyUI(tagList(
                                                  )
                       #############################################################################################             
                                                  ),
-             tabPanel("Level B", value = "c",
+             tabPanel("Level 2", value = "c",
                       titlePanel("Identify in Plots"),
                       fluidRow(
                         column(3, bsButton('bt2', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
@@ -238,6 +246,12 @@ shinyUI(tagList(
                       
                       
              ),
+             tabPanel(title= "Level 3", value= "e",
+                      titlePanel(h1("This level will look at experimental variables"))
+                      ),
+             tabPanel(title= "Level 4", value= "f",
+                      titlePanel(h1("This level will add in the concepts of confounding variables"))
+                      ),
              tabPanel(title = "Score", value = "d",
                       titlePanel(h1("Congratulations! You finished the game.")),
                       fluidRow(column(3,offset = 9,textOutput("timer3"))),br(),br(),
