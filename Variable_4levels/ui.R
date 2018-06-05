@@ -238,6 +238,12 @@ shinyUI(tagList(
                       
                       
              ),
+             tabPanel(title= "Level 3", value= "e",
+                      titlePanel(h1("This level will look at experimental variables"))
+                      ),
+             tabPanel(title= "Level 4", value= "f",
+                      titlePanel(h1("This level will add in the concepts of confounding variables"))
+                      ),
              tabPanel(title = "Score", value = "d",
                       titlePanel(h1("Congratulations! You finished the game.")),
                       fluidRow(column(3,offset = 9,textOutput("timer3"))),br(),br(),
