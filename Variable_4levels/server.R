@@ -129,6 +129,7 @@ shinyServer(function(input, output, session) {
   observeEvent(input$next2, {time$started <- TRUE})
   observeEvent(input$submitB, {time$started <- FALSE})
   observeEvent(input$next3, {time$started <- TRUE})
+  observeEvent(input$submitC, {time$started <- FALSE})
   observeEvent(input$next4, {time$started <- TRUE})
   observeEvent(input$finish, {time$timer<-reactiveTimer(Inf)})
   
