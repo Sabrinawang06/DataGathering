@@ -278,7 +278,7 @@ shinyUI(tagList(
                                        fluidRow(column(1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
                                        #         column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
                                        #                                             bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                                column(1,offset = 5,bsButton("next4","Next>>", style = "danger", size = "small")))
+                                                column(1,offset = 5,bsButton("next4","Next>>", size = "small")))
                                        ,hr()
                                        
                       )
