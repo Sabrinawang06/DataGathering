@@ -271,13 +271,13 @@ shinyUI(tagList(
                         ),
                           column(3,offset = 6,
                                  hidden(div(id='timer3h',textOutput("timer3"))
-                                 ))), #print the timer
+                                 )),br() #print the timer
                           
-                      
+                      ),
                       conditionalPanel("input.next3 != 0",
                                        fluidRow(column(1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
-                                       #         column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
-                                       #                                             bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
+                                                column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
+                                                                                    bsButton("submitC","Submit Answer", style = "primary", class = "grow", size = "small"))),
                                                 column(1,offset = 5,bsButton("next4","Next>>", size = "small")))
                                        ,hr()
                                        
@@ -341,3 +341,4 @@ shinyUI(tagList(
                       )
              )
 )
+
