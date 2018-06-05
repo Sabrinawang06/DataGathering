@@ -30,13 +30,13 @@ shinyServer(function(input, output, session) {
   observe({
     hide(selector = "#navMain li a[data-value=e]")
   })
-  observeEvent(input$finish, {
+  observeEvent(input$next3, {
     show(selector = "#navMain li a[data-value=e]")
   })
   observe({
     hide(selector = "#navMain li a[data-value=f]")
   })
-  observeEvent(input$finish, {
+  observeEvent(input$next4, {
     show(selector = "#navMain li a[data-value=f]")
   })
   observe({

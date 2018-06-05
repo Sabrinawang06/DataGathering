@@ -259,7 +259,7 @@ shinyUI(tagList(
              
              ##################Adding level 3 game
              tabPanel(title= "Level 3", value= "e",
-                      titlePanel("Identify in Plots"),
+                      titlePanel("Explanatory and Response Variables"),
                       fluidRow(
                         column(3, bsButton('bt3', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
                                bsButton('bq3', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt')
