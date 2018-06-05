@@ -4,8 +4,6 @@ library(shinyjs)
 library(shinyBS)
 library(V8)
 
-##variable type
-
 bank <- read.csv("questionBank.csv")
 bank = data.frame(lapply(bank, as.character), stringsAsFactors = FALSE)
 
@@ -14,24 +12,6 @@ bankB = data.frame(lapply(bankB, as.character), stringsAsFactors = FALSE)
 
 
 shinyServer(function(input, output, session) {
-  
-  
-  ####go button
- 
-  observeEvent(input$go,{
-    updateTabItems(session,"tabs","horse")
-  })
-  
-  observeEvent(input$start,{
-    updateTabItems(session,"tabs","instruction")
-  })
-  
-  observeEvent(input$go2,{
-    updateTabItems(session,"tabs","level1")
-  })
-  
-  
-  
   ####################################Hide Menu bar###############################################
   observe({
     if(input$go == 0){
@@ -94,10 +74,8 @@ shinyServer(function(input, output, session) {
     print("This app was developed and coded by Yuxin Zhang. Special thanks to Robert P. Carey III and Alex Chen for help on some programming issues.")
   )
   
-  
   #reload the app when the reset button is clicked 
   observeEvent(input$reset_button, {js$reset()}) 
-  
   
   #Create six pagers
   observeEvent(input$go,{
@@ -153,12 +131,12 @@ shinyServer(function(input, output, session) {
   ##################################################################################################  
   numbers <- reactiveValues(dis = c(), cont = c(), nom = c(), ord = c())
   
-
+  observeEvent(input$go,{
     numbers$dis = sample(1:10,4)
     numbers$cont = sample(11:36,4)
     numbers$nom = sample(37:56,4)
     numbers$ord = sample(57:71,4)
-
+  })
   
   output$disID1 <- renderText({
     bank[numbers$dis[1], 2]
@@ -1096,6 +1074,6 @@ shinyServer(function(input, output, session) {
   #   }
   #   #else if(values$count == data2()[1,2] && time$inc <= )
   # })
-  
+
   
 })
