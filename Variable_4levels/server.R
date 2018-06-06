@@ -461,7 +461,41 @@ shinyServer(function(input, output, session) {
       h3(bankD[10,4])
     }
   })
+  output$varEXPD <- renderUI({
+    if (index2$index2 == 1){
+      h3(bankD[1,3])
+    }else if (index2$index2 == 2){
+      h3(bankD[4,3])
+    }else if (index2$index2 == 3){
+      h3(bankD[7,3])
+    }else if (index2$index2 == 4){
+      h3(bankD[10,3])
+    }
+  })
   
+  output$varRESD <- renderUI({
+    if (index2$index2 == 1){
+      h3(bankD[2,3])
+    }else if (index2$index2 == 2){
+      h3(bankD[5,3])
+    }else if (index2$index2 == 3){
+      h3(bankD[8,3])
+    }else if (index2$index2 == 4){
+      h3(bankD[11,3])
+    }
+  })
+  
+  output$varCOND <- renderUI({
+    if (index2$index2 == 1){
+      h3(bankD[3,3])
+    }else if (index2$index2 == 2){
+      h3(bankD[6,3])
+    }else if (index2$index2 == 3){
+      h3(bankD[9,3])
+    }else if (index2$index2 == 4){
+      h3(bankD[12,3])
+    }
+  })
   ################################################################################################  
   
   observeEvent(input$submitA,{

@@ -318,17 +318,17 @@ shinyUI(tagList(
                         
                         fluidRow(
                          column(3, offset = 1,
-                                selectInput('expla', 'Explanatory Ex', c('Explanatory',
+                                selectInput('expla',uiOutput('varEXPD') , c('Explanatory',
                                                                                         'Response',
                                                                                          'Confounding'))
                          ),
                          column(4, offset= 1,
-                                selectInput('expla', 'Response Ex', c('Explanatory',
+                                selectInput('resp', uiOutput('varRESD'), c('Explanatory',
                                                                                          'Response',
                                                                                          'Confounding')) 
                           ),
                          column(2, offset= 1,
-                                selectInput('conf', 'Confounding Ex', c('Explanatory',
+                                selectInput('conf', uiOutput('varCOND'), c('Explanatory',
                                                                                         'Response',
                                                                                         'Confounding'))
                                 )
