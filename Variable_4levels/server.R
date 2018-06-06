@@ -10,10 +10,11 @@ bank = data.frame(lapply(bank, as.character), stringsAsFactors = FALSE)
 bankB = read.csv("questionBankB.csv")
 bankB = data.frame(lapply(bankB, as.character), stringsAsFactors = FALSE)
 
-
 bankC = read.csv("questionBankC.csv")
 bankC = data.frame(lapply(bankC, as.character), stringsAsFactors = FALSE)
 
+bankD=read.csv("questionbankD.csv")
+bankD= data.frame(lapply(bankD, as.character), stringsAsFactors = FALSE)
 shinyServer(function(input, output, session) {
   ####################################Hide Menu bar###############################################
   observe({
@@ -382,8 +383,28 @@ shinyServer(function(input, output, session) {
   })
   
   
+  #####################################Bank D#####################################################
   
+  index2 <- reactiveValues(index2 = 4)
+  observeEvent(input$new2,{
+    index2$index2 <- sample(1:4,1)
+  })
   
+  observeEvent(input$new2,{
+    index2$index2 <-sample(1:4,1)
+  })
+  
+  output$questionD <- renderUI({
+    if (index2$index2 == 1){
+      h3(bankD[1,4])
+    }else if (index2$index2 == 2){
+      h3(bankD[4,4])
+    }else if (index2$index2 == 3){
+      h3(bankD[7,4])
+    }else if (index2$index2 == 4){
+      h3(bankD[10,4])
+    }
+  })
   
   ################################################################################################  
   

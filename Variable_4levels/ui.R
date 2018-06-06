@@ -298,7 +298,13 @@ shinyUI(tagList(
              
                tabPanel(title= "Level 4", value= "f",
                         titlePanel(h1("This level will add in the concepts of confounding variables")),
-                       fluidRow(
+                        wellPanel(
+                          fluidRow(uiOutput("questionD"),
+                                   actionButton("new2","New Question", size = "small"))
+                          
+                        ),hr(),
+                        
+                        fluidRow(
                          column(3, offset = 1,
                                 selectInput('expla', 'Explanatory Ex', c('Explanatory',
                                                                                         'Response',
