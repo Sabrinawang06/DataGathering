@@ -343,12 +343,10 @@ shinyServer(function(input, output, session) {
   
   index <- reactiveValues(index = 12)
   observeEvent(input$new,{
-    index$index <- sample(1:12,1)
+    index$index <- sample(1:12,1, replace=FALSE, prob=NULL)
   })
   
-  observeEvent(input$new,{
-    index$index <-sample(1:12,1)
-  })
+
   
  
   

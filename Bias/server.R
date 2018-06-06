@@ -46,10 +46,10 @@ shinyServer(function(input, output,session) {
     print("Instruction")
   )
   output$instruction2 <- renderUI(
-    print("Step 1: Click the target to put down at least 10 points.")   
+    h4("Step 1: Click the target to put down at least 10 points.")   
   )
   output$instruction3 <- renderUI(
-    print("Step 2: Check the feedback and keep trying until you get it correct and go to the next question.")
+    h4("Step 2: Check the feedback and keep trying until you get it correct and go to the next question.")
   )
   output$instruction4 <- renderUI(
     print('Note: There are only four different questions.')
