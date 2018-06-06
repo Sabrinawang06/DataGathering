@@ -343,12 +343,10 @@ shinyServer(function(input, output, session) {
   
   index <- reactiveValues(index = 12)
   observeEvent(input$new,{
-    index$index <- sample(1:12,1, replace=FALSE, prob=NULL)
+    index$index <- sample(1:12,1, replace=TRUE, prob=NULL)
   })
   
 
-  
- 
   
   output$questionC <- renderUI({
     if (index$index == 1){
@@ -380,6 +378,66 @@ shinyServer(function(input, output, session) {
     }
   })
   
+  
+  output$varEXP <- renderUI({
+    if (index$index == 1){
+      h3(bankC[1,4])
+    }else if (index$index == 2){
+      h3(bankC[3,4])
+    }else if (index$index == 3){
+      h3(bankC[5,4])
+    }else if (index$index == 4){
+      h3(bankC[7,4])
+    }
+    else if (index$index == 5){
+      h3(bankC[9,4])
+    }else if (index$index == 6){
+      h3(bankC[11,4])
+    }else if (index$index == 7){
+      h3(bankC[13,4])
+    }else if (index$index == 8){
+      h3(bankC[15,4])
+    }
+    else if (index$index == 9){
+      h3(bankC[17,4])
+    }else if (index$index == 10){
+      h3(bankC[19,4])
+    }else if (index$index == 11){
+      h3(bankC[21,4])
+    }else if (index$index == 12){
+      h3(bankC[23,4])
+    }
+  })
+  
+  output$varRES <- renderUI({
+    if (index$index == 1){
+      h3(bankC[2,4])
+    }else if (index$index == 2){
+      h3(bankC[4,4])
+    }else if (index$index == 3){
+      h3(bankC[6,4])
+    }else if (index$index == 4){
+      h3(bankC[8,4])
+    }
+    else if (index$index == 5){
+      h3(bankC[10,4])
+    }else if (index$index == 6){
+      h3(bankC[12,4])
+    }else if (index$index == 7){
+      h3(bankC[14,4])
+    }else if (index$index == 8){
+      h3(bankC[16,4])
+    }
+    else if (index$index == 9){
+      h3(bankC[18,4])
+    }else if (index$index == 10){
+      h3(bankC[20,4])
+    }else if (index$index == 11){
+      h3(bankC[22,4])
+    }else if (index$index == 12){
+      h3(bankC[24,4])
+    }
+  })
   
   #####################################Bank D#####################################################
   

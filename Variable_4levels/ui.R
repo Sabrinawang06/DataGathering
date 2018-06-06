@@ -286,11 +286,11 @@ shinyUI(tagList(
                       
                       fluidRow(
                         column(3, offset = 1,
-                               selectInput('explC', 'Explanatory Ex', c('Explanatory',
+                               selectInput('explC', uiOutput('varEXP'), c('Explanatory',
                                                                         'Response'))
                         ),
                         column(4, offset= 1,
-                               selectInput('resPC', 'Response Ex', c('Explanatory',
+                               selectInput('respC', uiOutput('varRES'), c('Explanatory',
                                                                      'Response'
                                                                      )) 
                         )),
