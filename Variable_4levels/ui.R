@@ -283,6 +283,18 @@ shinyUI(tagList(
                         
                       ),hr(),
                       
+                      
+                      fluidRow(
+                        column(3, offset = 1,
+                               selectInput('explC', 'Explanatory Ex', c('Explanatory',
+                                                                        'Response'))
+                        ),
+                        column(4, offset= 1,
+                               selectInput('resPC', 'Response Ex', c('Explanatory',
+                                                                     'Response'
+                                                                     )) 
+                        )),
+                      
                       conditionalPanel("input.next3 != 0",
                                        fluidRow(column(1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
                                                 column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
