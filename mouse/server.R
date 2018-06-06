@@ -86,7 +86,7 @@ shinyServer(function(input, output,session) {
   })
   
   output$instruction1 <- renderUI({
-    print("Instruction")
+    print("Instructions")
   })
   
   output$instruction2 <- renderUI({
@@ -102,7 +102,7 @@ shinyServer(function(input, output,session) {
   })
   
   output$ack1 <- renderUI({
-    print("Acknowledgement and Credit")
+    print("Acknowledgements")
   })
   output$ack2 <- renderUI({
     h4("This app was developed and coded by Yuxin Zhang based on extending the idea in the", tags$a(href = "https://www.causeweb.org/cause/archive/mouse_experiment/","app by Dennis Pearl and Tom Santner", style = "text-decoration: underline; color: #CC3333"),".")
