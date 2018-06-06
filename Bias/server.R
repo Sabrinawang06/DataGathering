@@ -43,7 +43,7 @@ shinyServer(function(input, output,session) {
           when the measurement is repeated independently). ")
   )
   output$instruction1 <- renderUI(
-    print("Instruction")
+    print("Instructions")
   )
   output$instruction2 <- renderUI(
     h4("Step 1: Click the target to put down at least 10 points.")   
@@ -52,11 +52,11 @@ shinyServer(function(input, output,session) {
     h4("Step 2: Check the feedback and keep trying until you get it correct and go to the next question.")
   )
   output$instruction4 <- renderUI(
-    print('Note: There are only four different questions.')
+    h4('Note: There are only four different questions.')
   )
   
   output$ack1 <- renderUI(
-    print("Acknowledgement and Credit")
+    print("Acknowledgements")
   )
   output$ack2 <- renderUI(
     h4("This app was developed and coded by Yuxin Zhang.")
