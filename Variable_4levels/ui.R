@@ -155,7 +155,7 @@ shinyUI(tagList(
                                                                                          bsButton("submitA", "Submit Answer", style = "primary",size = "small",class = "grow")
                                                                                          )
                                                           ),
-                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small", disabled = TRUE))
+                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small"))
                                                  ),br()
                                                    ),
                                 
@@ -274,6 +274,10 @@ shinyUI(tagList(
                          #        )),br(), #print the timer
                          # 
                       ),
+                      wellPanel(
+                        fluidRow(uiOutput("questionC"))
+                      ),hr(),
+                      
                       conditionalPanel("input.next3 != 0",
                                        fluidRow(column(1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
                                                 column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
