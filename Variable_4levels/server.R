@@ -339,41 +339,45 @@ shinyServer(function(input, output, session) {
   
       ################################# Bank C #######################
   
-  numbersC <- reactiveValues(parC=c())
+  
   index <- reactiveValues(index = 12)
   observeEvent(input$new,{
     index$index <- sample(1:12,1)
   })
   
-  index$index=1 
+  observeEvent(input$new,{
+    index$index <-sample(1:12,1)
+  })
+  
+ 
   
   output$questionC <- renderUI({
     if (index$index == 1){
-      h3(parC[1])
+      h3(bankC[1,5])
     }else if (index$index == 2){
-      h3("Can you create a model for large bias and high reliability?  Please put on at least 10 dots.")
+      h3(bankC[3,5])
     }else if (index$index == 3){
-      h3("Can you create a model for no bias and low reliability?  Please put on at least 10 dots.")
+      h3(bankC[5,5])
     }else if (index$index == 4){
-      h3("Can you create a model for no bias and high reliability? (Please put down at least 10 dots.)")
+      h3(bankC[7,5])
     }
      else if (index$index == 5){
-      h3("Can you create a model for large bias and low reliability?  Please put on at least 10 dots.")
+      h3(bankC[9,5])
     }else if (index$index == 6){
-      h3("Can you create a model for large bias and high reliability?  Please put on at least 10 dots.")
+      h3(bankC[11,5])
     }else if (index$index == 7){
-      h3("Can you create a model for no bias and low reliability?  Please put on at least 10 dots.")
+      h3(bankC[13,5])
     }else if (index$index == 8){
-      h3("Can you create a model for no bias and high reliability? (Please put down at least 10 dots.)")
+      h3(bankC[15,5])
     }
      else if (index$index == 9){
-      h3("Can you create a model for large bias and low reliability?  Please put on at least 10 dots.")
+      h3(bankC[17,5])
     }else if (index$index == 10){
-      h3("Can you create a model for large bias and high reliability?  Please put on at least 10 dots.")
+      h3(bankC[19,5])
     }else if (index$index == 11){
-      h3("Can you create a model for no bias and low reliability?  Please put on at least 10 dots.")
+      h3(bankC[21,5])
     }else if (index$index == 12){
-      h3("Can you create a model for no bias and high reliability? (Please put down at least 10 dots.)")
+      h3(bankC[23,5])
     }
   })
   

@@ -8,6 +8,9 @@ library(RUnit)
 
 data <- read.csv("questionBank.csv")
 
+
+#####remember to add back the disable=TRUE to the next button
+
 shinyUI(tagList(
   useShinyjs(),
   navbarPage(title = "Variable Types",id = "navMain", #Give an id to use the updateNavPage() later
@@ -275,7 +278,9 @@ shinyUI(tagList(
                          # 
                       ),
                       wellPanel(
-                        fluidRow(uiOutput("questionC"))
+                        fluidRow(uiOutput("questionC"),
+                                 actionButton("new","New Challenge", size = "small"))
+                        
                       ),hr(),
                       
                       conditionalPanel("input.next3 != 0",
