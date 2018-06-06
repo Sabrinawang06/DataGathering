@@ -11,6 +11,9 @@ bankB = read.csv("questionBankB.csv")
 bankB = data.frame(lapply(bankB, as.character), stringsAsFactors = FALSE)
 
 
+bankC = read.csv("questionBankC.csv")
+bankC = data.frame(lapply(bankC, as.character), stringsAsFactors = FALSE)
+
 shinyServer(function(input, output, session) {
   ####################################Hide Menu bar###############################################
   observe({
