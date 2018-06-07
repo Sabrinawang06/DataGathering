@@ -133,6 +133,7 @@ shinyServer(function(input, output, session) {
   observeEvent(input$next2, {time$started <- TRUE})
   observeEvent(input$submitB, {time$started <- FALSE})
   observeEvent(input$next3, {time$started <- TRUE})
+  observeEvent(input$new, {time$started <- TRUE})
   observeEvent(input$submitC, {time$started <- FALSE})
   observeEvent(input$next4, {time$started <- TRUE})
   observeEvent(input$finish, {time$timer<-reactiveTimer(Inf)})
@@ -575,39 +576,45 @@ shinyServer(function(input, output, session) {
   
   
 ########################account for correct answers level 3##########################
-  observeEvent(input$submitC,{ 
-
-      correct1=c()
-      correct2=c()
-      
-      for (i in c(input$explC)){
-        if (any(i == 'Explanatory')){
-          correct1 = c(correct1,1)
-        }else{
-          correct1 = c(correct1,-1)
-        }
-      }
-      for (i in c(input$respC)){
-        if (any(i == 'Response')){
-          correct2 = c(correct2,1)
-        }else{
-          correct2 = c(correct2,-1)
-        }
-      }
-    
-    summation$summationC[input$submitC] <- sum(c(correct1, correct2))
-  })
-
+  correct1=c()
+  correct2=c()
   
+  observe({while (input$next4!=0){
+  
+      observeEvent(input$submitC,{ 
+    
+          for (i in c(input$explC)){
+            if (any(i == 'Explanatory')){
+              correct1 = c(correct1,1)
+            }else{
+              correct1 = c(correct1,0)
+            }
+          }
+          for (i in c(input$respC)){
+            if (any(i == 'Response')){
+              correct2 = c(correct2,1)
+            }else{
+              correct2 = c(correct2,0)
+            }
+          }
+        
+        summation$summationC[input$submitC] <- sum(c(correct1, correct2))
+      })
+    
+        output$correctC <- renderPrint({
+          cat("You have answered correctly:",summation$summationC[input$submitC])
+        })
+    
+    }})
+  
+    
 observeEvent(input$submitC,{
   if(summation$summationC[input$submitC] == 5){
-    updateButton(session, "next3",disabled = FALSE)
+    updateButton(session, "next4",disabled = FALSE)
   }})
   
   
-output$correctC <- renderPrint({
-  cat("You have answered correctly:",summation$summationC[input$submitC])
-})
+
 
   ##################################CHECK MARK IN LEVEL 1 AND 2##########################
 
