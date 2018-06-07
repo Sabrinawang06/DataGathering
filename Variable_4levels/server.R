@@ -529,13 +529,13 @@ shinyServer(function(input, output, session) {
   
   observeEvent(input$submitC,{  
     observeEvent(input$new,{
-      output$varEXP <- renderUI({
+      output$markc1 <- renderUI({
         img(src = NULL,width = 30)
       })
     })
     
     observe({
-      output$varEXP <- renderUI({
+      output$markc1 <- renderUI({
         if (!is.null(input$explC)){
           if (any(input$explC == 'Explanatory')){
             img(src = "check.png",width = 30)
@@ -549,12 +549,12 @@ shinyServer(function(input, output, session) {
   
   observeEvent(input$submitC,{ 
     observeEvent(input$new,{
-      output$varRES <- renderUI({
+      output$markc2 <- renderUI({
         img(src = NULL,width = 30)
       })
     })
   observe({
-    output$varRES <- renderUI({
+    output$markc2 <- renderUI({
       if (!is.null(input$respC)){
         if (any(input$respC == 'Response')){
           img(src = "check.png",width = 30)
@@ -606,7 +606,8 @@ observeEvent(input$submitC,{
   
   
 output$correctC <- renderPrint({
-  cat("you have answered correctly:", summation$submationC)})
+  cat("You have answered correctly:",summation$summationC[input$submitC])
+})
 
   ##################################CHECK MARK IN LEVEL 1 AND 2##########################
 

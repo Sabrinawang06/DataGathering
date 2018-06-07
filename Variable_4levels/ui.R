@@ -289,12 +289,12 @@ shinyUI(tagList(
                       fluidRow(
                         column(3, offset = 1,
                                selectInput('explC', uiOutput('varEXP'), c('Explanatory',
-                                                                        'Response'))
+                                                                        'Response')),uiOutput('markc1')
                         ),
                         column(4, offset= 1,
                                selectInput('respC', uiOutput('varRES'), c('Explanatory',
                                                                      'Response'
-                                                                     )) 
+                                                                     )),uiOutput('markc2') 
                         )),
                       
                       fluidRow(
@@ -305,7 +305,7 @@ shinyUI(tagList(
                                        fluidRow(column(1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
                                                 column(1,offset = 4,conditionalPanel("(input.explC!='') & (input.respC!='')",
                                                                                     bsButton("submitC","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                                column(1,offset = 5,bsButton("next4","Next>>", size = "small",disabled = FALSE)))
+                                                column(1,offset = 5,bsButton("next4","Next>>", size = "small",disabled = TRUE)))
                                        ,hr()
                                        
                       )
