@@ -512,7 +512,7 @@ shinyServer(function(input, output, session) {
   })
   
   observeEvent(input$submitC,{
-    updateButton(session,"submitC",disabled = TRUE)
+    updateButton(session,"submitC",disabled = FALSE)
   })
   
   ##try for level3 
@@ -555,6 +555,13 @@ shinyServer(function(input, output, session) {
     })
   })
 })
+  
+  observeEvent(input$new, {
+    reset('explC')
+    reset('respC')
+  })  
+  
+  
   
   
 ####account for correct answers
