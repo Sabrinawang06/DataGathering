@@ -297,11 +297,15 @@ shinyUI(tagList(
                                                                      )) 
                         )),
                       
+                      fluidRow(
+                        column(3, offset=3,textOutput('correctC'))),
+                        
+                      
                       conditionalPanel("input.next3 != 0",
                                        fluidRow(column(1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
                                                 column(1,offset = 4,conditionalPanel("(input.explC!='') & (input.respC!='')",
                                                                                     bsButton("submitC","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                                column(1,offset = 5,bsButton("next4","Next>>", size = "small")))
+                                                column(1,offset = 5,bsButton("next4","Next>>", size = "small",disabled = TRUE)))
                                        ,hr()
                                        
                       )

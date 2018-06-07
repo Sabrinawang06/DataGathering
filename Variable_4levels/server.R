@@ -564,11 +564,43 @@ shinyServer(function(input, output, session) {
   
   
   
-####account for correct answers
+########################account for correct answers level 3##########################
+  observeEvent(input$submitC,{ 
+
+    observe({
+      correct1=c()
+      correct2=c()
+      
+      for (i in c(input$explC)){
+        if (any(i == 'Explanatory')){
+          correct1 = c(correct1,1)
+        }else{
+          correct1 = c(correct1,-1)
+        }
+      }
+      for (i in c(input$respC)){
+        if (any(i == 'Response')){
+          correct2 = c(correct2,1)
+        }else{
+          correct2 = c(correct2,-1)
+        }
+      }
+    })
+    summation$summationC[input$submitC] <- sum(c(correct1, correct2))
+  })
+
+  
+observeEvent(input$submitC,{
+  if(summation$summationC[input$submitC] == 5){
+    updateButton(session, "next3",disabled = FALSE)
+  }})
   
   
-  
-  #####
+output$correctC <- renderPrint({
+  cat("you have answered correctly:", summation$submationC)})
+
+  ##################################CHECK MARK IN LEVEL 1 AND 2##########################
+
   observeEvent(input$submitA,{  
     observeEvent(input$clear,{
       output$answer1 <- renderUI({
