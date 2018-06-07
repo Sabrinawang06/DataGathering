@@ -316,14 +316,21 @@ shinyUI(tagList(
              
                tabPanel(title= "Level 4", value= "f",
                         titlePanel(h1("This level will add in the concepts of confounding variables")),
-                        wellPanel(
-                          fluidRow(uiOutput("questionD"),
-                                   actionButton("new2","New Question", size = "small"),
-                                   column(3,offset = 6,
-                                          hidden(div(id='timer4h',textOutput("timer4"))
-                                          )),br() #print the timer)
+                        fluidRow(
                           
-                        ),hr()),
+                          column(3,offset = 6,
+                                 hidden(div(id='timer4h',textOutput("timer4"))
+                                 )),br() #print the timer)
+                          
+                        ),hr(),
+                          
+                        
+                        
+                        wellPanel(
+                          fluidRow(uiOutput("questionD")),
+                          actionButton("new2","New Question", size = "small")
+                                   
+                                  ),
                         
                         fluidRow(
                          column(3, offset = 1,
