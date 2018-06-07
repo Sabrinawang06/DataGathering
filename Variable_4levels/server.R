@@ -512,12 +512,17 @@ shinyServer(function(input, output, session) {
   })
   
   observeEvent(input$submitC,{
-    updateButton(session,"submitC",disabled = TRUE)
+    updateButton(session,"submitC",disabled = FALSE)
   })
   
   ##try for level3 
   
   observeEvent(input$submitC,{  
+    observeEvent(input$new,{
+      output$varEXP <- renderUI({
+        img(src = NULL,width = 30)
+      })
+    })
     
     observe({
       output$varEXP <- renderUI({
@@ -531,6 +536,37 @@ shinyServer(function(input, output, session) {
       })
     })
   })
+  
+  observeEvent(input$submitC,{ 
+    observeEvent(input$new,{
+      output$varRES <- renderUI({
+        img(src = NULL,width = 30)
+      })
+    })
+  observe({
+    output$varRES <- renderUI({
+      if (!is.null(input$respC)){
+        if (any(input$respC == 'Response')){
+          img(src = "check.png",width = 30)
+        }else{
+          img(src = "cross.png",width = 30)
+        }
+      }
+    })
+  })
+})
+  
+  observeEvent(input$new, {
+    reset('explC')
+    reset('respC')
+  })  
+  
+  
+  
+  
+####account for correct answers
+  
+  
   
   #####
   observeEvent(input$submitA,{  
@@ -551,6 +587,7 @@ shinyServer(function(input, output, session) {
       })
     })
   })
+  
   observeEvent(input$submitA,{  
     observeEvent(input$clear,{
       output$answer2 <- renderUI({
