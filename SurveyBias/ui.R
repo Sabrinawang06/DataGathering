@@ -11,7 +11,7 @@ jsResetCode <- "shinyjs.reset = function() {history.go(0)}"
 dashboardPage(
   dashboardHeader(title = "Survey Bias"),
   dashboardSidebar(
-    sidebarMenu(id='tabs',
+    sidebarMenu(
       menuItem("Overview", tabName = "readme", icon = icon("dashboard")),
       menuItem("Explore", tabName = "overview", icon = icon("play")),
       menuItem("Game", tabName = "game", icon = icon("space-shuttle"))
@@ -30,14 +30,9 @@ dashboardPage(
               fluidRow(theme = "custom.css",
                        box(title = "About the app!", status = "success", solidHeader= TRUE, width = 9,
                            strong("Learning objectives:"), br(), 
-                           "The goal of this app is to illustrate the different types of biases that occur in the wording of survey questions. 
-                           ", br(),
-                           br(), br(), strong("Instructions:"), br(), "On the first page, simply click below each question that contains a 
-                           bias to see what that bias is. Pay attention! Because on the second page, you will be asked to match questions with their appropriate bias. Note: you will be timed. Each round will continue to increase in difficulty. For the last round, please note that some of the biases overlap. So while one may seem fitting, it could be marked incorrect if there is a more dominant bias. ",
-                           br(), br(), br(), strong("Acknowledgements:"), br(), "This app includes the following packages: shinydashboard, shinyDND, shinyjs, shinyBS, and V8.")),
-    
-      
-              fluidRow(column(2,bsButton("start","Go",icon("ravelry"),style = "danger",size = "large",class="circle grow")))
+                           "The goal of this app is to illustrate the different types of biases that occur in the wording of survey questions.", br(),
+                           br(), br(), strong("Instructions:"), br(), "On the first page, simply click below each question that contains a bias to see what that bias is.  Pay attention! Because on the second page, you will be asked to match questions with their appropriate bias.  Note: you will be timed.  Each round will continue to increase in difficulty.  For the last round, please note that some of the biases overlap.  So while one may seem fitting, it could be marked incorrect if there is a more dominant bias.",
+                           br(), br(), br(), strong("Acknowledgements:"), br(), "This app includes the following packages: shinydashboard, shinyDND, shinyjs, shinyBS, and V8."))
       ),
       
       
@@ -45,15 +40,13 @@ dashboardPage(
               fluidRow(theme = "bootstrap.css",
                        box(title = "What's the big deal about Survey Bias?", status = "success", solidHeader = TRUE, width = 7,
                            
-                           "One of the most popular ways to answer public opinions in the Stats world is through
-                           the use of surveys.  While surveys may seem easy to create, there are 7 major pitfalls that
-                           people may fall victim to.  Look at the questions below to see an example of each.",
+                           "Surveys help us understand public opinion on many topics.  While surveys may seem easy to create, there are some common pitfalls in question wording to watch out for.  Look at the questions below to see an example of each.",
                            
                            
                            br(),
                            br(),
                            br(),
-                           strong("Deliberate Bias:"), " It is hard for today's college graduates to have a bright future 
+                           strong("Deliberate Bias (one-sided wording): "), " It is hard for today's college graduates to have a bright future 
                            with the way things are today in the world. Agree or Disagree.",
                            br(),
                            br(),
@@ -69,7 +62,7 @@ dashboardPage(
                          strong(textOutput("text_example")),
                          br(),
                          br(),
-                         strong("Filtering: "), "What is your opinion of our current President?",
+                         strong("Filtering (missing options): "), "What is your opinion of our current President?",
                          br(), "a. Favorable", br(), "b. Unfavorable",
                          br(),
                          br(),
@@ -97,7 +90,7 @@ dashboardPage(
                          ),
                          strong(textOutput("text_example3")),
                          br(), br(),
-                         strong("Unintentional Bias: "), "Do you favor or oppose an ordinance that ", em("forbids "), "surveillance cameras to be placed on Beaver Ave?",
+                         strong("Unintentional Bias (use of loaded words): "), "Do you favor or oppose an ordinance that ", em("forbids "), "surveillance cameras to be placed on Beaver Ave?",
                          br(), br(),
                          actionButton("runif4", "Remove the bias!"),
                          br(),br(),
@@ -109,7 +102,7 @@ dashboardPage(
                          ),
                          strong(textOutput("text_example4")),
                          br(), br(),
-                         strong("Unnecessary Complexity: "), "Do you thinkn that health care workers and military
+                         strong("Unnecessary Complexity (double-barreled questions): "), "Do you think that health care workers and military
                          personnel should be the first to receive the smallpox vaccination?",
                          br(), br(),
                          actionButton("runif5", "Remove the bias!"),
@@ -122,9 +115,8 @@ dashboardPage(
                          ),
                          strong(textOutput("text_example5")),
                          br(), br(),
-                         strong("Asking the Uninformed and Unnecessary Complexity: "), "Do you agree or disagree that
-                         children who have a Body Mass Index (BMI) at or above the 95th percentile should not be allowed to spend
-                         a lot of time watching television, playing computer games, and listening to music?",
+                         strong("Unnecessary Complexity (Double Negatives): "), "Do you disagree that
+                         obese children should not be allowed to spend a lot of time watching television, playing computer games, or listening to music?",
                          br(), br(),
                          actionButton("runif6", "Remove the bias!"),
                          
@@ -147,12 +139,12 @@ dashboardPage(
                        box(title = "Did you Know...", status = "warning", solidHeader = TRUE, width = 5,
                            img(src = 'truman.png', align= "right"),
                            " For the 1948 election between Thomas Dewey and Harry Truman, Gallup conducted a poll with a sample size of about 
-                           3250. Each individual in the sample was inteviewed in person by a professional interviewer to minimize nonresponse bias, 
-                           and each interviewer was given a very detailed set of quotas to meet.",
+                           3250. Each individual in the sample was interviewed in person by a professional interviewer to minimize nonresponse bias, 
+                           and each interviewer was given a very detailed set of quotas to meet (rather than being given a random sample of specific people to contact).",
                            br(),
                            br(),
                            "For example, an interviewer could have been given 
-                           the following quotas: seven white males under 40 living in a rural area, five black males under 40 living in a rural area, 
+                           the following quotas: seven white males under 40 living in a rural area, five black males under 40 living in an rurban area, 
                            six black females under 40 living in a rural area, etc. Other than meeting these quotas the ultimate choice of who was 
                            interviewed was left to each interviewer.",
                            
@@ -173,8 +165,8 @@ dashboardPage(
                            
                            br(),
                            br(),
-                           "Even professional pollsters still can make mistakes.  The Gallup Poll has improved since then. 
-                           Check out", a("their site", href="www.gallup.com"), " to see more!"
+                           "The Gallup Poll learned the lesson that the biases of quota based polling can be alleviated by using random sampling techniques. 
+                           Check out", a("their site", href="http://www.gallup.com"), " to see more!"
                            
                        )
                          )
@@ -186,10 +178,11 @@ dashboardPage(
                        navbarPage(title = "Game Types", id = "navMain",
                                   
                                   tabPanel(title = "Directions", value = "a",
-                                           "This is a three series game to test if you understand the material. 
+                                           "This is a three level game to test if you can recognize the types of biases described in this app. 
                                            Each level will consist of 4 questions that contain a bias.  Match the question with the bias 
                                            that it contains.  As the levels get harder, some questions will contain 
                                            multiple biases.  Only choose one!",
+                                           
                                            
                                            br(), br(),
                                            "There is a timer that will start as soon as you begin the game.  For each question you get wrong,  
@@ -304,10 +297,10 @@ dashboardPage(
                                                                       
                                                                       #Submit button and pagination button
                                                                       fluidRow(
-                                                                        column(1,bsButton("prev1","<<Previous", style = "danger",size = "small")),
+                                                                        column(1,bsButton("prev1","<<Previous", style = "primary",size = "small")),
                                                                         column(1,offset = 4, conditionalPanel("(input.drp6!='') & (input.drp7!='') & (input.drp8!='')"
-                                                                                                              ,bsButton("submitB", "Submit Answer", style = "danger",size = "small",class = "grow"))),
-                                                                        column(1,offset = 5,bsButton("next2","Next>>",style = "danger", size = "small", disabled = TRUE))
+                                                                                                              ,bsButton("submitB", "Submit Answer", style = "primary",size = "small",class = "grow"))),
+                                                                        column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small", disabled = TRUE))
                                                                       ),br(),
                                                                       
                                                                       
@@ -379,9 +372,9 @@ dashboardPage(
                                                                       
                                                                       #Submit button and pagination button
                                                                       fluidRow(
-                                                                        column(1,bsButton("prev3","<<Previous", style = "danger",size = "small")),
+                                                                        column(1,bsButton("prev3","<<Previous", style = "primary",size = "small")),
                                                                         column(1,offset = 4, conditionalPanel("(input.drp9!='') & (input.drp10!='') & (input.drp11!='') & (input.drp12!='')"
-                                                                                                              ,bsButton("submitC", "Submit Answer", style = "danger",size = "small",class = "grow")))),
+                                                                                                              ,bsButton("submitC", "Submit Answer", style = "primary",size = "small",class = "grow")))),
                                                                       br(),
                                                                       
                                                                       
@@ -390,7 +383,7 @@ dashboardPage(
                                                                           fluidRow(
                                                                             wellPanel(
                                                                               div(style = "position:absolute; top;10em; left:1em",h4("Please drag the wrong answers into this PENALTY box and click the CLEAR button to restart."),
-                                                                              dropUI("home1",class = "dropelement dropelementHome")),
+                                                                                  dropUI("home1",class = "dropelement dropelementHome")),
                                                                               div(style = "position:absolute; top:8em; right:2em",bsButton("clearC","CLEAR",style = "danger")),class = "wellTransparent col-lg-8"),
                                                                             column(1,offset = 5,bsButton("finish","STOP>>", style = "danger", disabled = TRUE, size = "small")),
                                                                             wellPanel(h4("Full score is 40 for Hard Level."),
