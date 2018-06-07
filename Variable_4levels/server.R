@@ -965,7 +965,7 @@ output$correctC <- renderPrint({
   
   
   ####################################################################
-  summation <- reactiveValues(summationA = c(rep(0,20)), summationB = c(rep(0,20)),summationScore = c(rep(0,20)))
+  summation <- reactiveValues(summationA = c(rep(0,20)), summationB = c(rep(0,20)),summationC=c(rep(0,20)), summationScore = c(rep(0,20)))
   
   observeEvent(input$submitA,{
     score1 = c()
