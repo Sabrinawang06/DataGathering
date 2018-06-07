@@ -35,7 +35,10 @@ shinyServer(function(input, output, session) {
     cat("you have used:", time$inc, "secs")})
   output$timer3 <- renderPrint({
     cat("you have used:", time$inc, "secs")})
-  
+  output$timer4 <- renderPrint({
+    cat("you have used:", time$inc, "secs")})
+  output$timer5 <- renderPrint({
+    cat("you have used:", time$inc, "secs")})
   
   ######Back and Forth Buttons
   observeEvent(input$go,{

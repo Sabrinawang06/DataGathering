@@ -167,6 +167,13 @@ shinyServer(function(input, output, session) {
       cat("you have used:", time$inc, "secs")})
   })
   
+  observeEvent(input$bt5 == TRUE, {
+    toggle('timer5')
+    output$timer5 <- renderPrint({
+      cat("you have used:", time$inc, "secs")})
+  })
+  
+  
   output$timer1 <- renderPrint({
     cat("you have used:", time$inc, "secs")})
   
@@ -177,6 +184,9 @@ shinyServer(function(input, output, session) {
     cat("you have used:", time$inc, "secs")})
   
   output$timer4 <- renderPrint({
+    cat("you have used:", time$inc, "secs")})
+  
+  output$timer5 <- renderPrint({
     cat("you have used:", time$inc, "secs")})
   ################################### Bank A ###############################################################  
   numbers <- reactiveValues(dis = c(), cont = c(), nom = c(), ord = c())

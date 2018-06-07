@@ -273,11 +273,11 @@ shinyUI(tagList(
                                 #                      tags$img(src = "STAT.png",
                                 #                               id = "hint"))
                                 # )
-                        )
-                         # column(3,offset = 6,
-                         #        hidden(div(id='timer3h',textOutput("timer3"))
-                         #        )),br(), #print the timer
-                         # 
+                        ),
+                          column(3,offset = 6,
+                                 hidden(div(id='timer3h',textOutput("timer3"))
+                                 )),br() #print the timer
+                          
                       ),
                       wellPanel(
                         fluidRow(uiOutput("questionC"),
@@ -305,7 +305,7 @@ shinyUI(tagList(
                                        fluidRow(column(1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
                                                 column(1,offset = 4,conditionalPanel("(input.explC!='') & (input.respC!='')",
                                                                                     bsButton("submitC","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                                column(1,offset = 5,bsButton("next4","Next>>", size = "small",disabled = TRUE)))
+                                                column(1,offset = 5,bsButton("next4","Next>>", size = "small",disabled = FALSE)))
                                        ,hr()
                                        
                       )
@@ -318,9 +318,12 @@ shinyUI(tagList(
                         titlePanel(h1("This level will add in the concepts of confounding variables")),
                         wellPanel(
                           fluidRow(uiOutput("questionD"),
-                                   actionButton("new2","New Question", size = "small"))
+                                   actionButton("new2","New Question", size = "small"),
+                                   column(3,offset = 6,
+                                          hidden(div(id='timer4h',textOutput("timer4"))
+                                          )),br() #print the timer)
                           
-                        ),hr(),
+                        ),hr()),
                         
                         fluidRow(
                          column(3, offset = 1,
@@ -373,7 +376,7 @@ shinyUI(tagList(
              #####score page 
              tabPanel(title = "Score", value = "d",
                       titlePanel(h1("Congratulations! You finished the game.")),
-                      fluidRow(column(3,offset = 9,textOutput("timer3"))),br(),br(),
+                      fluidRow(column(3,offset = 9,textOutput("timer5"))),br(),br(),
                       fluidPage(
                         fluidRow(h3("Your scores:")),
                         fluidRow(
