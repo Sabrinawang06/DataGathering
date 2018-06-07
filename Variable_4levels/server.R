@@ -567,7 +567,6 @@ shinyServer(function(input, output, session) {
 ########################account for correct answers level 3##########################
   observeEvent(input$submitC,{ 
 
-    observe({
       correct1=c()
       correct2=c()
       
@@ -585,7 +584,7 @@ shinyServer(function(input, output, session) {
           correct2 = c(correct2,-1)
         }
       }
-    })
+    
     summation$summationC[input$submitC] <- sum(c(correct1, correct2))
   })
 
