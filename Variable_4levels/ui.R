@@ -318,19 +318,31 @@ shinyUI(tagList(
                         
                         fluidRow(
                          column(3, offset = 1,
-                                selectInput('expla',uiOutput('varEXPD') , c('Explanatory',
-                                                                                        'Response',
-                                                                                         'Confounding'))
+                                selectInput('expla',uiOutput('varEXPD') , c('Explanatory Quantitative',
+                                                                            'Explanatory Qualitative',
+                                                                                        'Response Quantitative',
+                                                                            'Response Qualitative',
+                                                                                         'Confounding Quantitative',
+                                                                            'Confounding Qualitative'
+                                                                          ))
                          ),
                          column(4, offset= 1,
-                                selectInput('resp', uiOutput('varRESD'), c('Explanatory',
-                                                                                         'Response',
-                                                                                         'Confounding')) 
+                                selectInput('resp', uiOutput('varRESD'), c('Explanatory Quantitative',
+                                                                           'Explanatory Qualitative',
+                                                                           'Response Quantitative',
+                                                                           'Response Qualitative',
+                                                                           'Confounding Quantitative',
+                                                                           'Confounding Qualitative'
+                                ))
                           ),
-                         column(2, offset= 1,
-                                selectInput('conf', uiOutput('varCOND'), c('Explanatory',
-                                                                                        'Response',
-                                                                                        'Confounding'))
+                         column(5, offset= 1,
+                                selectInput('conf', uiOutput('varCOND'),c('Explanatory Quantitative',
+                                                                          'Explanatory Qualitative',
+                                                                          'Response Quantitative',
+                                                                          'Response Qualitative',
+                                                                          'Confounding Quantitative',
+                                                                          'Confounding Qualitative'
+                                ))
                                 )
                        ),
                
