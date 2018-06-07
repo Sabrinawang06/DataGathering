@@ -192,6 +192,7 @@ shinyUI(tagList(
                                                              id = "hint"))
                                )
                         ),
+                         
                         column(3,offset = 6,
                                hidden(div(id='timer2h',textOutput("timer2"))
                                ))),br(), #print the timer
@@ -263,6 +264,7 @@ shinyUI(tagList(
              ##################Adding level 3 game
              tabPanel(title= "Level 3", value= "e",
                       titlePanel("Explanatory and Response Variables"),
+                      
                       fluidRow(
                         column(3, bsButton('bt3', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
                                bsButton('bq3', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt')
@@ -297,7 +299,7 @@ shinyUI(tagList(
                       
                       conditionalPanel("input.next3 != 0",
                                        fluidRow(column(1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
-                                                column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
+                                                column(1,offset = 4,conditionalPanel("(input.explC!='') & (input.respC!='')",
                                                                                     bsButton("submitC","Submit Answer", style = "primary", class = "grow", size = "small"))),
                                                 column(1,offset = 5,bsButton("next4","Next>>", size = "small")))
                                        ,hr()

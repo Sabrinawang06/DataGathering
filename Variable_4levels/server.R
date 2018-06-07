@@ -532,6 +532,9 @@ shinyServer(function(input, output, session) {
     })
   })
   
+  
+  
+  
   #####
   observeEvent(input$submitA,{  
     observeEvent(input$clear,{
