@@ -510,6 +510,29 @@ shinyServer(function(input, output, session) {
   observeEvent(input$clearB,{
     updateButton(session,"submitB",disabled = FALSE)
   })
+  
+  observeEvent(input$submitC,{
+    updateButton(session,"submitC",disabled = TRUE)
+  })
+  
+  ##try for level3 
+  
+  observeEvent(input$submitC,{  
+    
+    observe({
+      output$varEXP <- renderUI({
+        if (!is.null(input$explC)){
+          if (any(input$explC == 'Explanatory')){
+            img(src = "check.png",width = 30)
+          }else{
+            img(src = "cross.png",width = 30)
+          }
+        }
+      })
+    })
+  })
+  
+  #####
   observeEvent(input$submitA,{  
     observeEvent(input$clear,{
       output$answer1 <- renderUI({
