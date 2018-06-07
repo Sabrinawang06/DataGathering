@@ -195,7 +195,7 @@ dashboardPage(
                                            h2("Ready?"),
                                            
                                            fluidRow(column(1,offset = 5,
-                                                           bsButton("go","G O !" ,style = "warning",size = "large"))
+                                                           bsButton("go","G O !" ,style = "danger",size = "large"))
                                            )
                                   ),
                                   
