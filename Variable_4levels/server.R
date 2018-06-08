@@ -571,8 +571,71 @@ shinyServer(function(input, output, session) {
     reset('explC')
     reset('respC')
   })  
+
   
+#########################check marks for level 4####################################
+  observeEvent(input$submitD,{  
+    observeEvent(input$new2,{
+      output$markd1 <- renderUI({
+        img(src = NULL,width = 30)
+      })
+    })
+    
+    observe({
+      output$markd1 <- renderUI({
+        if (!is.null(input$explC)){
+          if (any(input$expla == 'explanatory')){
+            img(src = "check.png",width = 30)
+          }else{
+            img(src = "cross.png",width = 30)
+          }
+        }
+      })
+    })
+  })
   
+  observeEvent(input$submitD,{ 
+    observeEvent(input$new2,{
+      output$markd2 <- renderUI({
+        img(src = NULL,width = 30)
+      })
+    })
+    observe({
+      output$markd2 <- renderUI({
+        if (!is.null(input$resp)){
+          if (any(input$resp == 'response')){
+            img(src = "check.png",width = 30)
+          }else{
+            img(src = "cross.png",width = 30)
+          }
+        }
+      })
+    })
+  })
+  
+  observeEvent(input$submitD,{ 
+    observeEvent(input$new2,{
+      output$markd3 <- renderUI({
+        img(src = NULL,width = 30)
+      })
+    })
+    observe({
+      output$markd3 <- renderUI({
+        if (!is.null(input$conf)){
+          if (any(input$conf == 'confounding')){
+            img(src = "check.png",width = 30)
+          }else{
+            img(src = "cross.png",width = 30)
+          }
+        }
+      })
+    })
+  })
+  observeEvent(input$new2, {
+    reset('expla')
+    reset('resp')
+    reset('conf')
+  })  
   
   
 ########################account for correct answers level 3##########################
@@ -611,7 +674,7 @@ shinyServer(function(input, output, session) {
 
     
 observeEvent(input$scoreC,{
-  if(summation$summationC[input$scoreC] == 5){
+  if(summation$summationC[input$scoreC] >= 5){
     updateButton(session, "next4",disabled = FALSE)
   }})
   

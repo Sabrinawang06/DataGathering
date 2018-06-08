@@ -335,31 +335,22 @@ shinyUI(tagList(
                         
                         fluidRow(
                          column(3, offset = 1,
-                                selectInput('expla',uiOutput('varEXPD') , c('Explanatory Quantitative',
-                                                                            'Explanatory Qualitative',
-                                                                                        'Response Quantitative',
-                                                                            'Response Qualitative',
-                                                                                         'Confounding Quantitative',
-                                                                            'Confounding Qualitative'
-                                                                          ))
+                                selectInput('expla',uiOutput('varEXPD') , c('explanatory',
+                                                                            'response',
+                                                                            'confounding'
+                                                                          )),uiOutput('markd1')
                          ),
                          column(4, offset= 1,
-                                selectInput('resp', uiOutput('varRESD'), c('Explanatory Quantitative',
-                                                                           'Explanatory Qualitative',
-                                                                           'Response Quantitative',
-                                                                           'Response Qualitative',
-                                                                           'Confounding Quantitative',
-                                                                           'Confounding Qualitative'
-                                ))
+                                selectInput('resp', uiOutput('varRESD'), c('explanatory',
+                                                                           'response',
+                                                                           'confounding'
+                                )),uiOutput('markd2')
                           ),
                          column(5, offset= 1,
-                                selectInput('conf', uiOutput('varCOND'),c('Explanatory Quantitative',
-                                                                          'Explanatory Qualitative',
-                                                                          'Response Quantitative',
-                                                                          'Response Qualitative',
-                                                                          'Confounding Quantitative',
-                                                                          'Confounding Qualitative'
-                                ))
+                                selectInput('conf', uiOutput('varCOND'),c('explanatory',
+                                                                          'response',
+                                                                          'confounding'
+                                )), uiOutput('markd3')
                                 )
                        ),
                
@@ -370,8 +361,8 @@ shinyUI(tagList(
                                 
                                 
                                fluidRow(column(1,bsButton("previous5","<<Previous",style = "primary", size = "small")),
-                                         #column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
-                                       #                                      bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
+                                         column(1,offset = 4,conditionalPanel("(input.expla!='') & (input.resp!='') & (input.conf!='')",
+                                                                          bsButton("submitD","Submit Answer", style = "primary", class = "grow", size = "small"))),
                                          column(1,offset = 5,bsButton("finish","Stop>>", style = "danger", disabled = TRUE, size = "small")))
                                 ,hr()
                                 
