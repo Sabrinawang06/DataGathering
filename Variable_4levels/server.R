@@ -579,7 +579,7 @@ shinyServer(function(input, output, session) {
   correct1=c()
   correct2=c()
   
-  observe({while (input$next4!=0){
+
   
       observeEvent(input$submitC,{ 
     
@@ -604,12 +604,13 @@ shinyServer(function(input, output, session) {
         output$correctC <- renderPrint({
           cat("You have answered correctly:",summation$summationC[input$submitC])
         })
+
     
-    }})
+   
   
     
 observeEvent(input$submitC,{
-  if(summation$summationC[input$submitC] == 5){
+  if(summation$summationC[input$submitC] == 2){
     updateButton(session, "next4",disabled = FALSE)
   }})
   
