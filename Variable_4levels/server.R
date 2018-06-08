@@ -685,9 +685,9 @@ summationD<-reactiveValues(correct1D = c(),correct2D=c(),correct3D=c(), started=
 
 observeEvent(input$next4, {time$started <- TRUE})
 observeEvent(input$new2, {time$started <- TRUE})
-observeEvent(input$scoreD, {time$started <- TRUE})
+observeEvent(input$submitD, {time$started <- TRUE})
 
-observeEvent(input$scoreD,{ 
+observeEvent(input$submitD,{ 
   for (i in c(input$expla)){
     if (any(i == 'explanatory')){
       summationD$correct1D = c(summationD$correct1D,1)
@@ -709,16 +709,16 @@ observeEvent(input$scoreD,{
       summationD$correct3D = c(summationD$correct3D,0)
     }
   }
-  summation$summationD[input$scoreD] <- sum(c(summationD$correct1D, summationD$correct2D, summationD$correct3D))
+  summation$summationD[input$submitD] <- sum(c(summationD$correct1D, summationD$correct2D, summationD$correct3D))
 })
 
 output$correctD <- renderPrint({
-  cat("You have answered correctly:",summation$summationD[input$scoreD])
+  cat("You have answered correctly:",summation$summationD[input$submitD])
 })
 
 
-observeEvent(input$scoreD,{
-  if(summation$summationD[input$scoreD] >= 5){
+observeEvent(input$submitD,{
+  if(summation$summationD[input$submitD] >= 5){
     updateButton(session, "finish",disabled = FALSE)
   }})
 
