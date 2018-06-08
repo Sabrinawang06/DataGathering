@@ -576,12 +576,18 @@ shinyServer(function(input, output, session) {
   
   
 ########################account for correct answers level 3##########################
-  correct1=c()
-  correct2=c()
   
+  
+  summationC<-reactiveValues(correct1 = c(),correct2=c(), started=FALSE)
+  
+  
+  
+  observeEvent(input$next3, {time$started <- TRUE})
+  observeEvent(input$new, {time$started <- TRUE})
+  observeEvent(input$scoreC, {time$started <- TRUE})
+ 
 
-  
-      observeEvent(input$submitC,{ 
+      observeEvent(input$scoreC,{ 
     
           for (i in c(input$explC)){
             if (any(i == 'Explanatory')){
@@ -598,19 +604,19 @@ shinyServer(function(input, output, session) {
             }
           }
         
-        summation$summationC[input$submitC] <- sum(c(correct1, correct2))
+        summation$summationC[input$scoreC] <- sum(c(correct1, correct2))
       })
     
         output$correctC <- renderPrint({
-          cat("You have answered correctly:",summation$summationC[input$submitC])
+          cat("You have answered correctly:",summation$summationC[input$scoreC])
         })
 
     
    
   
     
-observeEvent(input$submitC,{
-  if(summation$summationC[input$submitC] == 2){
+observeEvent(input$scoreC,{
+  if(summation$summationC[input$scoreC] == 2){
     updateButton(session, "next4",disabled = FALSE)
   }})
   
