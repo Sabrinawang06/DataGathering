@@ -354,7 +354,9 @@ shinyUI(tagList(
                                 )
                        ),
                
-                        
+                       fluidRow(
+                         column(1,bsButton("scoreD","Get your score", style='danger',size = "small",type='action')),
+                         column(3, offset=3,textOutput('correctD'))),
                   
                         
                 conditionalPanel("input.next4 != 0",

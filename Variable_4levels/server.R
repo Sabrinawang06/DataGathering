@@ -678,8 +678,49 @@ observeEvent(input$scoreC,{
     updateButton(session, "next4",disabled = FALSE)
   }})
   
-  
+  ################################## Counting Right and Wrong answers in level 4##################3
+summationD<-reactiveValues(correct1D = c(),correct2D=c(),correct3D=c(), started=FALSE)
 
+
+
+observeEvent(input$next4, {time$started <- TRUE})
+observeEvent(input$new2, {time$started <- TRUE})
+observeEvent(input$scoreD, {time$started <- TRUE})
+
+observeEvent(input$scoreD,{ 
+  for (i in c(input$expla)){
+    if (any(i == 'explanatory')){
+      summationD$correct1D = c(summationD$correct1D,1)
+    }else{
+      summationD$correct1D = c(summationD$correct1D,0)
+    }
+  }
+  for (i in c(input$resp)){
+    if (any(i == 'response')){
+      summationD$correct2D = c(summationD$correct2D,1)
+    }else{
+      summationD$correct2D = c(summationD$correct2D,0)
+    }
+  }
+  for (i in c(input$conf)){
+    if (any(i == 'confounding')){
+      summationD$correct3D = c(summationD$correct3D,1)
+    }else{
+      summationD$correct3D = c(summationD$correct3D,0)
+    }
+  }
+  summation$summationD[input$scoreD] <- sum(c(summationD$correct1D, summationD$correct2D, summationD$correct3D))
+})
+
+output$correctD <- renderPrint({
+  cat("You have answered correctly:",summation$summationD[input$scoreD])
+})
+
+
+observeEvent(input$scoreD,{
+  if(summation$summationD[input$scoreD] >= 5){
+    updateButton(session, "finish",disabled = FALSE)
+  }})
 
   ##################################CHECK MARK IN LEVEL 1 AND 2##########################
 
