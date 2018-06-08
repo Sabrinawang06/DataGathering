@@ -586,25 +586,23 @@ shinyServer(function(input, output, session) {
   observeEvent(input$new, {time$started <- TRUE})
   observeEvent(input$scoreC, {time$started <- TRUE})
  
-
       observeEvent(input$scoreC,{ 
-    
           for (i in c(input$explC)){
             if (any(i == 'Explanatory')){
-              correct1 = c(correct1,1)
+              summationC$correct1 = c(summationC$correct1,1)
             }else{
-              correct1 = c(correct1,0)
+              summationC$correct1 = c(summationC$correct1,0)
             }
           }
           for (i in c(input$respC)){
             if (any(i == 'Response')){
-              correct2 = c(correct2,1)
+              summationC$correct2 = c(summationC$correct2,1)
             }else{
-              correct2 = c(correct2,0)
+              summationC$correct2 = c(summationC$correct2,0)
             }
           }
         
-        summation$summationC[input$scoreC] <- sum(c(correct1, correct2))
+        summation$summationC[input$scoreC] <- sum(c(summationC$correct1, summationC$correct2))
       })
     
         output$correctC <- renderPrint({
@@ -612,11 +610,8 @@ shinyServer(function(input, output, session) {
         })
 
     
-   
-  
-    
 observeEvent(input$scoreC,{
-  if(summation$summationC[input$scoreC] == 2){
+  if(summation$summationC[input$scoreC] == 5){
     updateButton(session, "next4",disabled = FALSE)
   }})
   
