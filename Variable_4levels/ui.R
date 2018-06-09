@@ -12,6 +12,7 @@ data <- read.csv("questionBank.csv")
 #####remember to add back the disable=TRUE to the next button
 
 shinyUI(tagList(
+ 
   useShinyjs(),
   navbarPage(title = "Variable Types",id = "navMain", #Give an id to use the updateNavPage() later
              tabPanel(title = "Home",value = "a", ##Give a value to use the updateNavPage() later
@@ -30,7 +31,10 @@ shinyUI(tagList(
                                    color:white;font-weight: bold;font family:Sans-serif;text-align: center; border-radius: 100px}'),
                         tags$style(type='text/css', '#timer5 {background-color:#2C3E50; font-size: 30px; 
                                    color:white;font-weight: bold;font family:Sans-serif;text-align: center; border-radius: 100px}'),
-                        
+                        tags$style(type='text/css', '#correctC {background-color:#c11919; font-size: 25px; 
+                                   color:white;font-weight: bold;font family:Sans-serif;text-align: center; border-radius: 100px}'),
+                        tags$style(type='text/css', '#correctD {background-color:#c11919; font-size: 25px; 
+                                   color:white;font-weight: bold;font family:Sans-serif;text-align: center; border-radius: 100px}'),
                         wellPanel(
                           fluidRow(column(11,uiOutput("about"))),
                           fluidRow(column(11,uiOutput("about1"))),
@@ -297,8 +301,9 @@ shinyUI(tagList(
                                                                      )),uiOutput('markc2') 
                         )),
                       
-                      fluidRow(
-                        column(3, offset=3,textOutput('correctC'))),
+                      wellPanel(style = "background-color: #ffffff;",
+                                fluidRow(
+                        column(3, offset=3,textOutput('correctC')))),
                         
                       
                       conditionalPanel("input.next3 != 0",
