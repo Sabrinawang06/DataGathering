@@ -162,7 +162,7 @@ shinyUI(tagList(
                                                                                          bsButton("submitA", "Submit Answer", style = "primary",size = "small",class = "grow")
                                                                                          )
                                                           ),
-                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small"))
+                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small",disabled = TRUE))
                                                  ),br()
                                                    ),
                                 
@@ -244,7 +244,7 @@ shinyUI(tagList(
                                        fluidRow(column(1,bsButton("previous2","<<Previous",style = "primary", size = "small")),
                                                 column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
                                                                                      bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                                column(1,offset = 5,bsButton("next3","Next>>", size = "small")))
+                                                column(1,offset = 5,bsButton("next3","Next>>", size = "small",disabled=TRUE)))
                                        ,hr(),
                                        conditionalPanel("input.submitB != 0",wellPanel(
                                          fluidPage(
@@ -282,9 +282,9 @@ shinyUI(tagList(
                                  hidden(div(id='timer3h',textOutput("timer3"))
                                  )),br() #print the timer
                           
-                      ),
+                      ),br(),
                       wellPanel(
-                        fluidRow(uiOutput("questionC"),
+                        fluidRow(uiOutput("questionC"),br(),
                                  actionButton("new","New Challenge", size = "small"))
                         
                       ),hr(),

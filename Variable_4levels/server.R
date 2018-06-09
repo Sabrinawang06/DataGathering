@@ -645,9 +645,9 @@ shinyServer(function(input, output, session) {
   
   
   
-  observeEvent(input$next3, {time$started <- TRUE})
-  observeEvent(input$new, {time$started <- TRUE})
-  observeEvent(input$submitC, {time$started <- TRUE})
+  observeEvent(input$next3, {summationC$started <- TRUE})
+  observeEvent(input$new, {summationC$started <- TRUE})
+  observeEvent(input$submitC, {summationC$started <- TRUE})
  
       observeEvent(input$submitC,{ 
           for (i in c(input$explC)){
@@ -1088,7 +1088,7 @@ observeEvent(input$submitD,{
   
   
   ####################################################################
-  summation <- reactiveValues(summationA = c(rep(0,20)), summationB = c(rep(0,20)),summationC=c(rep(0,20)), summationScore = c(rep(0,20)))
+  summation <- reactiveValues(summationA = c(rep(0,20)), summationB = c(rep(0,20)), summationScore = c(rep(0,20)))
   
   observeEvent(input$submitA,{
     score1 = c()
@@ -1169,11 +1169,11 @@ observeEvent(input$submitD,{
   })
   observeEvent(input$submitB,{
     if(summation$summationB[input$submitB] == 20){
-      updateButton(session, "finish",disabled = FALSE)
+      updateButton(session, "next3",disabled = FALSE)
       #values$count = values$count + 20
     }
     else{
-      updateButton(session, "finish", disabled = TRUE)
+      updateButton(session, "next3", disabled = TRUE)
     }
     
     
