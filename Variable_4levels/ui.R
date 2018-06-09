@@ -162,7 +162,7 @@ shinyUI(tagList(
                                                                                          bsButton("submitA", "Submit Answer", style = "primary",size = "small",class = "grow")
                                                                                          )
                                                           ),
-                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small",disabled = TRUE))
+                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small"))
                                                  ),br()
                                                    ),
                                 
@@ -244,7 +244,7 @@ shinyUI(tagList(
                                        fluidRow(column(1,bsButton("previous2","<<Previous",style = "primary", size = "small")),
                                                 column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
                                                                                      bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                                column(1,offset = 5,bsButton("next3","Next>>", size = "small",disabled=TRUE)))
+                                                column(1,offset = 5,bsButton("next3","Next>>", size = "small")))
                                        ,hr(),
                                        conditionalPanel("input.submitB != 0",wellPanel(
                                          fluidPage(
@@ -295,15 +295,15 @@ shinyUI(tagList(
                                selectInput('explC', uiOutput('varEXP'), c('Explanatory',
                                                                         'Response')),uiOutput('markc1')
                         ),
-                        column(4, offset= 1,
+                        column(3, offset= 3,
                                selectInput('respC', uiOutput('varRES'), c('Explanatory',
                                                                      'Response'
                                                                      )),uiOutput('markc2') 
-                        )),
+                        )),br(),
                       
-                      wellPanel(style = "background-color: #ffffff;",
-                                fluidRow(
-                        column(3, offset=3,textOutput('correctC')))),
+                     
+                      fluidRow(
+                        column(4, offset=3,textOutput('correctC'))),br(),
                         
                       
                       conditionalPanel("input.next3 != 0",
