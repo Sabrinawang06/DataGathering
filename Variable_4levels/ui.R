@@ -298,7 +298,6 @@ shinyUI(tagList(
                         )),
                       
                       fluidRow(
-                        column(1,bsButton("scoreC","Get your score", style='danger',size = "small",type='action')),
                         column(3, offset=3,textOutput('correctC'))),
                         
                       

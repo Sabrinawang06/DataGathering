@@ -647,9 +647,9 @@ shinyServer(function(input, output, session) {
   
   observeEvent(input$next3, {time$started <- TRUE})
   observeEvent(input$new, {time$started <- TRUE})
-  observeEvent(input$scoreC, {time$started <- TRUE})
+  observeEvent(input$submitC, {time$started <- TRUE})
  
-      observeEvent(input$scoreC,{ 
+      observeEvent(input$submitC,{ 
           for (i in c(input$explC)){
             if (any(i == 'Explanatory')){
               summationC$correct1 = c(summationC$correct1,1)
@@ -665,16 +665,16 @@ shinyServer(function(input, output, session) {
             }
           }
         
-        summation$summationC[input$scoreC] <- sum(c(summationC$correct1, summationC$correct2))
+        summation$summationC[input$submitC] <- sum(c(summationC$correct1, summationC$correct2))
       })
     
         output$correctC <- renderPrint({
-          cat("You have answered correctly:",summation$summationC[input$scoreC])
+          cat("You have answered correctly:",summation$summationC[input$submitC])
         })
 
     
-observeEvent(input$scoreC,{
-  if(summation$summationC[input$scoreC] >= 5){
+observeEvent(input$submitC,{
+  if(summation$summationC[input$submitC] >= 5){
     updateButton(session, "next4",disabled = FALSE)
   }})
   
