@@ -359,7 +359,8 @@ shinyServer(function(input, output, session) {
     index$exp_index=2*index$index-1
     index$res_index=2*index$index
   })
-  observeEvent(input$new,{
+  
+  observeEvent(input$submitC,{
     index$index <- sample(1:18,1, replace=FALSE, prob=NULL)
     index$exp_index=2*index$index-1
     index$res_index=2*index$index
@@ -583,7 +584,7 @@ shinyServer(function(input, output, session) {
   
   
   observeEvent(input$submitC,{  
-    observeEvent(input$new,{
+    observeEvent(input$submitC,{
       output$markc1 <- renderUI({
         img(src = NULL,width = 30)
       })
@@ -604,7 +605,7 @@ shinyServer(function(input, output, session) {
   })
   
   observeEvent(input$submitC,{ 
-    observeEvent(input$new,{
+    observeEvent(input$submitC,{
       output$markc2 <- renderUI({
         img(src = NULL,width = 30)
       })
@@ -621,8 +622,8 @@ shinyServer(function(input, output, session) {
     })
       })
 })
-  
-  observeEvent(input$new, {
+
+  observeEvent(input$submit, {
     reset('explC')
     reset('respC')
   })  
