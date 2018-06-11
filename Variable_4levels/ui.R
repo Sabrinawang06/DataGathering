@@ -16,6 +16,8 @@ shinyUI(tagList(
   useShinyjs(),
   navbarPage(title = "Variable Types",id = "navMain", #Give an id to use the updateNavPage() later
              tabPanel(title = "Home",value = "a", ##Give a value to use the updateNavPage() later
+                      tags$a(href='http://stat.psu.edu/',tags$img(src='logo.png', align = "left", width = 100)),
+                      br(),
                       fluidPage(
                         tags$style(type='text/css', '#scoreA {font-size: 60px; font-weight: bold;font family:Sans-serif; height: 140px}'),
                         tags$style(type='text/css', '#scoreB {font-size: 60px; font-weight: bold;font family:Sans-serif; height: 140px}'),
@@ -36,6 +38,7 @@ shinyUI(tagList(
                         tags$style(type='text/css', '#correctD {background-color:#c11919; font-size: 25px; 
                                    color:white;font-weight: bold;font family:Sans-serif;text-align: center; border-radius: 100px}'),
                         wellPanel(
+                          
                           fluidRow(column(11,uiOutput("about"))),
                           fluidRow(column(11,uiOutput("about1"))),
                           fluidRow(uiOutput("about2")),hr(),
@@ -56,6 +59,7 @@ shinyUI(tagList(
              
              tabPanel("Level 1",value = "b",
                       fluidPage(theme = "bootstrap.css", #css theme
+                                
                                 tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "themestyle.css")), #link to your own css file
                                 #tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "webkit.css")),
                                 titlePanel("Drag the variables into the categories they belong to. "),

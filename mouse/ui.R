@@ -30,7 +30,10 @@ ui <- dashboardPage(skin = "black",
       tags$link(rel = "stylesheet", type = "text/css", href = "stylecssMouseExp.css")
     ),
     tabItems(
+     
       tabItem(tabName = "instruction",
+              tags$a(href='http://stat.psu.edu/',tags$img(src='logo.png', align = "left", width = 100)),
+              br(),
               fluidRow(
                 column(11,offset = 1, uiOutput("about1"))
               ),

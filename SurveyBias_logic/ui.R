@@ -27,7 +27,11 @@ dashboardPage(
     tabItems(
       
       tabItem(tabName = "readme",
+              
               fluidRow(theme = "custom.css",
+                       tags$a(href='http://stat.psu.edu/',tags$img(src='logo.png', align = "left", width = 100)),
+                       br(),br(),
+                       
                        box(title = "About the app!", status = "success", solidHeader= TRUE, width = 9,
                            strong("Learning objectives:"), br(), 
                            "The goal of this app is to illustrate the different types of biases that occur in the wording of survey questions. 

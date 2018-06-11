@@ -37,7 +37,10 @@ ui <- dashboardPage(
         
       ),
       tabItem(tabName = "overview",
+              
               fluidPage(
+                tags$a(href='http://stat.psu.edu/',tags$img(src='logo.png', align = "left", width = 80)),
+                br(),
                 h1("About"),
                 h2("Explore how weighting adjustment affects the predicted results in survey analysis"),
                 h1("Instruction"),
@@ -60,7 +63,7 @@ ui <- dashboardPage(
       tabItem(tabName = "easy",
               fluidPage(
                 theme = "theme.css",
-                tags$a(href='http://stat.psu.edu/',tags$img(src='logo5.png', align = "left", width = 60)),
+                
                 tags$head(tags$style("#successM{color: red;
                                      font-size: 12px;
                                      font-style: italic;
