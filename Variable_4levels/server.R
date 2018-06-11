@@ -352,7 +352,13 @@ shinyServer(function(input, output, session) {
       ################################# Bank C #######################
   
   
-  index <- reactiveValues(index = 18)
+  index <- reactiveValues(index = 7)
+  
+  observeEvent(input$next3,{
+    index$index <- sample(1:18,1, replace=FALSE, prob=NULL)
+    index$exp_index=2*index$index-1
+    index$res_index=2*index$index
+  })
   observeEvent(input$new,{
     index$index <- sample(1:18,1, replace=FALSE, prob=NULL)
     index$exp_index=2*index$index-1
@@ -361,12 +367,7 @@ shinyServer(function(input, output, session) {
   
   key1<-as.matrix(bankC[1:36,1])
   
-  even_indexes<-c(seq(2,36,2))
-  odd_indexes<-c(seq(1,35,2))
-  
-  key_exp<-key1[odd_indexes,1]
-  key_res<-key1[even_indexes,1]
-  
+ 
   
   output$questionC <- renderUI({
     if (index$index == 1){
