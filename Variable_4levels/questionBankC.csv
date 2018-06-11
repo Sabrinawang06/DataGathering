@@ -1,3 +1,4 @@
+Type,var,number,variable,question
 Explanatory,var1,Q1,Beer,"The legal limit for driving in all states is 0.08%. In a study, adult volunteers drank different numbers of cans of beer. Thirty minutes later, a police officer measured their blood alcohol levels."
 Response,var2,Q1,Blood alcohol level,"The legal limit for driving in all states is 0.08%. In a study, adult volunteers drank different numbers of cans of beer. Thirty minutes later, a police officer measured their blood alcohol levels."
 Explanatory,var3,Q2,Amount of debt and income,"The National Student Loan Survey provides data on the amount of debt for recent college graduates, their current income, and how stressed they feel about college debt. A sociologist looks at the data with the goal of using amount of debt and income to explain the stress caused by college debt."
