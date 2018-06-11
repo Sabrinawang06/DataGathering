@@ -352,12 +352,21 @@ shinyServer(function(input, output, session) {
       ################################# Bank C #######################
   
   
-  index <- reactiveValues(index = 12)
+  index <- reactiveValues(index = 18)
   observeEvent(input$new,{
-    index$index <- sample(1:12,1, replace=TRUE, prob=NULL)
+    index$index <- sample(1:18,1, replace=FALSE, prob=NULL)
+    index$exp_index=2*index$index-1
+    index$res_index=2*index$index
   })
   
-
+  key1<-as.matrix(bankC[1:36,1])
+  
+  even_indexes<-c(seq(2,36,2))
+  odd_indexes<-c(seq(1,35,2))
+  
+  key_exp<-key1[odd_indexes,1]
+  key_res<-key1[even_indexes,1]
+  
   
   output$questionC <- renderUI({
     if (index$index == 1){
@@ -386,7 +395,20 @@ shinyServer(function(input, output, session) {
       h3(bankC[21,5])
     }else if (index$index == 12){
       h3(bankC[23,5])
+    }else if (index$index == 13){
+      h3(bankC[25,5])
+    }else if (index$index == 14){
+      h3(bankC[27,5])
+    }else if (index$index == 15){
+      h3(bankC[29,5])
+    }else if (index$index == 16){
+      h3(bankC[31,5])
+    }else if (index$index == 17){
+      h3(bankC[33,5])
+    }else if (index$index == 18){
+      h3(bankC[35,5])
     }
+    
   })
   
   
@@ -418,6 +440,20 @@ shinyServer(function(input, output, session) {
     }else if (index$index == 12){
       h3(bankC[23,4])
     }
+    else if (index$index == 13){
+      h3(bankC[25,4])
+    }else if (index$index == 14){
+      h3(bankC[27,4])
+    }else if (index$index == 15){
+      h3(bankC[29,4])
+    }else if (index$index == 16){
+      h3(bankC[31,4])
+    }
+    else if (index$index == 17){
+      h3(bankC[33,4])
+    }else if (index$index == 18){
+      h3(bankC[35,4])
+    }
   })
   
   output$varRES <- renderUI({
@@ -447,6 +483,20 @@ shinyServer(function(input, output, session) {
       h3(bankC[22,4])
     }else if (index$index == 12){
       h3(bankC[24,4])
+    }
+    else if (index$index == 13){
+      h3(bankC[26,4])
+    }else if (index$index == 14){
+      h3(bankC[28,4])
+    }else if (index$index == 15){
+      h3(bankC[30,4])
+    }else if (index$index == 16){
+      h3(bankC[32,4])
+    }
+    else if (index$index == 17){
+      h3(bankC[34,4])
+    }else if (index$index == 18){
+      h3(bankC[36,4])
     }
   })
   
@@ -526,7 +576,10 @@ shinyServer(function(input, output, session) {
     updateButton(session,"submitC",disabled = FALSE)
   })
   
+  
   ##try for level3 
+ 
+  
   
   observeEvent(input$submitC,{  
     observeEvent(input$new,{
@@ -538,13 +591,14 @@ shinyServer(function(input, output, session) {
     observe({
       output$markc1 <- renderUI({
         if (!is.null(input$explC)){
-          if (any(input$explC == 'Explanatory')){
+          if (any(input$explC == key1[index$exp_index,1])){
             img(src = "check.png",width = 30)
           }else{
             img(src = "cross.png",width = 30)
           }
         }
       })
+      
     })
   })
   
@@ -555,16 +609,16 @@ shinyServer(function(input, output, session) {
       })
     })
   observe({
-    output$markc2 <- renderUI({
+      output$markc2 <- renderUI({
       if (!is.null(input$respC)){
-        if (any(input$respC == 'Response')){
+        if (any(input$respC == key1[index$res_index,1])){
           img(src = "check.png",width = 30)
         }else{
           img(src = "cross.png",width = 30)
         }
       }
     })
-  })
+      })
 })
   
   observeEvent(input$new, {
