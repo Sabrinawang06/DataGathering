@@ -268,7 +268,8 @@ shinyUI(tagList(
              ##################Adding level 3 game
              tabPanel(title= "Level 3", value= "e",
                       titlePanel("Explanatory and Response Variables"),
-                      
+                      fluidRow(h4("You must get 5 correct answers before moving to the next level")),
+                      fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question")),
                       fluidRow(
                         column(3, bsButton('bt3', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
                                bsButton('bq3', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt')
@@ -285,7 +286,7 @@ shinyUI(tagList(
                       ),br(),
                       wellPanel(
                         fluidRow(uiOutput("questionC"),br(),
-                                 actionButton("new","New Challenge", size = "small"))
+                                 actionButton("new","New Question", size = "small"))
                         
                       ),hr(),
                       
@@ -321,6 +322,8 @@ shinyUI(tagList(
              
                tabPanel(title= "Level 4", value= "f",
                         titlePanel(h1("This level will add in the concepts of confounding variables")),
+                        fluidRow(h4("You must answer 5 correct choices before completing the level")),
+                        fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question")),
                         fluidRow(
                           
                           column(3,offset = 6,
@@ -338,24 +341,26 @@ shinyUI(tagList(
                                   ),
                         
                         fluidRow(
-                         column(3, offset = 1,
-                                selectInput('expla',uiOutput('varEXPD') , c('explanatory',
-                                                                            'response',
-                                                                            'confounding'
-                                                                          )),uiOutput('markd1')
-                         ),
-                         column(4, offset= 1,
+                         column(5, offset = 1,
                                 selectInput('resp', uiOutput('varRESD'), c('explanatory',
                                                                            'response',
                                                                            'confounding'
                                 )),uiOutput('markd2')
-                          ),
-                         column(5, offset= 1,
+                            
+                         ),
+                         column(4, offset= 1,
                                 selectInput('conf', uiOutput('varCOND'),c('explanatory',
                                                                           'response',
                                                                           'confounding'
                                 )), uiOutput('markd3')
-                                )
+                         ),
+                          
+                         column(4, offset= 1,
+                                selectInput('expla',uiOutput('varEXPD') , c('explanatory',
+                                                                            'response',
+                                                                            'confounding'
+                                )),uiOutput('markd1')
+                         )
                        ),
                
                   fluidRow(
