@@ -40,7 +40,7 @@ dashboardPage(
       
       
       tabItem(tabName = "overview",
-              fluidRow(theme = "bootstrap.css",
+              fluidRow(theme = "custom.css",
                        box(title = "What's the big deal about Survey Bias?", status = "success", solidHeader = TRUE, width = 7,
                            
                            "Surveys help us understand public opinion on many topics.  While surveys may seem easy to create, there are some common pitfalls in question wording to watch out for.  Look at the questions below to see an example of each.",
@@ -134,12 +134,12 @@ dashboardPage(
                          
                          useShinyjs(),
                          extendShinyjs(text = jsResetCode),
-                         actionButton("reset_button", "Reset the page!")
+                         actionButton("reset_button", "Return to Overview!")
                          
                          
                          ),
                        
-                       box(title = "Did you Know...", status = "warning", solidHeader = TRUE, width = 5,
+                       box(title = "Did you Know...", status = "warning", solidHeader = TRUE, width = 5, 
                            img(src = 'truman.png', align= "right"),
                            " For the 1948 election between Thomas Dewey and Harry Truman, Gallup conducted a poll with a sample size of about 
                            3250. Each individual in the sample was interviewed in person by a professional interviewer to minimize nonresponse bias, 
