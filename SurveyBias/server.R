@@ -123,13 +123,13 @@ shinyServer(function(input, output, session) {
   numbers <- reactiveValues( dis = c())
   
   observeEvent(input$go,{
-    numbers$important = sample(1:5,1)
-    numbers$filtering = sample(6:10,1)
-    numbers$deliberate = sample(11:15,1)
-    numbers$anchoring = sample(16:20,1)
-    numbers$unintentional = sample(21:25,1)
-    numbers$unnecessary = sample(26:30,1)
-    numbers$nonbias = sample(31:35,1)
+    numbers$important = sample(2:6,1)
+    numbers$filtering = sample(7:11,1)
+    numbers$deliberate = sample(12:16,1)
+    numbers$anchoring = sample(17:21,1)
+    numbers$unintentional = sample(22:26,1)
+    numbers$unnecessary = sample(27:31,1)
+    numbers$nonbias = sample(32:36,1)
   })
   
   output$importantID1 <- renderText({
@@ -265,7 +265,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer1 <- renderUI({
         if (!is.null(input$drp1)){
-          if (any(input$drp1 == paste("\n                            ",bank[c(1:5),3],"\n                          ", sep = ""))){
+          if (any(input$drp1 == paste("\n                            ",bank[c(2:6),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -284,7 +284,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer2 <- renderUI({
         if (!is.null(input$drp2)){
-          if (any(input$drp2 == paste("\n                            ",bank[c(6:10),3],"\n                          ", sep = ""))){
+          if (any(input$drp2 == paste("\n                            ",bank[c(7:11),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -302,7 +302,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer3 <- renderUI({
         if (!is.null(input$drp3)){
-          if (any(input$drp3 == paste("\n                            ",bank[c(16:20),3],"\n                          ", sep = ""))){
+          if (any(input$drp3 == paste("\n                            ",bank[c(17:21),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -320,7 +320,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer4 <- renderUI({
         if (!is.null(input$drp4)){
-          if (any(input$drp4 == paste("\n                            ",bank[c(11:15),3],"\n                          ", sep = ""))){
+          if (any(input$drp4 == paste("\n                            ",bank[c(12:16),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -339,7 +339,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer5 <- renderUI({
         if (!is.null(input$drp5)){
-          if (any(input$drp5 == paste("\n                            ",bank[c(16:20),3],"\n                          ", sep = ""))){
+          if (any(input$drp5 == paste("\n                            ",bank[c(17:21),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -358,7 +358,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer6 <- renderUI({
         if (!is.null(input$drp6)){
-          if (any(input$drp6 == paste("\n                            ",bank[c(31:35),3],"\n                          ", sep = ""))){
+          if (any(input$drp6 == paste("\n                            ",bank[c(32:36),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -377,7 +377,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer7 <- renderUI({
         if (!is.null(input$drp7)){
-          if (any(input$drp7 == paste("\n                            ",bank[c(21:25),3],"\n                          ", sep = ""))){
+          if (any(input$drp7 == paste("\n                            ",bank[c(22:26),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -396,7 +396,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer8 <- renderUI({
         if (!is.null(input$drp8)){
-          if (any(input$drp8 == paste("\n                            ",bank[c(26:30),3],"\n                          ", sep = ""))){
+          if (any(input$drp8 == paste("\n                            ",bank[c(27:31),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -414,7 +414,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer9 <- renderUI({
         if (!is.null(input$drp9)){
-          if (any(input$drp9 == paste("\n                            ",bank[c(31:36),3],"\n                          ", sep = ""))){
+          if (any(input$drp9 == paste("\n                            ",bank[c(32:36),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -432,7 +432,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer10 <- renderUI({
         if (!is.null(input$drp10)){
-          if (any(input$drp10 == paste("\n                            ",bank[c(21:25),3],"\n                          ", sep = ""))){
+          if (any(input$drp10 == paste("\n                            ",bank[c(22:26),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -450,7 +450,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer11 <- renderUI({
         if (!is.null(input$drp11)){
-          if (any(input$drp11 == paste("\n                            ",bank[c(26:30),3],"\n                          ", sep = ""))){
+          if (any(input$drp11 == paste("\n                            ",bank[c(27:31),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -468,7 +468,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer12 <- renderUI({
         if (!is.null(input$drp12)){
-          if (any(input$drp12 == paste("\n                            ",bank[c(6:10),3],"\n                          ", sep = ""))){
+          if (any(input$drp12 == paste("\n                            ",bank[c(7:11),3],"\n                          ", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -487,7 +487,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer13 <- renderUI({
         if (!is.null(input$drp13)){
-          if (any(input$drp13 == paste("haha ur wrong",bank[c(6:10),3],"lol", sep = ""))){
+          if (any(input$drp13 == paste("haha ur wrong",bank[c(7:11),3],"lol", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -506,7 +506,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$answer14 <- renderUI({
         if (!is.null(input$drp14)){
-          if (any(input$drp14 == paste("haha ur wrong",bank[c(6:10),3],"lol", sep = ""))){
+          if (any(input$drp14 == paste("haha ur wrong",bank[c(7:11),3],"lol", sep = ""))){
             img(src = "check.png",width = 10)
           }else{
             img(src = "wrong.png",width = 10)
@@ -525,19 +525,19 @@ shinyServer(function(input, output, session) {
     score3 = c()
     
     for (i in c(input$drp2)){
-      if (any(i == paste("\n                            ",bank[c(6:10),3],"\n                          ", sep = ""))){
+      if (any(i == paste("\n                            ",bank[c(7:11),3],"\n                          ", sep = ""))){
         score1 = c(score1,10)
       }else{
         score1 = c(score1,-5)
       }
     }
     for (i in c(input$drp3)){
-      if (any(i == paste("\n                            ",bank[c(16:20),3],"\n                          ", sep = ""))){
+      if (any(i == paste("\n                            ",bank[c(17:21),3],"\n                          ", sep = ""))){
         score2 = c(score2, 10)}else{
           score2 = c(score2, -5)}
     }
     for (i in c(input$drp4)){
-      if (any(i == paste("\n                            ",bank[c(11:15),3],"\n                          ", sep = ""))){
+      if (any(i == paste("\n                            ",bank[c(12:16),3],"\n                          ", sep = ""))){
         score3 = c(score3, 10)}else{
           score3 = c(score3, -5)}
     }
@@ -553,19 +553,19 @@ shinyServer(function(input, output, session) {
     
     
     for (i in c(input$drp6)){
-      if (any(i == paste("\n                            ",bank[c(31:35),3],"\n                          ", sep = ""))){
+      if (any(i == paste("\n                            ",bank[c(32:36),3],"\n                          ", sep = ""))){
         score6 = c(score6,10)
       }else{
         score6 = c(score6,-5)
       }
     }
     for (i in c(input$drp7)){
-      if (any(i == paste("\n                            ",bank[c(21:25),3],"\n                          ", sep = ""))){
+      if (any(i == paste("\n                            ",bank[c(22:26),3],"\n                          ", sep = ""))){
         score7 = c(score7, 10)}else{
           score7 = c(score7, -5)}
     }
     for (i in c(input$drp8)){
-      if (any(i == paste("\n                            ",bank[c(26:30),3],"\n                          ", sep = ""))){
+      if (any(i == paste("\n                            ",bank[c(27:31),3],"\n                          ", sep = ""))){
         score8 = c(score8, 10)}else{
           score8 = c(score8, -5)}
     }
@@ -583,34 +583,34 @@ shinyServer(function(input, output, session) {
     score14 = c()
     
     for (i in c(input$drp9)){
-      if (any(i == paste("\n                            ",bank[c(31:36),3],"\n                          ", sep = ""))){
+      if (any(i == paste("\n                            ",bank[c(32:36),3],"\n                          ", sep = ""))){
         score9 = c(score9,10)
       }else{
         score9 = c(score9,-5)
       }
     }
     for (i in c(input$drp10)){
-      if (any(i == paste("\n                            ",bank[c(21:25),3],"\n                          ", sep = ""))){
+      if (any(i == paste("\n                            ",bank[c(22:26),3],"\n                          ", sep = ""))){
         score10 = c(score10, 10)}else{
           score10 = c(score10, -5)}
     }
     for (i in c(input$drp11)){
-      if (any(i == paste("\n                            ",bank[c(26:30),3],"\n                          ", sep = ""))){
+      if (any(i == paste("\n                            ",bank[c(27:31),3],"\n                          ", sep = ""))){
         score11 = c(score11, 10)}else{
           score11 = c(score11, -5)}
     }
     for (i in c(input$drp12)){
-      if (any(i == paste("\n                            ",bank[c(6:10),3],"\n                          ", sep = ""))){
+      if (any(i == paste("\n                            ",bank[c(7:11),3],"\n                          ", sep = ""))){
         score12 = c(score12, 10)}else{
           score12 = c(score12, -5)}
     }
     for (i in c(input$drp13)){
-      if (any(i == paste("haha ur wrong",bank[c(6:10),3],"lol", sep = ""))){
+      if (any(i == paste("haha ur wrong",bank[c(7:11),3],"lol", sep = ""))){
         score13 = c(score13, 0)}else{
           score13 = c(score13, 0)}
     }
     for (i in c(input$drp14)){
-      if (any(i == paste("haha ur wrong",bank[c(6:10),3],"lol", sep = "", sep = ""))){
+      if (any(i == paste("haha ur wrong",bank[c(7:11),3],"lol", sep = "", sep = ""))){
         score14 = c(score14, 0)}else{
           score14 = c(score14, 0)}
     }
