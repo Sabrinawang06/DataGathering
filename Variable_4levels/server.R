@@ -359,8 +359,7 @@ shinyServer(function(input, output, session) {
     index$exp_index=2*index$index-1
     index$res_index=2*index$index
   })
-  
-  observeEvent(input$submitC,{
+  observeEvent(input$new,{
     index$index <- sample(1:18,1, replace=FALSE, prob=NULL)
     index$exp_index=2*index$index-1
     index$res_index=2*index$index
@@ -575,16 +574,28 @@ shinyServer(function(input, output, session) {
   })
   
   observeEvent(input$submitC,{
+    updateButton(session,"submitC",disabled = TRUE)
+  })
+  
+  observeEvent(input$submitC,{
+    updateButton(session,"new",disabled = FALSE)
+  })
+  
+
+  observeEvent(input$new,{
     updateButton(session,"submitC",disabled = FALSE)
   })
   
+  observeEvent(input$new,{
+    updateButton(session,"new",disabled = TRUE)
+  })
   
   ##try for level3 
  
   
   
   observeEvent(input$submitC,{  
-    observeEvent(input$submitC,{
+    observeEvent(input$new,{
       output$markc1 <- renderUI({
         img(src = NULL,width = 30)
       })
@@ -605,7 +616,7 @@ shinyServer(function(input, output, session) {
   })
   
   observeEvent(input$submitC,{ 
-    observeEvent(input$submitC,{
+    observeEvent(input$new,{
       output$markc2 <- renderUI({
         img(src = NULL,width = 30)
       })
@@ -622,10 +633,11 @@ shinyServer(function(input, output, session) {
     })
       })
 })
-
-  observeEvent(input$submit, {
+  
+  observeEvent(input$new, {
     reset('explC')
     reset('respC')
+    reset('submit')
   })  
 
   
@@ -725,7 +737,7 @@ shinyServer(function(input, output, session) {
       })
     
         output$correctC <- renderPrint({
-          cat("You have answered correctly:",summation$summationC[input$submitC])
+          cat("Correct:",summation$summationC[input$submitC])
         })
 
     

@@ -16,7 +16,7 @@ shinyUI(tagList(
   useShinyjs(),
   navbarPage(title = "Variable Types",id = "navMain", #Give an id to use the updateNavPage() later
              tabPanel(title = "Home",value = "a", ##Give a value to use the updateNavPage() later
-                      tags$a(href='http://stat.psu.edu/',tags$img(src='logo.png', align = "left", width = 100)),
+                      tags$a(href='http://stat.psu.edu/',tags$img(src='logo.png', align = "left", width = 180)),
                       br(),
                       fluidPage(
                         tags$style(type='text/css', '#scoreA {font-size: 60px; font-weight: bold;font family:Sans-serif; height: 140px}'),
@@ -289,10 +289,10 @@ shinyUI(tagList(
                           
                       ),br(),
                       wellPanel(
-                        fluidRow(uiOutput("questionC"),br(),
-                                 actionButton("new","New Question", size = "small"))
+                        fluidRow(uiOutput("questionC"),br()
+                                 
                         
-                      ),hr(),
+                      )),hr(),
                       
                       
                       fluidRow(
@@ -312,10 +312,11 @@ shinyUI(tagList(
                         
                       
                       conditionalPanel("input.next3 != 0",
-                                       fluidRow(column(1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
-                                                column(1,offset = 4,conditionalPanel("(input.explC!='') & (input.respC!='')",
+                                       fluidRow(column(1,offset=1,bsButton("previous4","<<Previous",style = "primary", size = "small")),
+                                                column(1,offset = 1,conditionalPanel("(input.explC!='') & (input.respC!='')",
                                                                                     bsButton("submitC","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                                column(1,offset = 5,bsButton("next4","Next>>", size = "small",disabled = TRUE)))
+                                                column(1, offset=2,bsButton("new","New Question", size = "small",style='primary',disabled=TRUE)),
+                                                column(1,offset =2,bsButton("next4","Next>>", size = "small",style='primary',disabled = TRUE)))
                                        ,hr()
                                        
                       )
