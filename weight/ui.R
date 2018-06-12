@@ -100,6 +100,8 @@ ui <- dashboardPage(
                                      }"
                         )),
                 
+                tags$style(HTML(".js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge, .js-irs-0 .irs-bar {background:#AED6F1}")),
+                tags$style(HTML(".js-irs-1 .irs-single, .js-irs-1 .irs-bar-edge, .js-irs-1 .irs-bar {background:#C0392B}")),
                 
                 titlePanel("Weighting adjustment with one auxiliary variable"),
                 
