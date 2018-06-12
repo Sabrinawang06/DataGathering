@@ -775,28 +775,28 @@ observeEvent(input$new2, {time$started <- TRUE})
 observeEvent(input$submitD, {time$started <- TRUE})
 
 observeEvent(input$submitD,{ 
-  for (i in c(input$expla)){
-    if (any(i == 'explanatory')){
+  for (i in c(input$expla)){ for(j in c(input$resp)) {for( k in  c(input$conf)){
+    if (any(i == 'explanatory')& any(j=='response')&any(k=='confounding')){
       summationD$correct1D = c(summationD$correct1D,1)
     }else{
       summationD$correct1D = c(summationD$correct1D,0)
     }
-  }
-  for (i in c(input$resp)){
-    if (any(i == 'response')){
-      summationD$correct2D = c(summationD$correct2D,1)
-    }else{
-      summationD$correct2D = c(summationD$correct2D,0)
-    }
-  }
-  for (i in c(input$conf)){
-    if (any(i == 'confounding')){
-      summationD$correct3D = c(summationD$correct3D,1)
-    }else{
-      summationD$correct3D = c(summationD$correct3D,0)
-    }
-  }
-  summation$summationD[input$submitD] <- sum(c(summationD$correct1D, summationD$correct2D, summationD$correct3D))
+  }}}
+  # for (i in c(input$resp)){
+  #   if (any(i == 'response')){
+  #     summationD$correct2D = c(summationD$correct2D,1)
+  #   }else{
+  #     summationD$correct2D = c(summationD$correct2D,0)
+  #   }
+  # }
+  # for (i in c(input$conf)){
+  #   if (any(i == 'confounding')){
+  #     summationD$correct3D = c(summationD$correct3D,1)
+  #   }else{
+  #     summationD$correct3D = c(summationD$correct3D,0)
+  #   }
+  # }
+  summation$summationD[input$submitD] <- sum(c(summationD$correct1D))
 })
 
 output$correctD <- renderPrint({
