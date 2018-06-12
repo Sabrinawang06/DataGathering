@@ -319,6 +319,9 @@ shinyUI(tagList(
                                                 column(1,offset =2,bsButton("next4","Next>>", size = "small",style='primary',disabled = TRUE)))
                                        ,hr()
                                        
+                      ),
+                      fluidRow(
+                        column(3,offset=4,uiOutput('train1'))
                       )
                       ),
              

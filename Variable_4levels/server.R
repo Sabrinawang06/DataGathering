@@ -1461,6 +1461,31 @@ observeEvent(input$submitD,{
       }
     })
   })
+  
+  ########train###########
+observe(
+  if (sum(c(summationC$correct1))==1){
+  output$train1 <- renderUI({
+    img(src = 'train1.png', width = "20%", height = "20%")
+  })}
+  else if (sum(c(summationC$correct1))==2){
+    output$train1 <- renderUI({
+      img(src = 'train2.gif', width = "40%", height = "40%")
+    })}
+  else if (sum(c(summationC$correct1))==3){
+    output$train1 <- renderUI({
+      img(src = 'train3.gif', width = "60%", height = "60%")
+    })}
+  else if (sum(c(summationC$correct1))==4){
+    output$train1 <- renderUI({
+      img(src = 'train4.gif', width = "80%", height = "80%")
+    })}
+  else if (sum(c(summationC$correct1))==5){
+    output$train1 <- renderUI({
+      img(src ='train5.png', width = "100%", height = "100%")
+    })}
+)  
+  
   ########################################################################################
   
   
