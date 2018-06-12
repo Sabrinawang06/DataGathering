@@ -31,7 +31,7 @@ ui <- dashboardPage(skin = "black",
     
     tabItems(
       tabItem(tabName = "instruction",
-              tags$a(href='http://stat.psu.edu/',tags$img(src='logo.png', align = "left", width = 80)),
+              tags$a(href='http://stat.psu.edu/',tags$img(src='logo.png', align = "left", width = 180)),
               
               fluidRow(
                 column(11,offset = 1, uiOutput("about1"))
