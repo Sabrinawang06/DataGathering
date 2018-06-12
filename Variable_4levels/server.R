@@ -1482,7 +1482,7 @@ observe(
     })}
   else if (sum(c(summationC$correct1))==5){
     output$train1 <- renderUI({
-      img(src ='train5.png', width = "100%", height = "100%")
+      img(src ='train_f_02.png', width = "110%", height = "110%")
     })}
 )  
   
