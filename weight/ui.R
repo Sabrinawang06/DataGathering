@@ -128,10 +128,11 @@ ui <- dashboardPage(
                     uiOutput("warning"),
                     uiOutput("progress"),
                     div(style = "position: relative; top:-15px", div(style = "float: left", print("0")),div(style = "float:right", print("n"))),
-                    
+                
                     
                     bsTooltip(id='male', 'Use the weight 48/30, population divided by sample', placement='top', trigger='click'),
                     bsTooltip(id='female', 'Use the weight 52/70, population divided by sample', placement='top', trigger='click',option=NULL),
+                    
                     wellPanel(
                       sliderInput("male","Weight for Male:", min = 0, value = 1, max = 2, step = 0.1),
                       textOutput("hintM"),

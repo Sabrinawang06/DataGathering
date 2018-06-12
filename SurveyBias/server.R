@@ -14,6 +14,11 @@ shinyServer(function(input, output, session) {
   observeEvent(input$reset_button, {js$reset()}) 
   
   
+  ###go button
+  observeEvent(input$start,{
+    updateTabItems(session,"tabs","overview")
+  })
+  
   ########Timer Info
   time<-reactiveValues(inc=0, timer=reactiveTimer(1000), started=FALSE)
   
