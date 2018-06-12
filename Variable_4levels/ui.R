@@ -352,21 +352,24 @@ shinyUI(tagList(
                          column(5, offset = 1,
                                 selectInput('resp', uiOutput('varRESD'), c('explanatory',
                                                                            'response',
-                                                                           'confounding'
+                                                                           'confounding',
+                                                                           'none of the above'
                                 )),uiOutput('markd2')
                             
                          ),
                          column(4, offset= 1,
                                 selectInput('conf', uiOutput('varCOND'),c('explanatory',
                                                                           'response',
-                                                                          'confounding'
+                                                                          'confounding', 
+                                                                          'none of the above'
                                 )), uiOutput('markd3')
                          ),
                           
                          column(4, offset= 1,
                                 selectInput('expla',uiOutput('varEXPD') , c('explanatory',
                                                                             'response',
-                                                                            'confounding'
+                                                                            'confounding',
+                                                                            'none of the above'
                                 )),uiOutput('markd1')
                          )
                        ),
