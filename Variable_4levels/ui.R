@@ -316,7 +316,7 @@ shinyUI(tagList(
                                                 column(1,offset = 1,conditionalPanel("(input.explC!='') & (input.respC!='')",
                                                                                     bsButton("submitC","Submit Answer", style = "primary", class = "grow", size = "small"))),
                                                 column(1, offset=2,bsButton("new","New Question", size = "small",style='primary',disabled=TRUE)),
-                                                column(1,offset =2,bsButton("next4","Next>>", size = "small",style='primary',disabled = TRUE)))
+                                                column(1,offset =2,bsButton("next4","Next>>", size = "small",style='primary',disabled = FALSE)))
                                        ,hr()
                                        
                       ),
@@ -343,8 +343,8 @@ shinyUI(tagList(
                         
                         
                         wellPanel(
-                          fluidRow(uiOutput("questionD")),
-                          actionButton("new2","New Question", size = "small")
+                          fluidRow(uiOutput("questionD"))
+                      
                                    
                                   ),
                         
@@ -379,10 +379,11 @@ shinyUI(tagList(
                 conditionalPanel("input.next4 != 0",
                                 
                                 
-                               fluidRow(column(1,bsButton("previous5","<<Previous",style = "primary", size = "small")),
-                                         column(1,offset = 4,conditionalPanel("(input.expla!='') & (input.resp!='') & (input.conf!='')",
+                               fluidRow(column(1, offset =1, bsButton("previous5","<<Previous",style = "primary", size = "small")),
+                                         column(1,offset = 1,conditionalPanel("(input.expla!='') & (input.resp!='') & (input.conf!='')",
                                                                           bsButton("submitD","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                         column(1,offset = 5,bsButton("finish","Stop>>", style = "danger", disabled = TRUE, size = "small")))
+                                         column(1, offset = 2,bsButton("new2","New Question", size = "small",style='primary',disabled=TRUE)),
+                                         column(1,offset = 2,bsButton("finish","Stop>>", style = "danger", disabled = TRUE, size = "small")))
                                 ,hr()
                                 
                )

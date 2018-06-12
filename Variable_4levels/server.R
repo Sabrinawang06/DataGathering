@@ -589,7 +589,23 @@ shinyServer(function(input, output, session) {
   observeEvent(input$new,{
     updateButton(session,"new",disabled = TRUE)
   })
+
+  observeEvent(input$submitD,{
+    updateButton(session,"submitD",disabled = TRUE)
+  })
   
+  observeEvent(input$submitD,{
+    updateButton(session,"new2",disabled = FALSE)
+  })
+  
+  
+  observeEvent(input$new2,{
+    updateButton(session,"submitD",disabled = FALSE)
+  })
+  
+  observeEvent(input$new2,{
+    updateButton(session,"new2",disabled = TRUE)
+  })
   ##try for level3 
  
   
