@@ -386,7 +386,12 @@ shinyUI(tagList(
                                          column(1,offset = 2,bsButton("finish","Stop>>", style = "danger", disabled = TRUE, size = "small")))
                                 ,hr()
                                 
+               ),
+               
+               fluidRow(
+                 column(3,offset=4,uiOutput('trainB'))
                )
+               
                ),
                
                

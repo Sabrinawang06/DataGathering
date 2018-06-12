@@ -766,7 +766,7 @@ observeEvent(input$submitC,{
   }})
   
   ################################## Counting Right and Wrong answers in level 4##################3
-summationD<-reactiveValues(correct1D = c(),correct2D=c(),correct3D=c(), started=FALSE)
+summationD<-reactiveValues(correct1D = c(0),correct2D=c(),correct3D=c(), started=FALSE)
 
 
 
@@ -800,7 +800,7 @@ observeEvent(input$submitD,{
 })
 
 output$correctD <- renderPrint({
-  cat("You have answered correctly:",summation$summationD[input$submitD])
+  cat("You have earned", summation$summationD[input$submitD] , "points")
 })
 
 
@@ -1502,8 +1502,30 @@ observe(
     })}
 )  
   
-  ########################################################################################
-  
+  ######################################Train 2##################################################
+  observe(
+    if (sum(c(summationD$correct1D))==1){
+      output$trainB <- renderUI({
+        img(src = 'train1B.png', width = "20%", height = "20%")
+      })}
+    else if (sum(c(summationD$correct1D))==2){
+      output$trainB <- renderUI({
+        img(src = 'train2B.gif', width = "40%", height = "40%")
+      })}
+    else if (sum(c(summationD$correct1D))==3){
+      output$trainB <- renderUI({
+        img(src = 'train3B.gif', width = "60%", height = "60%")
+      })}
+    else if (sum(c(summationD$correct1D))==4){
+      output$trainB <- renderUI({
+        img(src = 'train4B.gif', width = "80%", height = "80%")
+      })}
+    else if (sum(c(summationD$correct1D))==5){
+      output$trainB <- renderUI({
+        img(src ='train_f_02.png', width = "110%", height = "110%")
+      })}
+  )  
+  ######################################################################################
   
   observeEvent(input$check,{
     updateButton(session,"check",disabled = TRUE)
