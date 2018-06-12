@@ -719,21 +719,21 @@ shinyServer(function(input, output, session) {
  
       observeEvent(input$submitC,{ 
           for (i in c(input$explC)){
-            if (any(i == 'Explanatory')){
+            if (any(input$explC == key1[index$exp_index,1])& any(input$respC == key1[index$res_index,1])){
               summationC$correct1 = c(summationC$correct1,1)
             }else{
               summationC$correct1 = c(summationC$correct1,0)
             }
           }
-          for (i in c(input$respC)){
-            if (any(i == 'Response')){
-              summationC$correct2 = c(summationC$correct2,1)
-            }else{
-              summationC$correct2 = c(summationC$correct2,0)
-            }
-          }
+          # for (i in c(input$respC)){
+          #   if (any(i == 'Response')){
+          #     summationC$correct2 = c(summationC$correct2,1)
+          #   }else{
+          #     summationC$correct2 = c(summationC$correct2,0)
+          #   }
+          # }
         
-        summation$summationC[input$submitC] <- sum(c(summationC$correct1, summationC$correct2))
+        summation$summationC[input$submitC] <- sum(c(summationC$correct1))
       })
     
         output$correctC <- renderPrint({
