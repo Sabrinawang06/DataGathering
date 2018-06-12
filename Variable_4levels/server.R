@@ -709,7 +709,7 @@ shinyServer(function(input, output, session) {
 ########################account for correct answers level 3##########################
   
   
-  summationC<-reactiveValues(correct1 = c(),correct2=c(), started=FALSE)
+  summationC<-reactiveValues(correct1 = c(0),correct2=c(), started=FALSE)
   
   
   
@@ -733,11 +733,14 @@ shinyServer(function(input, output, session) {
           #   }
           # }
         
+      
         summation$summationC[input$submitC] <- sum(c(summationC$correct1))
       })
     
         output$correctC <- renderPrint({
-          cat("Correct:",summation$summationC[input$submitC])
+          if (sum(c(summationC$correct1))==0) {cat("You have earned 0 points")}
+          else{
+          cat("You have earned",summation$summationC[input$submitC],'points')}
         })
 
     

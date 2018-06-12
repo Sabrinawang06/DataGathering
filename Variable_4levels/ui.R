@@ -272,7 +272,7 @@ shinyUI(tagList(
              ##################Adding level 3 game
              tabPanel(title= "Level 3", value= "e",
                       titlePanel("Explanatory and Response Variables"),
-                      fluidRow(h4("You must get 5 correct answers before moving to the next level")),
+                      fluidRow(h4("You must get both answers correct to earn 1 point and get 5 points before moving to the next level")),
                       fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question")),
                       fluidRow(
                         column(3, bsButton('bt3', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
