@@ -180,7 +180,7 @@ shinyUI(tagList(
                                         dropUI("home1",class = "dropelement dropelementHome", col_n = 3),
                                         
                                         class = "wellTransparent col-lg-8"),
-                                      wellPanel(h4("Full score is 80 for level A."),
+                                      wellPanel(h4("Full score is 40 for level A."),
                                                 div(style = "position:absolute; top:8em; right:2em",bsButton("clear","CLEAR",style = "danger")),
                                                 verbatimTextOutput("scoreA"),class = "wellTransparent col-lg-4")
                                     )

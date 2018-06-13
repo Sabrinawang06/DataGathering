@@ -1277,25 +1277,25 @@ observeEvent(input$submitD,{
     score4 = c()
     for (i in c(input$drp1,input$drp2,input$drp3,input$drp4)){
       if (any(i == paste("\n                  ",bank[c(1:10),3],"\n                ", sep = ""))){
-        score1 = c(score1,5)
+        score1 = c(score1,2.5)
       }else{
-        score1 = c(score1,-3)
+        score1 = c(score1,-1.5)
       }
     }
     for (i in c(input$drp5,input$drp6,input$drp7,input$drp8)){
       if (any(i == paste("\n                  ",bank[c(11:36),3],"\n                ", sep = ""))){
-        score2 = c(score2, 5)}else{
-          score2 = c(score2, -3)}
+        score2 = c(score2, 2.5)}else{
+          score2 = c(score2, -1.5)}
     }
     for (i in c(input$drp9,input$drp10,input$drp11,input$drp12)){
       if (any(i == paste("\n                  ",bank[c(37:56),3],"\n                ", sep = ""))){
-        score3 = c(score3, 5)}else{
-          score3 = c(score3, -3)}
+        score3 = c(score3, 2.5)}else{
+          score3 = c(score3, -1.5)}
     }
     for (i in c(input$drp13,input$drp14,input$drp15,input$drp16)){
       if (any(i == paste("\n                  ",bank[c(57:71),3],"\n                ", sep = ""))){
-        score4 = c(score4, 5)}else{
-          score4 = c(score4, -3)}
+        score4 = c(score4, 2.5)}else{
+          score4 = c(score4, -1.5)}
     }
     
     # summation$summationA <- c(summation$summationA, sum(c(score1,score2,score3,score4))) 
@@ -1341,9 +1341,9 @@ observeEvent(input$submitD,{
     count = 0
   )
   observeEvent(input$submitA,{
-    if(summation$summationA[input$submitA] == 80){
+    if(summation$summationA[input$submitA] == 40){
       updateButton(session, "next2",disabled = FALSE)
-      #values$count = values$count + 80
+      #values$count = values$count + 40
     }
     
   })
@@ -1372,7 +1372,7 @@ observeEvent(input$submitD,{
   observeEvent(input$finish,{
     summation$summationA[which(summation$summationA == 0)] = summation$summationA[input$submitA]
     summation$summationB[which(summation$summationB == 0)] = summation$summationB[input$submitB]
-    summation$summationScore = summation$summationA + summation$summationB
+    summation$summationScore = summation$summationA + summation$summationB+40
   })
   
   output$init <- renderPrint({
@@ -1398,25 +1398,25 @@ observeEvent(input$submitD,{
     score5 = c()
     for (i in c(input$drp1,input$drp2,input$drp3,input$drp4)){
       if (any(i == paste("\n                  ",bank[c(1:10),3],"\n                ", sep = ""))){
-        score1 = c(score1,5)
+        score1 = c(score1,2.5)
       }else{
-        score1 = c(score1,-3)
+        score1 = c(score1,-1.5)
       }
     }
     for (i in c(input$drp5,input$drp6,input$drp7,input$drp8)){
       if (any(i == paste("\n                  ",bank[c(11:36),3],"\n                ", sep = ""))){
-        score2 = c(score2, 5)}else{
-          score2 = c(score2, -3)}
+        score2 = c(score2, 2.5)}else{
+          score2 = c(score2, -1.5)}
     }
     for (i in c(input$drp9,input$drp10,input$drp11,input$drp12)){
       if (any(i == paste("\n                  ",bank[c(37:56),3],"\n                ", sep = ""))){
-        score3 = c(score3, 5)}else{
-          score3 = c(score3, -3)}
+        score3 = c(score3, 2.5)}else{
+          score3 = c(score3, -1.5)}
     }
     for (i in c(input$drp13,input$drp14,input$drp15,input$drp16)){
       if (any(i == paste("\n                  ",bank[c(57:71),3],"\n                ", sep = ""))){
-        score4 = c(score4, 5)}else{
-          score4 = c(score4, -3)}
+        score4 = c(score4, 2.5)}else{
+          score4 = c(score4, -1.5)}
     }
     for (i in input$drop1){
       if (i == numbersB$questionB[numbersB$questionB[1] == "QuanDiscrete",5]){
@@ -1446,7 +1446,7 @@ observeEvent(input$submitD,{
         score5 = c(score5,-3)
       }
     }
-    final$final = sum(c(score1,score2,score3,score4,score5))
+    final$final = sum(c(score1,score2,score3,score4,score5))+40
   })
   
   output$end <- renderPrint({
