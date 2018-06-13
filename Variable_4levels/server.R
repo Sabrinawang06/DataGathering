@@ -504,13 +504,21 @@ shinyServer(function(input, output, session) {
   #####################################Bank D#####################################################
   
   index2 <- reactiveValues(index2 = 12)
-  observeEvent(input$new2,{
-    index2$index2 <- sample(1:12,1)
+  observeEvent(input$next4,{
+    index2$index2 <- sample(1:12,1, replace=FALSE, prob=NULL)
+    index2$explan= 3*index2$index2-2
+    index2$respon=3*index2$index2-1
+    index2$confounding=3*index2$index2
   })
   
   observeEvent(input$new2,{
-    index2$index2 <-sample(1:12,1)
+    index2$index2 <- sample(1:12,1, replace=FALSE, prob=NULL)
+    index2$explan= 3*index2$index2-2
+    index2$respon=3*index2$index2-1
+    index2$confou=3*index2$index2
   })
+  
+  key2<- as.matrix(bankD[1:36,1])
   
   output$questionD <- renderUI({
     if (index2$index2 == 1){
@@ -763,8 +771,8 @@ shinyServer(function(input, output, session) {
     
     observe({
       output$markd1 <- renderUI({
-        if (!is.null(input$explC)){
-          if (any(input$expla == 'explanatory')){
+        if (!is.null(input$expla)){
+          if (any(input$expla == key2[index2$explan,1])){
             img(src = "check.png",width = 30)
           }else{
             img(src = "cross.png",width = 30)
@@ -783,7 +791,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$markd2 <- renderUI({
         if (!is.null(input$resp)){
-          if (any(input$resp == 'response')){
+          if (any(input$resp == key2[index2$respon,1])){
             img(src = "check.png",width = 30)
           }else{
             img(src = "cross.png",width = 30)
@@ -802,7 +810,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$markd3 <- renderUI({
         if (!is.null(input$conf)){
-          if (any(input$conf == 'confounding')){
+          if (any(input$conf == key2[index2$confou,1])){
             img(src = "check.png",width = 30)
           }else{
             img(src = "cross.png",width = 30)

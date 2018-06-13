@@ -350,26 +350,26 @@ shinyUI(tagList(
                         
                         fluidRow(
                          column(5, offset = 1,
-                                selectInput('resp', uiOutput('varRESD'), c('explanatory',
-                                                                           'response',
-                                                                           'confounding',
-                                                                           'none of the above'
+                                selectInput('resp', uiOutput('varRESD'), c('Explanatory',
+                                                                           'Response',
+                                                                           'Confounding',
+                                                                           'None of the above'
                                 )),uiOutput('markd2')
                             
                          ),
                          column(4, offset= 1,
-                                selectInput('conf', uiOutput('varCOND'),c('explanatory',
-                                                                          'response',
-                                                                          'confounding', 
-                                                                          'none of the above'
+                                selectInput('conf', uiOutput('varCOND'),c('Explanatory',
+                                                                          'Response',
+                                                                          'Confounding', 
+                                                                          'None of the above'
                                 )), uiOutput('markd3')
                          ),
                           
                          column(4, offset= 1,
-                                selectInput('expla',uiOutput('varEXPD') , c('explanatory',
-                                                                            'response',
-                                                                            'confounding',
-                                                                            'none of the above'
+                                selectInput('expla',uiOutput('varEXPD') , c('Explanatory',
+                                                                            'Response',
+                                                                            'Confounding',
+                                                                            'None of the above'
                                 )),uiOutput('markd1')
                          )
                        ),
