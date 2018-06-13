@@ -509,6 +509,7 @@ shinyServer(function(input, output, session) {
     index2$explan= 3*index2$index2-2
     index2$respon=3*index2$index2-1
     index2$confounding=3*index2$index2
+    index2$none=3*index2$index2
   })
   
   observeEvent(input$new2,{
@@ -516,6 +517,7 @@ shinyServer(function(input, output, session) {
     index2$explan= 3*index2$index2-2
     index2$respon=3*index2$index2-1
     index2$confou=3*index2$index2
+    index2$none=3*index2$index2
   })
   
   key2<- as.matrix(bankD[1:27,1])
@@ -787,6 +789,25 @@ shinyServer(function(input, output, session) {
       })
     })
   })
+  
+  observeEvent(input$submitD,{ 
+    observeEvent(input$new2,{
+      output$markd3 <- renderUI({
+        img(src = NULL,width = 30)
+      })
+    })
+    observe({
+      output$markd3 <- renderUI({
+        if (!is.null(input$conf)){
+          if (any(input$conf == key2[index2$none,1])){
+            img(src = "check.png",width = 30)
+          }else{
+            img(src = "cross.png",width = 30)
+          }
+        }
+      })
+    })
+  })
   observeEvent(input$new2, {
     reset('expla')
     reset('resp')
@@ -848,7 +869,7 @@ observeEvent(input$submitD, {time$started <- TRUE})
 
 observeEvent(input$submitD,{ 
   for (i in c(input$expla)){ for(j in c(input$resp)) {for( k in  c(input$conf)){
-    if (any(i == 'explanatory')& any(j=='response')&any(k=='confounding')){
+    if (any(i == 'Explanatory')& any(j=='Response')&any(k=='Confounding' & any(k=='None of the above'))){
       summationD$correct1D = c(summationD$correct1D,1)
     }else{
       summationD$correct1D = c(summationD$correct1D,0)
