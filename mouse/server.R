@@ -105,7 +105,7 @@ shinyServer(function(input, output,session) {
     print("Acknowledgements")
   })
   output$ack2 <- renderUI({
-    h4("This app was developed and coded by Yuxin Zhang based on extending the idea in the", tags$a(href = "https://www.causeweb.org/cause/archive/mouse_experiment/","app by Dennis Pearl and Tom Santner", style = "text-decoration: underline; color: #CC3333"),".")
+    h4("This app was developed and coded by Yuxin Zhang and update by Luxin Wang and Thomas McIntyre based on extending the idea in the", tags$a(href = "https://www.causeweb.org/cause/archive/mouse_experiment/","app by Dennis Pearl and Tom Santner", style = "text-decoration: underline; color: #CC3333"),".")
   })
 
   

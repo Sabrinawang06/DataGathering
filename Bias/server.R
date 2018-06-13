@@ -59,7 +59,7 @@ shinyServer(function(input, output,session) {
     print("Acknowledgements")
   )
   output$ack2 <- renderUI(
-    h4("This app was developed and coded by Yuxin Zhang.")
+    h4("This app was developed and coded by Yuxin Zhang and updated by Luxin Wang and Thomas McIntyre")
   )
   
   

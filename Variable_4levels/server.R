@@ -61,7 +61,7 @@ shinyServer(function(input, output, session) {
     img(src = "STAT.png", width = 380)
   )
   output$instruction <- renderUI(
-    print("Instruction")
+    print("Instructions")
   )
   output$instruction1 <- renderUI(
     print("Click")
@@ -83,10 +83,10 @@ shinyServer(function(input, output, session) {
           generate your final score. Keep in mind that both the final score and consumed time will determine whether you will be on the leaderboard!")
     )
   output$acknowledge <- renderUI(
-    print("Acknowledgement and Credit")
+    print("Acknowledgements")
   )
   output$acknowledge1 <- renderUI(
-    print("This app was developed and coded by Yuxin Zhang. Special thanks to Robert P. Carey III and Alex Chen for help on some programming issues.")
+    print("This app was developed and coded by Yuxin Zhang, Luxin Wang, & Thomas McIntyre. Special thanks to Robert P. Carey III and Alex Chen for help on some programming issues.")
   )
   
   #reload the app when the reset button is clicked 

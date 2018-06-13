@@ -43,15 +43,15 @@ ui <- dashboardPage(
                 br(),br(),
                 h1("About"),
                 h2("Explore how weighting adjustment affects the predicted results in survey analysis"),
-                h1("Instruction"),
+                h1("Instructions"),
                 h2("Move the sliders around to explore how the weighting adjustment affects the results. Use your best
                    judgement to find out the correct adjustment weight for each scenario. Notice that the summation
                    bar should never be larger than one because the weighted sample should never be larger than the population."),
-                h1("Acknowledgement and Credit"),
+                h1("Acknowledgements"),
                 # h2("Jon Huang, Samuel Jacoby, Michael Strickland and K.K.Rebecca Lai (2016 Nov.8).",
                 #    tags$a(href = "https://www.nytimes.com/interactive/2016/11/08/us/politics/election-exit-polls.html","Election 2016: Exit Polls.", style = "text-decoration: underline; color: #f08080"), 
                 #    tags$i("New York Times.")),
-                h2("This app was developed and coded by Yuxin Zhang. The exit poll data set was extracted from", 
+                h2("This app was developed and coded by Yuxin Zhang and updated by Luxin Wang and Thomas McIntyre. The exit poll data set was extracted from", 
                    tags$a(href = "https://www.nytimes.com/interactive/2016/11/08/us/politics/election-exit-polls.html","Election 2016: Exit Polls.", style = "text-decoration: underline; color: #cd3333"),"on July 20, 2017.")
                 ),
               
