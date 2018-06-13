@@ -503,22 +503,22 @@ shinyServer(function(input, output, session) {
   
   #####################################Bank D#####################################################
   
-  index2 <- reactiveValues(index2 = 12)
+  index2 <- reactiveValues(index2 = 9)
   observeEvent(input$next4,{
-    index2$index2 <- sample(1:12,1, replace=FALSE, prob=NULL)
+    index2$index2 <- sample(1:9,1, replace=FALSE, prob=NULL)
     index2$explan= 3*index2$index2-2
     index2$respon=3*index2$index2-1
     index2$confounding=3*index2$index2
   })
   
   observeEvent(input$new2,{
-    index2$index2 <- sample(1:12,1, replace=FALSE, prob=NULL)
+    index2$index2 <- sample(1:9,1, replace=FALSE, prob=NULL)
     index2$explan= 3*index2$index2-2
     index2$respon=3*index2$index2-1
     index2$confou=3*index2$index2
   })
   
-  key2<- as.matrix(bankD[1:36,1])
+  key2<- as.matrix(bankD[1:27,1])
   
   output$questionD <- renderUI({
     if (index2$index2 == 1){
@@ -545,15 +545,7 @@ shinyServer(function(input, output, session) {
     else if (index2$index2 == 9){
       h3(bankD[25,4])
     }
-    else if (index2$index2 == 10){
-      h3(bankD[28,4])
-    }
-    else if (index2$index2 == 11){
-      h3(bankD[31,4])
-    }
-    else if (index2$index2 == 12){
-      h3(bankD[34,4])
-    }
+    
   })
   output$varEXPD <- renderUI({
     if (index2$index2 == 1){
@@ -580,15 +572,7 @@ shinyServer(function(input, output, session) {
     else if (index2$index2 == 9){
       h3(bankD[25,3])
     }
-    else if (index2$index2 == 10){
-      h3(bankD[28,3])
-    }
-    else if (index2$index2 == 11){
-      h3(bankD[31,3])
-    }
-    else if (index2$index2 == 12){
-      h3(bankD[34,3])
-    }
+  
   })
   
   output$varRESD <- renderUI({
@@ -616,15 +600,7 @@ shinyServer(function(input, output, session) {
     else if (index2$index2 == 9){
       h3(bankD[26,3])
     }
-    else if (index2$index2 == 10){
-      h3(bankD[29,3])
-    }
-    else if (index2$index2 == 11){
-      h3(bankD[32,3])
-    }
-    else if (index2$index2 == 12){
-      h3(bankD[35,3])
-    }
+   
   })
   
   output$varCOND <- renderUI({
@@ -652,15 +628,7 @@ shinyServer(function(input, output, session) {
     else if (index2$index2 == 9){
       h3(bankD[27,3])
     }
-    else if (index2$index2 == 10){
-      h3(bankD[30,3])
-    }
-    else if (index2$index2 == 11){
-      h3(bankD[33,3])
-    }
-    else if (index2$index2 == 12){
-      h3(bankD[36,3])
-    }
+  
   })
   ################################################################################################  
   
