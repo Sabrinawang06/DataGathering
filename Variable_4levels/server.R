@@ -869,7 +869,7 @@ observeEvent(input$submitD, {time$started <- TRUE})
 
 observeEvent(input$submitD,{ 
   for (i in c(input$expla)){ for(j in c(input$resp)) {for( k in  c(input$conf)){
-    if (any(i == 'Explanatory')& any(j=='Response')&any(k=='Confounding' & any(k=='None of the above'))){
+    if (any(i == key2[index2$explan,1])& any(j== key2[index2$respon,1])&any(k== key2[index2$confou,1])){
       summationD$correct1D = c(summationD$correct1D,1)
     }else{
       summationD$correct1D = c(summationD$correct1D,0)
