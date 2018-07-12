@@ -859,7 +859,7 @@ observeEvent(input$submitC,{
   }})
   
   ################################## Counting Right and Wrong answers in level 4##################3
-summationD<-reactiveValues(correct1D = c(0),correct2D=c(),correct3D=c(), started=FALSE)
+summationD<-reactiveValues(correct1D = c(1),correct2D=c(),correct3D=c(), started=FALSE)
 
 
 
