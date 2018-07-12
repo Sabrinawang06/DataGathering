@@ -893,8 +893,9 @@ observeEvent(input$submitD,{
 })
 
 output$correctD <- renderPrint({
-  cat("You have earned", summation$summationD[input$submitD] , "points")
-})
+  if (sum(c(summationD$correct1D))==0) {cat("You have earned 0 points")}
+  else{cat("You have earned", summation$summationD[input$submitD] , "points")
+}})
 
 
 observeEvent(input$submitD,{
