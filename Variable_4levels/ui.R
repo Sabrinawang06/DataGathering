@@ -166,7 +166,7 @@ shinyUI(tagList(
                                                                                          bsButton("submitA", "Submit Answer", style = "primary",size = "small",class = "grow")
                                                                                          )
                                                           ),
-                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small",disabled=TRUE))
+                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small",disabled=FALSE))
                                                  ),br()
                                                    ),
                                 
@@ -248,7 +248,7 @@ shinyUI(tagList(
                                        fluidRow(column(1,bsButton("previous2","<<Previous",style = "primary", size = "small")),
                                                 column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
                                                                                      bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                                column(1,offset = 5,bsButton("next3","Next>>", size = "small",disabled=TRUE)))
+                                                column(1,offset = 5,bsButton("next3","Next>>", size = "small",disabled=FALSE)))
                                        ,hr(),
                                        conditionalPanel("input.submitB != 0",wellPanel(
                                          fluidPage(
@@ -272,8 +272,8 @@ shinyUI(tagList(
              ##################Adding level 3 game
              tabPanel(title= "Level 3", value= "e",
                       titlePanel("Explanatory and Response Variables"),
-                      fluidRow(h4("You must get both answers correct to earn 1 point and get 5 points before moving to the next level")),
-                      fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question")),
+                      fluidRow(h4("You must get both answers correct to earn 1 point and get 5 points before moving to the next level"),style='margin-left:15px'),
+                      fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question"),style='margin-left:15px'),
                       fluidRow(
                         column(3, bsButton('bt3', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
                                bsButton('bq3', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt')
@@ -316,7 +316,7 @@ shinyUI(tagList(
                                                 column(1,offset = 1,conditionalPanel("(input.explC!='') & (input.respC!='')",
                                                                                     bsButton("submitC","Submit Answer", style = "primary", class = "grow", size = "small"))),
                                                 column(1, offset=2,bsButton("new","New Question", size = "small",style='primary',disabled=TRUE)),
-                                                column(1,offset =2,bsButton("next4","Next>>", size = "small",style='primary',disabled = TRUE)))
+                                                column(1,offset =2,bsButton("next4","Next>>", size = "small",style='primary',disabled = FALSE)))
                                        ,hr()
                                        
                       ),
@@ -330,8 +330,8 @@ shinyUI(tagList(
              
                tabPanel(title= "Level 4", value= "f",
                         titlePanel(h1("This level will add in the concepts of confounding variables")),
-                        fluidRow(h4("You must answer 5 correct choices before completing the level")),
-                        fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question")),
+                        fluidRow(h4("You must answer 5 correct choices before completing the level"),style='margin-left:15px'),
+                        fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question"),style='margin-left:15px'),
                         fluidRow(
                           
                           column(3,offset = 6,
@@ -376,6 +376,7 @@ shinyUI(tagList(
                
                   fluidRow(
                     column(3, offset=3,textOutput('correctD'))
+              
                     ),
                   br(),
                         
