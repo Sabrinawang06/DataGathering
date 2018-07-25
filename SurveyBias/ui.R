@@ -13,8 +13,8 @@ dashboardPage(
   dashboardSidebar(
     sidebarMenu(id='tabs',
       menuItem("Overview", tabName = "readme", icon = icon("dashboard")),
-      menuItem("Explore", tabName = "overview", icon = icon("play")),
-      menuItem("Game", tabName = "game", icon = icon("space-shuttle"))
+      menuItem("Explore", tabName = "overview", icon = icon("wpexplorer")),
+      menuItem("Game", tabName = "game", icon = icon("gamepad"))
       
     )
   ),
@@ -36,7 +36,7 @@ dashboardPage(
                            "The goal of this app is to illustrate the different types of biases that occur in the wording of survey questions.", br(),
                            br(), br(), strong("Instructions:"), br(), "On the first page, simply click below each question that contains a bias to see what that bias is.  Pay attention! Because on the second page, you will be asked to match questions with their appropriate bias.  Note: you will be timed.  Each round will continue to increase in difficulty.  For the last round, please note that some of the biases overlap.  So while one may seem fitting, it could be marked incorrect if there is a more dominant bias.",
                            br(), br(), br(), strong("Acknowledgements:"), br(), "This app includes the following packages: shinydashboard, shinyDND, shinyjs, shinyBS, and V8.")),
-              fluidRow( column(5,bsButton("start","Go",icon("ravelry"),style = "danger",size = "median",class="circle grow")))
+              fluidRow( column(5,bsButton("start","Go",icon("bolt"),style = "danger",size = "median",class="circle grow")))
               ),
       
       
