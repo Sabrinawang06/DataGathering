@@ -354,8 +354,8 @@ dashboardPage(
                                                                         
                                                                         
                                                                         
-                                                                        wellPanel(dropUI("drp13", class = "dropelement"),h4("Anchoring"),
-                                                                                  div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer13")), class = "wellTransparent col-sm-12 col-md-6 col-lg-3"),
+                                                                       # wellPanel(dropUI("drp13", class = "dropelement"),h4("Anchoring"),
+                                                                                 # div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer13")), class = "wellTransparent col-sm-12 col-md-6 col-lg-3"),
                                                                         
                                                                         
                                                                         wellPanel(dropUI("drp11", class = "dropelement"),h4("Unnecessary Bias"),
@@ -367,8 +367,8 @@ dashboardPage(
                                                                       fluidRow(
                                                                         wellPanel(dropUI("drp10", class = "dropelement"), h4("Unintentional Bias"),
                                                                                   div(style = "position:absolute;top: 10%;right: 2%;", htmlOutput("answer10")), class = "wellTransparent col-sm-12 col-md-6 col-lg-3"),
-                                                                        wellPanel(dropUI("drp14", class = "dropelement"), h4("Deliberate"),
-                                                                                  div(style = "position:absolute;top: 10%;right: 2%;", htmlOutput("answer14")), class = "wellTransparent col-sm-12 col-md-6 col-lg-3"),
+                                                                       # wellPanel(dropUI("drp14", class = "dropelement"), h4("Deliberate"),
+                                                                                #  div(style = "position:absolute;top: 10%;right: 2%;", htmlOutput("answer14")), class = "wellTransparent col-sm-12 col-md-6 col-lg-3"),
                                                                         wellPanel(dropUI("drp12", class = "dropelement"),h4("Filtering"),
                                                                                   div(style = "position:absolute;top: 10%;right:2%;",htmlOutput("answer12")), class = "wellTransparent col-sm-12 col-md-6 col-lg-3")
                                                                         

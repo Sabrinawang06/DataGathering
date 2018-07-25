@@ -134,7 +134,7 @@ shinyServer(function(input, output, session) {
     numbers$anchoring = sample(17:21,1)
     numbers$unintentional = sample(22:26,1)
     numbers$unnecessary = sample(27:31,1)
-    numbers$nonbias = sample(32:36,1)
+    numbers$nonbias = sample(32:35,1)
   })
   
   output$importantID1 <- renderText({
