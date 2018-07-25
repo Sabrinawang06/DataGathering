@@ -10,10 +10,10 @@ ui <- dashboardPage(
                   titleWidth = 180),
   dashboardSidebar(width = 180,
     sidebarMenu(id='tabs',
-      menuItem('Pre-requisites', tabName='preq', icon=icon('dashboard')),
+      menuItem('Pre-requisites', tabName='preq', icon=icon('book')),
       menuItem("Overview", tabName = "overview", icon = icon("dashboard")),
-      menuItem("Easy Level", tabName = "easy", icon = icon("th")),
-      menuItem("Hard Level", tabName = "hard", icon = icon("th"))
+      menuItem("Easy Level", tabName = "easy", icon = icon("gamepad")),
+      menuItem("Hard Level", tabName = "hard", icon = icon("gamepad"))
     )
   ),
   dashboardBody(
@@ -31,7 +31,7 @@ ui <- dashboardPage(
                  h2 ("Each survey respondent gets an adjustment weight. Subjects in underrepresented group get a weight more than one, 
                    and subjects in overrepresented group get a weight smaller than one."),
                 
-                fluidRow(column(2,bsButton("start","Go to overview",icon("ravelry"),style = "danger",size = "large",class="circle grow")))
+                fluidRow(column(2,bsButton("start","Go to overview",icon("bolt"),style = "danger",size = "large",class="circle grow")))
                 
               )
         
@@ -57,7 +57,7 @@ ui <- dashboardPage(
               
                 fluidRow(
                 column(8,uiOutput("instruction4")),
-                column(3,bsButton("go","Go",icon("ravelry"),style = "danger",size = "large",class = "circle grow"))
+                column(3,bsButton("go","Go",icon("bolt"),style = "danger",size = "large",class = "circle grow"))
               )
                ),
       tabItem(tabName = "easy",
