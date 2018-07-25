@@ -272,8 +272,8 @@ shinyUI(tagList(
              ##################Adding level 3 game
              tabPanel(title= "Level 3", value= "e",
                       titlePanel("Explanatory and Response Variables"),
-                      fluidRow(h4("You must get both answers correct to earn 1 point and get 5 points before moving to the next level")),
-                      fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question")),
+                      fluidRow(h4("You must get both answers correct to earn 1 point and get 5 points before moving to the next level"),style='margin-left:15px'),
+                      fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question"),style='margin-left:15px'),
                       fluidRow(
                         column(3, bsButton('bt3', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
                                bsButton('bq3', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt')
@@ -330,8 +330,8 @@ shinyUI(tagList(
              
                tabPanel(title= "Level 4", value= "f",
                         titlePanel(h1("This level will add in the concepts of confounding variables")),
-                        fluidRow(h4("You must answer 5 correct choices before completing the level")),
-                        fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question")),
+                        fluidRow(h4("You must answer 5 correct choices before completing the level"),style='margin-left:15px'),
+                        fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question"),style='margin-left:15px'),
                         fluidRow(
                           
                           column(3,offset = 6,
@@ -376,6 +376,7 @@ shinyUI(tagList(
                
                   fluidRow(
                     column(3, offset=3,textOutput('correctD'))
+              
                     ),
                   br(),
                         

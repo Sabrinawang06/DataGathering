@@ -508,7 +508,7 @@ shinyServer(function(input, output, session) {
     index2$index2 <- sample(1:9,1, replace=FALSE, prob=NULL)
     index2$explan= 3*index2$index2-2
     index2$respon=3*index2$index2-1
-    index2$confounding=3*index2$index2
+    index2$confou=3*index2$index2
     index2$none=3*index2$index2
   })
   
@@ -818,7 +818,7 @@ shinyServer(function(input, output, session) {
 ########################account for correct answers level 3##########################
   
   
-  summationC<-reactiveValues(correct1 = c(0),correct2=c(), started=FALSE)
+  summationC<-reactiveValues(correct1 = c(0), started=FALSE)
   
   
   
@@ -859,7 +859,8 @@ observeEvent(input$submitC,{
   }})
   
   ################################## Counting Right and Wrong answers in level 4##################3
-summationD<-reactiveValues(correct1D = c(1),correct2D=c(),correct3D=c(), started=FALSE)
+summationD<-reactiveValues(correct1D = c(0), started=FALSE)
+test<-reactiveValues(A=FALSE,B=FALSE,C=TRUE)
 
 
 
@@ -868,13 +869,13 @@ observeEvent(input$new2, {time$started <- TRUE})
 observeEvent(input$submitD, {time$started <- TRUE})
 
 observeEvent(input$submitD,{ 
-  for (i in c(input$expla)){ for(j in c(input$resp)) {for( k in  c(input$conf)){
-    if (any(i == key2[index2$explan,1])& any(j== key2[index2$respon,1])&any(k== key2[index2$confou,1])){
+  for (x in c(input$expla)){
+    if (any(input$expla == key2[index2$explan,1])& any(input$resp== key2[index2$respon,1])&any(input$conf== key2[index2$confou,1])){
       summationD$correct1D = c(summationD$correct1D,1)
     }else{
       summationD$correct1D = c(summationD$correct1D,0)
     }
-  }}}
+  }
   # for (i in c(input$resp)){
   #   if (any(i == 'response')){
   #     summationD$correct2D = c(summationD$correct2D,1)
@@ -889,19 +890,24 @@ observeEvent(input$submitD,{
   #     summationD$correct3D = c(summationD$correct3D,0)
   #   }
   # }
-  summation$summationD[input$submitD] <- sum(c(summationD$correct1D))
+ 
+  
 })
+
+
 
 output$correctD <- renderPrint({
   if (sum(c(summationD$correct1D))==0) {cat("You have earned 0 points")}
-  else{cat("You have earned", summation$summationD[input$submitD] , "points")
-}})
+  else{
+    cat("You have earned",sum(c(summationD$correct1D)),'points')}
+})
 
 
 observeEvent(input$submitD,{
   if(summation$summationD[input$submitD] >= 5){
-    updateButton(session, "finish",disabled = FALSE)
+    updateButton(session, "next4",disabled = FALSE)
   }})
+
 
   ##################################CHECK MARK IN LEVEL 1 AND 2##########################
 
@@ -1269,7 +1275,7 @@ observeEvent(input$submitD,{
   
   
   ####################################################################
-  summation <- reactiveValues(summationA = c(rep(0,20)), summationB = c(rep(0,20)), summationScore = c(rep(0,20)))
+  summation <- reactiveValues(summationA = c(rep(0,20)), summationB = c(rep(0,20)), summationC = c(rep(0,20)),summationD = c(rep(0,20)),summationScore = c(rep(0,20)))
   
   observeEvent(input$submitA,{
     score1 = c()
