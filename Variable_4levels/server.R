@@ -904,8 +904,8 @@ output$correctD <- renderPrint({
 
 
 observeEvent(input$submitD,{
-  if(summation$summationD[input$submitD] >= 5){
-    updateButton(session, "next4",disabled = FALSE)
+  if(sum(c(summationD$correct1D)) >= 5){
+    updateButton(session, "finish",disabled = FALSE)
   }})
 
 
