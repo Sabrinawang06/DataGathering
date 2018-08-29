@@ -352,15 +352,19 @@ shinyServer(function(input, output, session) {
       ################################# Bank C #######################
   
   
-  index <- reactiveValues(index = 7)
+  index <- reactiveValues(index = 18)
+  
+  index_list<-reactiveValues(listc=sample(1:17,17,replace=FALSE))
   
   observeEvent(input$next3,{
-    index$index <- sample(1:18,1, replace=FALSE, prob=NULL)
+    index$index <- 18
     index$exp_index=2*index$index-1
     index$res_index=2*index$index
   })
+  
   observeEvent(input$new,{
-    index$index <- sample(1:18,1, replace=FALSE, prob=NULL)
+    index_list$listc=index_list$listc[-1]
+    index$index <- index_list$listc[1]
     index$exp_index=2*index$index-1
     index$res_index=2*index$index
   })
