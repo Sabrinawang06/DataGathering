@@ -316,7 +316,7 @@ shinyUI(tagList(
                                                 column(1,offset = 1,conditionalPanel("(input.explC!='') & (input.respC!='')",
                                                                                     bsButton("submitC","Submit Answer", style = "primary", class = "grow", size = "small"))),
                                                 column(1, offset=2,bsButton("new","New Question", size = "small",style='primary',disabled=TRUE)),
-                                                column(1,offset =2,bsButton("next4","Next>>", size = "small",style='primary',disabled = TRUE)))
+                                                column(1,offset =2,bsButton("next4","Next>>", size = "small",style='primary',disabled =FALSE)))
                                        ,hr()
                                        
                       ),
