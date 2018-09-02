@@ -517,7 +517,7 @@ shinyServer(function(input, output, session) {
     index2$explan= 3*index2$index2-2
     index2$respon=3*index2$index2-1
     index2$confou=3*index2$index2
-    index2$none=3*index2$index2
+    
   })
   
   observeEvent(input$new2,{
@@ -526,7 +526,7 @@ shinyServer(function(input, output, session) {
     index2$explan= 3*index2$index2-2
     index2$respon=3*index2$index2-1
     index2$confou=3*index2$index2
-    index2$none=3*index2$index2
+    
   })
   
   key2<- as.matrix(bankD[1:27,1])
@@ -808,7 +808,7 @@ shinyServer(function(input, output, session) {
     observe({
       output$markd3 <- renderUI({
         if (!is.null(input$conf)){
-          if (any(input$conf == key2[index2$none,1])){
+          if (any(input$conf == key2[index2$confou,1])){
             img(src = "check.png",width = 30)
           }else{
             img(src = "cross.png",width = 30)
