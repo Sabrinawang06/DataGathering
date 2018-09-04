@@ -137,7 +137,7 @@ ui <- dashboardPage(skin = "black",
                   ),
                 fluidRow(
                   column(2,offset = 1, bsButton("reset_button", "Reset", style = "danger", icon = icon("refresh"), size = "large")),
-                  bsPopover("reset_button",title = "Notice", "If you click more than 10 mice, click Reset to start again.", placement = "top"),
+                  bsPopover("reset_button",title = "Notice", "Click Reset to start again.", placement = "top"),
                   column(2,bsButton("submit","Submit Selection", style = "danger",icon = icon("hand-o-up"), size = "large", disabled = TRUE))),
                 hr()
                 
