@@ -105,8 +105,8 @@ ui <- dashboardPage(skin = "black",
               fluidRow(
                 column(4, offset = 4, 
                        bsButton("submit",label = "Submit",type = "toggle", size = "large", value = FALSE, disabled = TRUE),
-                       bsButton("new",label = "Next>>", style = "danger", size = "large"),
-                       bsButton('clear', label = "Clear", style = 'danger', size = 'large')
+                       bsButton("new",label = "Next>>", style = "danger", size = "large",disabled=TRUE),
+                       bsButton('clear', label = "Try Again", style = 'danger', size = 'large')
                        ),
                 column(3, offset = 1,
                        conditionalPanel("input.submit != 0", 

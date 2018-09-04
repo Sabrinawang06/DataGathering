@@ -78,9 +78,25 @@ shinyServer(function(input, output,session) {
   
   #Randomly generate one question out of the four questions every time when "Next" button is clicked.
   index <- reactiveValues(index = 4)
+  index_list<-reactiveValues(listc=sample(1:3,3,replace=FALSE))
+  
+  ta<-reactiveValues(ta=4)
+  
   observeEvent(input$new,{
-    index$index <- sample(1:4,1)
+    index$index <- index_list$listc[1]
+    index_list$listc=index_list$listc[-1]
+
+    ta$ta<-index$index
   })
+  
+  
+  observeEvent(input$clear,{
+    index$index <- ta$ta
+  })
+  
+ 
+  
+ 
   
   output$question <- renderUI({
     if (index$index == 1){
@@ -172,18 +188,35 @@ shinyServer(function(input, output,session) {
     }
   })
   observeEvent(input$submit,{
-    updateButton(session,"clear", label = "Clear", disabled = TRUE)
+    updateButton(session,"clear", disabled = FALSE)
   })
   observeEvent(input$new,{
-    updateButton(session,"clear", label = "Clear", disabled = FALSE)
+    updateButton(session,"clear", disabled = FALSE)
   })
 
   observeEvent(input$new,{
     updateButton(session, "submit", label = "Submit",value = FALSE, disabled = TRUE)
   })
+  observeEvent(input$clear,{
+    updateButton(session, "submit", label = "Submit",value = FALSE, disabled = TRUE)
+  })
+  observeEvent(input$clear,{
+    updateButton(session, "new",disabled = TRUE)
+  })
+  
+  
   #The "next" button will be enabled once the user hits submit. 
-  observeEvent(input$submit,{
-    updateButton(session, "new", disabled = FALSE)
+  observe({
+    if (input$submit== FALSE){
+      updateButton(session,"new", label="Next>>", disabled = TRUE)
+    }
+    else{updateButton(session,"new", label="Next>>", disabled = FALSE)}
+  })
+  
+  observe({
+    if (length(index_list$listc)==0){
+      updateButton(session,"new", label="Next>>", disabled = TRUE)
+    }
   })
 
 ##Plot three outputs using the functions defined before  
