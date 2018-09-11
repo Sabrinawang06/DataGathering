@@ -54,12 +54,18 @@ shinyServer(function(input, output, session) {
     print("About")
   )
   output$about1 <- renderUI(
-    print("Identify four different variable types: Quantitative (numeric) discrete variables, Quantitative continuous variables,
-          Qualitative (categorical) nominal variables, and Qualitative ordinal variables")
+    print("Level 1 and 2: Identify four different variable types: Quantitative (numeric) discrete variables, Quantitative continuous variables,
+          Qualitative (categorical) nominal variables, and Qualitative ordinal variables.")
     )
   output$about2 <- renderUI(
     img(src = "STAT.png", width = 380)
   )
+  output$about3 <- renderUI(
+    print("Level 3 and 4: Identify the explanatory and response variables in level 3. Then in level 4 you will also
+          be required to identify the confounding variable")
+    )
+  
+  
   output$instruction <- renderUI(
     print("Instructions")
   )
@@ -76,7 +82,7 @@ shinyServer(function(input, output, session) {
     print("Submit your answer only after finishing all the questions")
   )
   output$instruction4 <- renderUI(
-    print("You may go to the next level only when you correct your answers")
+    print("You may go to the next level only when you correct your answers for level 1 and 2. For level 3 and 4 you must get 5 correct problems on each level to finish the game and get your final score")
   )
   output$instruction5 <- renderUI(
     print("The score you get after the first trial and the revised score you get after correct all answers will be weighted to

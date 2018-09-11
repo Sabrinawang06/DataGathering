@@ -42,6 +42,10 @@ shinyUI(tagList(
                           fluidRow(column(11,uiOutput("about"))),
                           fluidRow(column(11,uiOutput("about1"))),
                           fluidRow(uiOutput("about2")),hr(),
+                          br(),
+                          br(),
+                          fluidRow(column(11,uiOutput("about3"))),
+                          br(),
                           fluidRow(column(11,uiOutput("instruction"))),
                           fluidRow(column(1,img(src = "right.png", width = 30)), column(1,uiOutput("instruction1")),
                                    column(1,bsButton("go","G O !" ,style = "danger",size = "extra-small",class = "circle grow")), column(9,uiOutput("instruction1b"))),
@@ -333,7 +337,14 @@ shinyUI(tagList(
                         fluidRow(h4("You must answer 5 correct choices before completing the level"),style='margin-left:15px'),
                         fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question"),style='margin-left:15px'),
                         fluidRow(
-                          
+                          column(3, bsButton('bt4', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
+                                 bsButton('bq4', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt')
+                                 # div(id = "plot-container3",
+                                 #     conditionalPanel("input.bq3 != 0",
+                                 #                      tags$img(src = "STAT.png",
+                                 #                               id = "hint"))
+                                 # )
+                          ),
                           column(3,offset = 6,
                                  hidden(div(id='timer4h',textOutput("timer4"))
                                  )),br() #print the timer)
