@@ -3,6 +3,8 @@ library(shinyDND)
 library(shinyjs)
 library(shinyBS)
 library(V8)
+library(shinyalert)
+
 
 bank <- read.csv("questionBank.csv")
 bank = data.frame(lapply(bank, as.character), stringsAsFactors = FALSE)
@@ -362,6 +364,8 @@ shinyServer(function(input, output, session) {
   
   index_list<-reactiveValues(listc=sample(1:17,17,replace=FALSE))
   
+  observeEvent(input$previous4,{index_list$listc<-c(index_list$listc,sample(1:17,17,replace=FALSE))})
+  
   observeEvent(input$next3,{
     index$index <- 18
     index$exp_index=2*index$index-1
@@ -377,7 +381,6 @@ shinyServer(function(input, output, session) {
   
   key1<-as.matrix(bankC[1:36,1])
   
- 
   
   output$questionC <- renderUI({
     if (index$index == 1){
@@ -517,6 +520,8 @@ shinyServer(function(input, output, session) {
   
   
   index_listD<-reactiveValues(listD=sample(1:8,8,replace=FALSE))
+  
+  observeEvent(input$previous5,{index_listD<-reactiveValues(listD=sample(1:8,8,replace=FALSE))})
   
   observeEvent(input$next4,{
     index2$index2 <- 9
@@ -666,11 +671,33 @@ shinyServer(function(input, output, session) {
     updateButton(session,"submitC",disabled = TRUE)
   })
   
+  
+  
+  observe({
+    if (length(index_list$listc)==1){
+      updateButton(session,"new", disabled = TRUE)
+      updateButton(session,"submitC",disabled = TRUE)
+      shinyalert("Oops!","You have used up all the tries. Please click 'previous' then click 'next' to re-enter this level to try again",type='error')
+    }
+  })
+  
+  observe({
+    if (length(index_listD$listD)==1){
+      updateButton(session,"new2", disabled = TRUE)
+      updateButton(session,"submitD",disabled = TRUE)
+      shinyalert("Oops!","You have used up all the tries. Please click 'previous' then click 'next' to re-enter this level to try again",type='error')
+    }
+  })
+  
+  
   observeEvent(input$submitC,{
     updateButton(session,"new",disabled = FALSE)
   })
   
-
+  observeEvent(input$previous4,{
+    updateButton(session,"submitC",disabled = FALSE)
+  })
+  
   observeEvent(input$new,{
     updateButton(session,"submitC",disabled = FALSE)
   })

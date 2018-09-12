@@ -5,14 +5,16 @@ library(shinyBS)
 library(V8)
 library(grid)
 library(RUnit)
+library(shinyalert)
 
 data <- read.csv("questionBank.csv")
+
 
 
 #####remember to add back the disable=TRUE to the next button
 
 shinyUI(tagList(
- 
+  useShinyalert(),
   useShinyjs(),
   navbarPage(title = "Variable Types",id = "navMain", #Give an id to use the updateNavPage() later
              tabPanel(title = "Home",value = "a", ##Give a value to use the updateNavPage() later
@@ -170,7 +172,7 @@ shinyUI(tagList(
                                                                                          bsButton("submitA", "Submit Answer", style = "primary",size = "small",class = "grow")
                                                                                          )
                                                           ),
-                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small",disabled=TRUE))
+                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small",disabled=FALSE))
                                                  ),br()
                                                    ),
                                 
@@ -252,7 +254,7 @@ shinyUI(tagList(
                                        fluidRow(column(1,bsButton("previous2","<<Previous",style = "primary", size = "small")),
                                                 column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
                                                                                      bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                                column(1,offset = 5,bsButton("next3","Next>>", style = "primary",size = "small",disabled=TRUE)))
+                                                column(1,offset = 5,bsButton("next3","Next>>", style = "primary",size = "small",disabled=FALSE)))
                                        ,hr(),
                                        conditionalPanel("input.submitB != 0",wellPanel(
                                          fluidPage(
@@ -301,11 +303,11 @@ shinyUI(tagList(
                       
                       fluidRow(
                         column(3, offset = 1,
-                               selectInput('explC', uiOutput('varEXP'), c('','Neither','Explanatory',
+                               selectInput('explC', uiOutput('varEXP'), c('Neither','Explanatory',
                                                                         'Response')),uiOutput('markc1')
                         ),
                         column(3, offset= 3,
-                               selectInput('respC', uiOutput('varRES'), c('','Neither','Explanatory',
+                               selectInput('respC', uiOutput('varRES'), c('Neither','Explanatory',
                                                                      'Response'
                                                                      )),uiOutput('markc2') 
                         )),br(),
@@ -361,7 +363,7 @@ shinyUI(tagList(
                         
                         fluidRow(
                          column(5, offset = 1,
-                                selectInput('resp', uiOutput('varRESD'), c('','Explanatory',
+                                selectInput('resp', uiOutput('varRESD'), c('Explanatory',
                                                                            'Response',
                                                                            'Confounding',
                                                                            'None of the above'
@@ -369,7 +371,7 @@ shinyUI(tagList(
                             
                          ),
                          column(4, offset= 1,
-                                selectInput('conf', uiOutput('varCOND'),c('','Explanatory',
+                                selectInput('conf', uiOutput('varCOND'),c('Explanatory',
                                                                           'Response',
                                                                           'Confounding', 
                                                                           'None of the above'
@@ -377,7 +379,7 @@ shinyUI(tagList(
                          ),
                           
                          column(4, offset= 1,
-                                selectInput('expla',uiOutput('varEXPD') , c('','Explanatory',
+                                selectInput('expla',uiOutput('varEXPD') , c('Explanatory',
                                                                             'Response',
                                                                             'Confounding',
                                                                             'None of the above'
