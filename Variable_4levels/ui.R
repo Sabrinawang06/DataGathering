@@ -172,7 +172,7 @@ shinyUI(tagList(
                                                                                          bsButton("submitA", "Submit Answer", style = "primary",size = "small",class = "grow")
                                                                                          )
                                                           ),
-                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small",disabled=FALSE))
+                                                   column(1,offset = 5,bsButton("next2","Next>>",style = "primary", size = "small",disabled=TRUE))
                                                  ),br()
                                                    ),
                                 
@@ -254,7 +254,7 @@ shinyUI(tagList(
                                        fluidRow(column(1,bsButton("previous2","<<Previous",style = "primary", size = "small")),
                                                 column(1,offset = 4,conditionalPanel("(input.drop1!='') & (input.drop2!='') & (input.drop3!='') & (input.drop4!='') & (input.drop5!='')",
                                                                                      bsButton("submitB","Submit Answer", style = "primary", class = "grow", size = "small"))),
-                                                column(1,offset = 5,bsButton("next3","Next>>", style = "primary",size = "small",disabled=FALSE)))
+                                                column(1,offset = 5,bsButton("next3","Next>>", style = "primary",size = "small",disabled=TRUE)))
                                        ,hr(),
                                        conditionalPanel("input.submitB != 0",wellPanel(
                                          fluidPage(
@@ -282,12 +282,12 @@ shinyUI(tagList(
                       fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question"),style='margin-left:15px'),
                       fluidRow(
                         column(3, bsButton('bt3', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
-                               bsButton('bq3', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt')
-                                # div(id = "plot-container3",
-                                #     conditionalPanel("input.bq3 != 0",
-                                #                      tags$img(src = "STAT.png",
-                                #                               id = "hint"))
-                                # )
+                               bsButton('bq3', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt'),
+                                 div(id = "plot-container3",
+                                     conditionalPanel("input.bq3 != 0",
+                                                      tags$img(src = "HINT3.png",
+                                                               id = "hint3"))
+                                 )
                         ),
                           column(3,offset = 6,
                                  hidden(div(id='timer3h',textOutput("timer3"))
@@ -303,11 +303,11 @@ shinyUI(tagList(
                       
                       fluidRow(
                         column(3, offset = 1,
-                               selectInput('explC', uiOutput('varEXP'), c('Neither','Explanatory',
+                               selectInput('explC', uiOutput('varEXP'), c('','Neither','Explanatory',
                                                                         'Response')),uiOutput('markc1')
                         ),
                         column(3, offset= 3,
-                               selectInput('respC', uiOutput('varRES'), c('Neither','Explanatory',
+                               selectInput('respC', uiOutput('varRES'), c('','Neither','Explanatory',
                                                                      'Response'
                                                                      )),uiOutput('markc2') 
                         )),br(),
@@ -340,12 +340,12 @@ shinyUI(tagList(
                         fluidRow(h4("Once you have made your choices hit submit answer, then click new question for the next question"),style='margin-left:15px'),
                         fluidRow(
                           column(3, bsButton('bt4', '',icon = icon('time', lib = 'glyphicon',class = "icont fa-fw"),type = 'toggle', class = 'butt'),
-                                 bsButton('bq4', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt')
-                                 # div(id = "plot-container3",
-                                 #     conditionalPanel("input.bq3 != 0",
-                                 #                      tags$img(src = "STAT.png",
-                                 #                               id = "hint"))
-                                 # )
+                                 bsButton('bq4', '',icon = icon('question',class = "iconq fa-fw"),type = 'toggle', class = 'butt'),
+                                  div(id = "plot-container4",
+                                      conditionalPanel("input.bq4 != 0",
+                                                       tags$img(src = "HINT4.png",
+                                                                id = "hint4"))
+                                  )
                           ),
                           column(3,offset = 6,
                                  hidden(div(id='timer4h',textOutput("timer4"))
@@ -363,7 +363,7 @@ shinyUI(tagList(
                         
                         fluidRow(
                          column(5, offset = 1,
-                                selectInput('resp', uiOutput('varRESD'), c('Explanatory',
+                                selectInput('resp', uiOutput('varRESD'), c('','Explanatory',
                                                                            'Response',
                                                                            'Confounding',
                                                                            'None of the above'
@@ -371,7 +371,7 @@ shinyUI(tagList(
                             
                          ),
                          column(4, offset= 1,
-                                selectInput('conf', uiOutput('varCOND'),c('Explanatory',
+                                selectInput('conf', uiOutput('varCOND'),c('','Explanatory',
                                                                           'Response',
                                                                           'Confounding', 
                                                                           'None of the above'
@@ -379,7 +379,7 @@ shinyUI(tagList(
                          ),
                           
                          column(4, offset= 1,
-                                selectInput('expla',uiOutput('varEXPD') , c('Explanatory',
+                                selectInput('expla',uiOutput('varEXPD') , c('','Explanatory',
                                                                             'Response',
                                                                             'Confounding',
                                                                             'None of the above'

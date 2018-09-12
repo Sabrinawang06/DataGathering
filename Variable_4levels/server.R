@@ -521,7 +521,8 @@ shinyServer(function(input, output, session) {
   
   index_listD<-reactiveValues(listD=sample(1:8,8,replace=FALSE))
   
-  observeEvent(input$previous5,{index_listD<-reactiveValues(listD=sample(1:8,8,replace=FALSE))})
+
+  observeEvent(input$previous5,{index_listD$listD<-c(index_listD$listD,sample(1:8,8,replace=FALSE))})
   
   observeEvent(input$next4,{
     index2$index2 <- 9
@@ -714,6 +715,9 @@ shinyServer(function(input, output, session) {
     updateButton(session,"new2",disabled = FALSE)
   })
   
+  observeEvent(input$previous5,{
+    updateButton(session,"submitD",disabled = FALSE)
+  })
   
   observeEvent(input$new2,{
     updateButton(session,"submitD",disabled = FALSE)
