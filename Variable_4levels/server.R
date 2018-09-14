@@ -902,6 +902,7 @@ shinyServer(function(input, output, session) {
 observeEvent(input$submitC,{
   if(summation$summationC[input$submitC] >= 5){
     updateButton(session, "next4",disabled = FALSE)
+    updateButton(session, "new",disabled = TRUE)
   }})
   
   ################################## Counting Right and Wrong answers in level 4##################3
