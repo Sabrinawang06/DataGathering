@@ -136,3 +136,10 @@ aside.main-sidebar {
     color: black;
     font-size: 10px;
 }
+
+#question{
+  font-weight: 500;
+  /*line-height: 1.1;*/
+  color: #000000;
+  font-size: 18px;
+}

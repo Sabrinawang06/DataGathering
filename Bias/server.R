@@ -99,6 +99,9 @@ shinyServer(function(input, output,session) {
  
   
   output$question <- renderUI({
+    validate(
+      need(index$index != "", "You have exhausted our question bank! Please refresh the page!")
+    )
     if (index$index == 1){
       h3("Can you create a model for large bias and low reliability?  Please put on at least 10 dots.")
     }else if (index$index == 2){
@@ -206,16 +209,17 @@ shinyServer(function(input, output,session) {
   
   
   #The "next" button will be enabled once the user hits submit. 
-  observe({
+  observe(priority = 1,{
     if (input$submit== FALSE){
       updateButton(session,"new", label="Next>>", disabled = TRUE)
     }
     else{updateButton(session,"new", label="Next>>", disabled = FALSE)}
   })
   
-  observe({
+  observe(priority = 2,{
     if (length(index_list$listc)==0){
       updateButton(session,"new", label="Next>>", disabled = TRUE)
+      updateButton(session,"clear",disabled=TRUE)
     }
   })
 
